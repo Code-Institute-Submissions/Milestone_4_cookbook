@@ -41,3 +41,26 @@ api_key="ef3a76518f0364a6f1958b13efcf06af"
 
 r = requests.get(url.format(search,api_id,api_key)).json()
 
+recipe = {
+          'recipe': search,
+          'recipe_name': r['hits'][0]['recipe']['label'],
+          'recipe_image': r['hits'][0]['recipe']['image'],
+          'serving_size': int(r['hits'][0]['recipe']['yield']),
+          'diet_labels':r['hits'][0]['recipe']['dietLabels'],
+          'health_labels': r['hits'][0]['recipe']['healthLabels'],
+          'ingredients': r['hits'][0]['recipe']['ingredientLines'],
+          'ingredients_raw': r['hits'][0]['recipe']['ingredients'],
+          'calories': int(r['hits'][0]['recipe']['calories']),
+          'cooking_time': r['hits'][0]['recipe']['totalTime'],
+          'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
+          }
+          
+pprint(recipe)
+i = input("Y/N: ")
+if i == "Y":
+     coll = mongo.db.recipe
+     coll.insert_one(recipe)
+    
+    
+           
+
