@@ -58,8 +58,8 @@ recipe = {
 pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":
-     coll = mongo.db.recipe
-     coll.insert_one(recipe)
+    coll = mongo.db.recipe
+    coll.insert_one(recipe)
     
     
            
