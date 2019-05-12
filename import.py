@@ -33,7 +33,7 @@ coll = conn[DBS_NAME][COLLECTION_NAME]
 
 url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
  
-search = "sushi" 
+search = "pizza" 
 
 api_id="f69a50fd"
 
