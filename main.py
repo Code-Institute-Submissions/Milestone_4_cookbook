@@ -34,9 +34,9 @@ def register():
     
     if form.validate_on_submit():
 
-        user = mongo.db.user
-        dup_user = user.find_one({'name' : request.form['username'].title()})
-        if dup_user is None:
+       user = mongo.db.user
+       dup_user = user.find_one({'name' : request.form['username'].title()})
+       if dup_user is None:
             user.insert_one({'name' : request.form['username'].title()})
             session['username'] = request.form['username']
             session['logged_in'] = True
