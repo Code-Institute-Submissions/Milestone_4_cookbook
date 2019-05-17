@@ -13,7 +13,7 @@ MONGODB_URI= os.getenv("MONGO_URI")
 DBS_NAME="myCookBook"
 COLLECTION_NAME="recipe"
 
-# Coonecting to database
+# Connecting to database
 
 def mongo_connect(url):
     try:

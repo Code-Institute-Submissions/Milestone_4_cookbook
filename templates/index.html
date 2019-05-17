@@ -1,13 +1,16 @@
 <html>
 <head></head>
 <body>
+    
+    {% extends 'base.html' %}
+    {% block content %}
+    {{ session['username'].title() }} 
     {% for r in recipe %}
 
-
-{{ r }}
-
-
-{% endfor %}
+    {{ r['recipe_name'] }}
+    
+    {% endfor %}
+    {% end block %}
     
 </body>
 </html>
