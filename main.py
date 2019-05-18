@@ -5,6 +5,7 @@ from flask import Flask, render_template, redirect, request, url_for, flash, ses
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from forms import LoginForm, RegistrationForm
+from pprint import pprint
 
 
 app = Flask(__name__)
@@ -17,13 +18,11 @@ mongo = PyMongo(app)
 
 # Routing
 
-@app.route('/')
-@app.route('/get_recipes')
-def home():
-    return render_template('index.html', recipe=mongo.db.recipe.find())
-def index():
-    recipe = mongo.db.recipe.find()
-    return render_template('index.html', recipe=recipe, title="Home")
+@app.route('/recipe<recipe_id>')
+def recipe(recipe_id):
+    the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    pprint(the_recipe)
+    return render_template('recipe.html', recipe=the_recipe)
 
 # Routing - Register - GET and POST method
 
@@ -87,5 +86,5 @@ def logout():
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-    port=int(os.environ.get("PORT")),
-    debug=True)
+    port=int(os.environ.get("PORT")))
+ 
