@@ -4,13 +4,23 @@
     
     {% extends 'base.html' %}
     {% block content %}
+    {% if session %}
     {{ session['username'].title() }} 
-    {% for r in recipe %}
-
-    {{ r['recipe_name'] }}
     
-    {% endfor %}
-    {% end block %}
+    <h3 class="center-align">Welcome to my Cookbook</h3>
+    <!--Page Layout---->
+    <div class="row">
+            <div class="col s3">
+                
+                
+            </div>
+         {% endfor %}
+    </div>
+    
+    
+    
+   
+    {% endblock %}
     
 </body>
 </html>
