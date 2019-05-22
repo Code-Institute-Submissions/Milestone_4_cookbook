@@ -1,13 +1,84 @@
+# Importing - Setup Flask
+
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 
+
+
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "Hello World"
+app.config["MONGO_DBNAME"]= 'myCookBook'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'monogodb://localhost')
 
+mongo = PyMongo(app)
+
+# Routing
+
+@app.route('/')
+@app.route('/get_recipes')
+def index():
+    recipe = mongo.db.recipe.find()
+    return render_template('index.html', recipe=recipe, title="Home")
+
+# Registration Route
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    """Function for handling the registration of users"""
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('index'))
+
+    form = RegistrationForm()
+
+    if form.validate_on_submit():
+
+        user = mongo.db.user
+        dup_user = user.find_one({'name' : request.form['username'].title()})
+
+        if dup_user is None:
+            user.insert_one({'name' : request.form['username'].title()})
+            session['username'] = request.form['username']
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+
+        flash('Sorry, username already taken. Please try another.')
+        return redirect(url_for('register'))
+
+    return render_template('register.html', form=form, title="Register")
+
+# Login Route
+
+@app.route('/login', methods=['GET', 'POST'])
+def user_login():
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('index'))
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = mongo.db.user
+        logged_in_user = user.find_one({'name' : request.form['username'].title()})
+
+        if logged_in_user is None:
+            flash('Incorrect username, please try again')
+            return redirect(url_for('user_login'))
+        session['username'] = request.form['username']
+        session['logged_in'] = True
+        return redirect(url_for('index'))
+
+    return render_template('login.html', form=form, title="Login")
+
+# Logout Route
+
+@app.route('/logout')
+def logout():
+    """Logs the user out and redirects to home"""
+    session.clear()
+    return redirect(url_for('index'))
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
