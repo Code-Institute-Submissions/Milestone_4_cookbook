@@ -1,6 +1,6 @@
 # Import pymongo
 
-import pymongo
+from flask_pymongo import PyMongo, pymongo
 
 # Import python os module
 
@@ -12,6 +12,9 @@ from pprint import pprint
 MONGODB_URI= os.getenv("MONGO_URI")
 DBS_NAME="myCookBook"
 COLLECTION_NAME="recipe"
+
+mongo = PyMongo()
+
 
 # Connecting to database
 
@@ -58,9 +61,5 @@ recipe = {
 pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":
-    coll = mongo.db.recipe
-    coll.insert_one(recipe)
-    
-    
-           
-
+  coll = mongo.db.recipe
+  coll.insert_one(recipe)

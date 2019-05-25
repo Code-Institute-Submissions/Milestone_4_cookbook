@@ -1,15 +1,20 @@
 # Importing - Setup Flask
 
-import os
-from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+import os,env
+from flask import Flask, render_template, redirect, request, url_for, flash, session, jsonify, json
+from flask_pymongo import PyMongo, pymongo
+from bson.objectid import ObjectId
+from forms import LoginForm, RegistrationForm
+from pprint import pprint
+import math
 
 
 
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"]= 'myCookBook'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'monogodb://localhost')
+app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true'
+
 
 mongo = PyMongo(app)
 
@@ -21,6 +26,12 @@ def index():
     recipe = mongo.db.recipe.find()
     return render_template('index.html', recipe=recipe, title="Home")
 
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    pprint(the_recipe)
+    return render_template('recipe.html', recipe=the_recipe)
+    
 # Registration Route
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -84,4 +95,5 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
     port=int(os.environ.get("PORT")),
     debug=True)
+  
     
