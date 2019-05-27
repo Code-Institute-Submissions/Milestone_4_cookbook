@@ -1,6 +1,7 @@
 # Import pymongo
 
 from flask_pymongo import PyMongo, pymongo
+from flask import Flask
 
 # Import python os module
 
@@ -9,12 +10,15 @@ from pprint import pprint
 
 # config vars
 
+app = Flask(__name__)
+
 MONGODB_URI= os.getenv("MONGO_URI")
 DBS_NAME="myCookBook"
-COLLECTION_NAME="recipe"
+COLLECTION_NAME="recipes"
 
-mongo = PyMongo()
+app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true'
 
+mongo = PyMongo(app)
 
 # Connecting to database
 
@@ -36,7 +40,7 @@ coll = conn[DBS_NAME][COLLECTION_NAME]
 
 url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
  
-search = "pizza" 
+search = "creamy tofu sauce" 
 
 api_id="f69a50fd"
 
@@ -58,8 +62,13 @@ recipe = {
           'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
           }
           
+if 'SUGAR.added' in recipe:
+    recipe['Sugar added'] = recipe['SUGAR.added']
+    del recipe['SUGAR.added']          
+          
+          
 pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":
-  coll = mongo.db.recipe
-  coll.insert_one(recipe)
+    coll = mongo.db.recipe
+    coll.insert_one(recipe)
