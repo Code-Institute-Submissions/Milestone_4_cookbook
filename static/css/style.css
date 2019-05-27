@@ -1,24 +1,27 @@
-
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 /*Heading */
 
 .main-heading {
-    
-    font-family: cursive;
-    color:#0033cc;
-    font-style: normal;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-    text-align: center;
-    text-transform: uppercase;
+
+  font-family: 'Margarine', cursive;
+  color: #303236;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /*Cards*/
 
 .card .card-title {
   font-size: 21px;
-  font-weight: 300; 
-    
+  font-weight: 300;
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+
 }
 
 /*Pagination*/
@@ -27,10 +30,82 @@
   display: inline-flex;
   width: 100%;
   justify-content: center;
-  font-family: monospace; 
-    
+  font-family: monospace;
 }
 
-p, span{
-    font-family: 'Open Sans', sans-serif;
+.pagination .active {
+  background-color: #2e62af; 
 }
+
+.recipe-paragraph,
+.main-cards .div {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+}
+
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #f26226;
+  -webkit-box-shadow: 0 1px 0 0 #f26226;
+  box-shadow: 0 1px 0 0 #f26226;
+}
+
+input[type=text]:not(.browser-default) {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+}
+
+a {
+  color: #f26226;
+}
+
+a:hover {
+  color: #2e62af;
+}
+
+/*Hover*/
+
+.txt-hover {
+  text-decoration: none;
+  color: #0f346c;
+}
+
+text {
+
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+}
+
+/*Register Page styles*/
+
+.outer-container {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  justify-content: center; }
+
+.middle-container {
+  display: flex; }
+
+.inner-container {
+  margin: auto;
+  min-width: 500px; }
+
+.close-icon {
+  position: fixed;
+  top: 0.3em;
+  right: 0.5em;
+  font-size: 3.5rem;
+  color: #fff;
+  }
