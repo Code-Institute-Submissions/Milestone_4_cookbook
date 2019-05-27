@@ -1,11 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head></head>
+<head>
+
+</head>
 
 <body>
 
     {% extends 'base.html' %} {% block content %} {% if session %} {{ session['username'].title() }} {% else %} {% endif %}
-    <h3 class="center">Welcome to my Cookbook</h3>
+    <h3 class="center-align main-heading">Welcome to my Cookbook</h3>
     <!-- Page Layout here -->
     <div class="row">
 
@@ -51,7 +54,15 @@
                     </div>
                 </div>
                 {% endfor %} {% endblock %}
-
+                <ul class="pagination">
+                    <li class="disabled"><i class="material-icons">chevron_left</i></li>
+                    {% for page_number in pages %} {% if page_number == current_page %}
+                    <li class="active"><a href="#">{{ page_number }}</a></li>
+                    {% else %}
+                    <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}">{{ page_number }}</a></li>
+                    {% endif %} {% endfor %}
+                    <li class="disabled"><i class="material-icons">chevron_right</i></li>
+                </ul>
 
 
                 <!-- end of col-9 -->

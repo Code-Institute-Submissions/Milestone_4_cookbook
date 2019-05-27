@@ -1,5 +1,36 @@
-.card .card-title {
-    font-size: 21px;
-    font-weight: 300;
+
+/*Heading */
+
+.main-heading {
+    
+    font-family: cursive;
+    color:#0033cc;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
+/*Cards*/
+
+.card .card-title {
+  font-size: 21px;
+  font-weight: 300; 
+    
+}
+
+/*Pagination*/
+
+.pagination {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  font-family: monospace; 
+    
+}
+
+p, span{
+    font-family: 'Open Sans', sans-serif;
+}
