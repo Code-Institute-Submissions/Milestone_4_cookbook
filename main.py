@@ -15,6 +15,9 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"]= 'myCookBook'
 app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true'
 
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+
 
 mongo = PyMongo(app)
 

@@ -1,9 +1,9 @@
-{% extends 'base.html' %} {% block content%}
+{% extends 'base.html' %} {% block nav %} {% include '_navbar.html' %} {% endblock %} {% block content %}
 
 <!--Recipe Page Layout-->
-<div class="container">
+<div class="container section">
     <div class="row">
-        <div class="col s7 m7">
+        <div class="col m7">
             <h3>{{ recipe.recipe_name }}</h3>
 
             <hr>
@@ -21,18 +21,17 @@
 
                 <div class="col s4">
                     <div><i class="small material-icons">whatshot</i></div>
-                    {{ recipe.calories }} Calories
+                    {{ recipe.calories / recipe.serving_size }} Calories
                 </div>
 
+                <hr>
             </div>
-            <hr>
-        </div>
-
-        <div class="col m5 img-container">
+<div class="col m5 img-container">
             <img class="responsive-img" src="{{ recipe.recipe_image }}">
         </div>
-    </div>
+        </div>
+    
 </div>
 
 
-{% endblock %}
+{% endblock %}{% block footer %} {% include '_footer.html' %} {% endblock %}

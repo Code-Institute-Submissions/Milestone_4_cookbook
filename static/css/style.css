@@ -16,7 +16,8 @@
 
 /*Cards*/
 
-.card .card-title {
+.card-title,
+.card {
   font-size: 21px;
   font-weight: 300;
   display: inline-flex;
@@ -39,7 +40,8 @@
 }
 
 .recipe-paragraph,
-.main-cards .div {
+.main-cards,
+.div {
   font-family: 'Open Sans', sans-serif;
   font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
@@ -63,11 +65,11 @@ input[type=text]:not(.browser-default) {
   color: white;
 }
 
-a {
+.a {
   color: #f26226;
 }
 
-a:hover {
+.a:hover {
   color: #2e62af;
 }
 
