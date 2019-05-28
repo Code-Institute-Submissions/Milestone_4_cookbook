@@ -61,14 +61,7 @@ recipe = {
           'cooking_time': r['hits'][0]['recipe']['totalTime'],
           'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
           }
-  
-# Code written by Michael Park- Code Institute Tutor    
-if 'SUGAR.added' in recipe:
-    recipe['Sugar added'] = recipe['SUGAR.added']
-    del recipe['SUGAR.added']    
-    
-# End of written code by Michael Park          
-          
+
 pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":
