@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-</head>
-
-<body>
-
-    {% extends 'base.html' %} {% block content %} {% if session %} {{ session['username'].title() }} {% else %} {% endif %}
+{% extends 'base.html' %} {% block content %} {% if session %} {{ session['username'].title() }} {% else %} {% endif %}
     <h3 class="center-align main-heading">Welcome to my Cookbook</h3>
     <!-- Page Layout here -->
     <div class="row">
@@ -30,13 +21,13 @@
                         <div class="card-reveal">
                             <span class="main-cards card-title grey-text text-darken-4">{{ r['recipe_name'] }}<i class="material-icons right">close</i></span>
 
-                            <div class="container">
+                            <div class="container inner-card container">
                                 <div class="row ">
                                     <div class="col s12 ">
                                         <span class=" main-cards valign-wrapper center-text"><i class="small material-icons">timer</i> Time: {{ r['cooking_time'] }} Min</span>
                                     </div>
                                 </div>
-
+                                 
                                 <div class="row ">
                                     <div class="col s12">
                                         <span class="main-cards valign-wrapper"><i class="small material-icons">local_dining</i>Servings: {{ r['serving_size'] }}</span>
@@ -53,7 +44,8 @@
 
                     </div>
                 </div>
-                {% endfor %} {% endblock %}
+                
+                
                 <ul class="pagination">
                     <li class="disabled"><i class="material-icons">chevron_left</i></li>
                     {% for page_number in pages %} {% if page_number == current_page %}
@@ -69,6 +61,4 @@
             </div>
             <!-- end of row -->
         </div>
-</body>
-
-</html>
+        {% endfor %}{% include '_footer.html' %}{% endblock %}

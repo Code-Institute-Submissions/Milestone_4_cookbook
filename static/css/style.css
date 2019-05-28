@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
-/*Heading */
+
+
+/*Headings */
 
 .main-heading {
 
@@ -109,3 +111,95 @@ text {
   font-size: 3.5rem;
   color: #fff;
   }
+  
+.close-icon:hover {
+  color: #f26226; 
+  
+}
+
+.bg-img {
+  background-color: rgba(39, 55, 73, 0.98);
+  color: #fff; 
+  }
+  
+.title {
+  font-family: 'Margarine', cursive;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: left;
+  text-transform: uppercase; 
+}
+
+/*Buttons */
+
+.my-btn {
+  border-radius: 2px;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: content-box;
+  font-size: 14px;
+  line-height: 47.88px;
+  height: 47.88px;
+  padding: 0 35px;
+  display: inline-block;
+  text-decoration: none;
+  border: 0px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #f26226;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  float: right; }
+
+.my-btn:hover {
+  background-color: rgba(46, 98, 175, 0.9);
+  color: #fff; }
+}
+
+  
+  
+  /*Footer Styles*/
+  
+.ft-user {
+  float: right;
+}
+
+.ft-me {
+  float:none;
+ 
+}
+
+.site-footer {
+  color:#ffffff;
+  background-color: #000000;
+}
+
+.site-footer,
+.footer {
+  overflow: hidden;
+  min-height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 0px;
+  /*color: rgba(255, 255, 255, 0.8);*/
+  /*background-color: rgba(51, 51, 51, 0.08);*/
+}
+
