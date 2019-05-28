@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %} {% if session %} {{ session['username'].title() }} {% else %} {% endif %}
+{% extends 'base.html' %} {% include '_navbar.html' %} {% block content %}
     <h3 class="center-align main-heading">Welcome to my Cookbook</h3>
     <!-- Page Layout here -->
     <div class="row">
