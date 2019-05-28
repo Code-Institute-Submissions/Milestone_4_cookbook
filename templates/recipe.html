@@ -22,16 +22,18 @@
                 <div class="col s4">
                     <div><i class="small material-icons">whatshot</i></div>
                     {{ recipe.calories / recipe.serving_size }} Calories
+                    </div>
                 </div>
 
                 <hr>
             </div>
-<div class="col m5 img-container">
-            <img class="responsive-img" src="{{ recipe.recipe_image }}">
+            <div class="col m5 img-container">
+                <img class="responsive-img" src="{{ recipe.recipe_image }}">
+            </div>
         </div>
-        </div>
-    
-</div>
+
+    </div>
+    </div>
 
 
-{% endblock %}{% block footer %} {% include '_footer.html' %} {% endblock %}
+    {% endblock %}{% block footer %} {% include '_footer.html' %} {% endblock %}

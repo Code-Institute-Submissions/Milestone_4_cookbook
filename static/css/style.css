@@ -16,8 +16,7 @@
 
 /*Cards*/
 
-.card-title,
-.card {
+.card-title .card {
   font-size: 21px;
   font-weight: 300;
   display: inline-flex;
