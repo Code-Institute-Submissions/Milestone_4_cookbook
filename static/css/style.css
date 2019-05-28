@@ -175,7 +175,9 @@ text {
 }
 
 .ft-me {
-  float: none;
+  float: left;
+  font-family: cursive;
+  font-size: 1.5em;
 
 }
 
@@ -184,8 +186,7 @@ text {
   background-color: #000000;
 }
 
-.site-footer,
-.footer {
+.site-footer .footer {
   overflow: hidden;
   min-height: 50px;
   display: -webkit-box;
@@ -344,25 +345,32 @@ nav ul a:hover {
     margin-top: 50%;
   }
   .title {
-        font-size: 70px;
-    }
-    .input-field {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        font-size: 20px;
-    }
-    input[type=text]:not(.browser-default) {
-        font-size: 20px;
-    }
-    .btn i {
-        font-size: 1.4rem;
-    }
-    .my-btn {
-        font-size: 20px;
-        height: 50.88px;
-        padding: 0 13px;
-        font-weight: 400;
-  
-}
+    font-size: 70px;
+  }
+  .input-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+  }
+  input[type=text]:not(.browser-default) {
+    font-size: 20px;
+  }
+  .btn i {
+    font-size: 1.4rem;
+  }
+  .my-btn {
+    font-size: 20px;
+    height: 50.88px;
+    padding: 0 13px;
+    font-weight: 400;
 
+  }
+  .close-icon {
+    top: 0.2em;
+    right: 0.3em;
+    font-size: 3rem;
+  }
+  .middle-container {
+    width: 100%;
+  }
 }

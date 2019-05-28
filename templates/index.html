@@ -1,16 +1,22 @@
-{% extends 'base.html' %} {% include '_navbar.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block nav %}
+{% include '_navbar.html' %}
+{% endblock %}
+
+{% block content %}
     <h3 class="center-align main-heading">Welcome to my Cookbook</h3>
     <!-- Page Layout here -->
     <div class="row">
-
-        <div class="col s3">
+         <div class="col s3">
+             
+        </div>
 
 
             <!--Navigation Panel-->
             <div class="col m9">
                 {% for r in recipe %}
                 <div class="col s12 m4">
-                    <div class="card">
+                    <div class="card hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="{{ r['recipe_image'] }}">
                         </div>
@@ -44,6 +50,7 @@
 
                     </div>
                 </div>
+               
                 
                 
                 <ul class="pagination">
@@ -61,4 +68,5 @@
             </div>
             <!-- end of row -->
         </div>
+        
         {% endfor %}{% include '_footer.html' %}{% endblock %}
