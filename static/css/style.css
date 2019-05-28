@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
 /*Headings */
 .main-heading {
   font-family: 'Margarine', cursive;
-  color: #303236;
+  color: #000000;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 2px;
@@ -170,6 +180,7 @@ text {
 
 .site-footer,
 .footer {
+  width:100%;
   overflow: hidden;
   min-height: 50px;
   display: -webkit-box;
@@ -319,6 +330,17 @@ nav ul a:hover {
     height: 64px;
     line-height: 64px;
   }
+}
+
+/*Logo Media Queries*/
+@media (max-width:400px) {
+.logo {
+  font-size:1.5em;
+}
+
+.main-heading {
+  font-size: 2em;
+}
 }
 
 /* Login/register Media Queries */

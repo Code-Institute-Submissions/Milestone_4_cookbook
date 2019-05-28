@@ -17,3 +17,7 @@ As User I should be alble to :
 <li> A user should be able to register an login to the site. </li>
 </ul>
 
+## Wire frames
+
+[Wire Frames](wireframe/milestone_4_project.pdf)
+
