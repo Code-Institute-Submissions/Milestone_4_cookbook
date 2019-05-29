@@ -182,7 +182,7 @@ text {
 .footer {
   width:100%;
   overflow: hidden;
-  min-height: 50px;
+  min-height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
