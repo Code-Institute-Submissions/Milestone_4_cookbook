@@ -114,13 +114,24 @@ def edit_recipe(recipe_id):
 # Delete  Recipe
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
-    recipe = mongo.db.recipe
-    recipe.delete_one({
-        '_id': ObjectId(recipe_id)
-    })
-    flash('Recipe deleted')
-    return redirect(url_for('index'))
-   
+    """Function for deleting a single recipe"""
+    if session:
+        user = mongo.db.user.find_one({"name": session['username'].title()})
+        the_recipe = mongo.db.recipe.find_one_or_404({'_id': ObjectId(recipe_id)})
+
+        if user['name'].title() == the_recipe['username'].title(): #If user created then user can delete
+            recipe = mongo.db.recipe
+            recipe.delete_one({
+                '_id': ObjectId(recipe_id)
+            })
+            flash('Recipe deleted')
+            return redirect(url_for('index'))
+            
+        flash("Sorry this is not your recipe to edit!") #In case a user tried to enter URL manually
+        return redirect(url_for('recipe', recipe_id=recipe_id))
+    else:
+        flash('Sorry, only logged in user can view this page')
+        return redirect(url_for('index'))
 # Registration Route
 
 @app.route('/register', methods=['GET', 'POST'])
