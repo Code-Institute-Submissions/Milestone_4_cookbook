@@ -1,5 +1,14 @@
-// Materialize Sidenav
-document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.sidenav');
-    const instances = M.Sidenav.init(elems);
-  });
+$(document).ready(function() {
+    //Materialize function
+    $('select').formSelect();
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
+    //End of Materialize functions
+    
+    //My functions
+    $('#alert_close').click(function() {
+        $("#alert_box").fadeOut("slow", function() {});
+    });
+    //End of my functions
+
+});

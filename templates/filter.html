@@ -43,8 +43,6 @@
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
                               <option value="" disabled selected>Choose your options</option>
-                              <option value="Low-Carb">Low-Carb</option>
-                              <option value="Fat-Free">Fat-Free</option>
                               <option value="Gluten-Free">Gluten-Free</option>
                               <option value="High-Protein">High-Protein</option>
                               <option value="Balanced">Balanced</option>
@@ -62,8 +60,7 @@
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="health_labels">
                               <option value="" disabled selected>Choose your options</option>
-                              <option value="Sugar-Conscious">Sugar-Conscious</option>
-                              <option value="Peanut-Free">Peanut-Free</option>
+                             <option value="Peanut-Free">Peanut-Free</option>
                               <option value="Tree-Nut-Free">Tree-Nut-Free</option>
                               <option value="Alcohol-Free">Alcohol-Free</option>
                               <option value="Vegan">Vegan</option>

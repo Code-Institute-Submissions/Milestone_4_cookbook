@@ -1,10 +1,11 @@
 # Importing - Setup Flask
 
-import os,env
-from flask import Flask, render_template, redirect, request, url_for, flash, session, jsonify, json
+import os,math,re
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from forms import LoginForm, RegistrationForm, RecipeForm
+from werkzeug.security import generate_password_hash, check_password_hash
 from pprint import pprint
 import math
 
@@ -27,18 +28,15 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_recipes')
 def index():
-   """Route lets users see all recipes, logged_in users can use CRUD"""
- #   Logic for pagination 
-   page_limit = 6
-   current_page = int(request.args.get('current_page', 1))
-   total = mongo.db.recipe.count()
-   recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
+    """Route lets users see all recipes"""
+    page_limit = 6 #Logic for pagination
+    current_page = int(request.args.get('current_page', 1))
+    total = mongo.db.recipe.count()
+    pages = range(1, int(math.ceil(total / page_limit)) + 1)
+    recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
+    return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
 
-   pages = range(1, int(math.ceil(total / page_limit)) + 1)
-   recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
-
-   return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
- 
+   
 # Viewing Recipe   
 @app.route('/recipe/<recipe_id>', methods=['GET','POST'])
 def recipe(recipe_id):
