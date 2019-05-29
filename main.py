@@ -9,6 +9,7 @@ from pprint import pprint
 import math
 
 
+#  App Config
 
 app = Flask(__name__)
 
@@ -27,9 +28,8 @@ mongo = PyMongo(app)
 @app.route('/get_recipes')
 def index():
    """Route lets users see all recipes, logged_in users can use CRUD"""
-   
+ #   Logic for pagination 
    page_limit = 6
-#   Logic for pagination
    current_page = int(request.args.get('current_page', 1))
    total = mongo.db.recipe.count()
    recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
@@ -38,7 +38,8 @@ def index():
    recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
 
    return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
-   
+ 
+# Viewing Recipe   
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
    """Route for viewing a single recipe, logged_in users can use CRUD"""
@@ -67,11 +68,9 @@ def create_recipe():
         'calories': request.form['calories'],       
         'cooking_time': request.form['cooking_time'],
         'total_nutrients': '',
-        'i-made-it': int(0),
         'username': session['username'],
         'description': request.form['description'],
         'source': request.form['source'],
-        'likes': {}
         })
         flash('Recipe Added!')
         return redirect(url_for('index'))
@@ -111,7 +110,8 @@ def edit_recipe(recipe_id):
         return redirect(url_for('index'))
 
     return render_template('edit_recipe.html', recipe=the_recipe, form=form)
-
+    
+# Delete  Recipe
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
     recipe = mongo.db.recipe

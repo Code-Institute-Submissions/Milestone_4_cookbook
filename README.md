@@ -19,5 +19,5 @@ As User I should be alble to :
 
 ## Wire frames
 
-[Wire Frames](wireframe/milestone_4_project.pdf)
+[Wire Frames](static/wireframe/milestone_4_project.pdf)
 
