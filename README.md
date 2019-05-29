@@ -1,5 +1,5 @@
 # Cookbook - Milestone Project 4 
-<p>The data centric development module requires a project to be built using : HTML, CSS, JavaScript , Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to browse through receipes, allow addition of receipes , allow allergens and ingredients  to be displayed. The categories will be accessible through the filter and they will displayed as summary interms of charts and graphs using the d3/dc library.
+<p>The data centric development module requires a project to be built using : HTML, CSS, JavaScript , Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to browse through receipes, allow addition of receipes , allow allergens and ingredients  to be displayed. 
 
 The user will be able to add and delete receipes from the web application and filter according to allergen information and health information. Finally a basic user and password registration will be added to the site for the user to access and login into the cookbook web application</p>
 
