@@ -104,8 +104,11 @@ def create_recipe():
     if 'logged_in' not in session: #Check if its a logged in user
         flash('Sorry, only logged in users can create recipes. Please register')
         return redirect(url_for('index'))
-    form = RecipeForm(request.form)
-    if form.validate_on_submit(): 
+
+    form = RecipeForm(request.form) #Initialise the form
+    user = mongo.db.user.find_one({"name": session['username'].title()})
+    
+    if form.validate_on_submit(): #Insert new recipe if form is submitted
         recipes = mongo.db.recipe
         recipes.insert_one({
         'recipe': request.form['recipe_name'],
@@ -115,17 +118,17 @@ def create_recipe():
         'diet_labels': request.form['diet_labels'],
         'health_labels': request.form['health_labels'],
         'ingredients': request.form['ingredients'],
-        'calories': request.form['calories'],       
+        'calories': request.form['calories'],
         'cooking_time': request.form['cooking_time'],
-        'total_nutrients': '',
-        'username': session['username'],
         'description': request.form['description'],
         'source': request.form['source'],
-        })
+        'username' : session['username'],
+        'created_by': {
+            '_id': user['_id'],
+            'name': user['name']}})
         flash('Recipe Added!')
         return redirect(url_for('index'))
     return render_template('add_recipe.html', form=form)
-    
     
 # Edit Recipe
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
@@ -160,7 +163,7 @@ def edit_recipe(recipe_id):
             'cooking_time': request.form['cooking_time'],
             'description': request.form['description'],
             'source': request.form['source']
-                }})
+         }})
             flash('Recipe updated.')
             return redirect(url_for('recipe', recipe_id=recipe_id))
     flash("Sorry this is not your recipe to edit!") #In case a user tried to enter URL manually
@@ -195,22 +198,25 @@ def register():
     """Function for handling the registration of users"""
     if 'logged_in' in session: #Check is user already logged in
         return redirect(url_for('index'))
+    
     form = RegistrationForm()
-
     if form.validate_on_submit():
-
+            
         user = mongo.db.user
         dup_user = user.find_one({'name' : request.form['username'].title()})
-
+            
         if dup_user is None:
-            user.insert_one({'name' : request.form['username'].title()})
+            hash_pass = generate_password_hash(request.form['password'])
+            user.insert_one({'name' : request.form['username'].title(),
+                'pass' : hash_pass
+            })
             session['username'] = request.form['username']
             session['logged_in'] = True
             return redirect(url_for('index'))
-
+        
         flash('Sorry, username already taken. Please try another.')
         return redirect(url_for('register'))
-
+                
     return render_template('register.html', form=form, title="Register")
 
 # Login Route
@@ -226,13 +232,14 @@ def user_login():
            user = mongo.db.user
            logged_in_user = user.find_one({'name' : request.form['username'].title()})
         
-           if logged_in_user is None:
-              flash('Incorrect username, please try again')
+           if logged_in_user:
+              if check_password_hash(logged_in_user['pass'], request.form['password']):
+                  session['username'] = request.form['username']
+                  session['logged_in'] = True
+                  return redirect(url_for('index'))
+              flash('Sorry incorrect password!')
               return redirect(url_for('user_login'))
-           session['username'] = request.form['username']
-           session['logged_in'] = True
-           return redirect(url_for('index'))
-        return render_template('login.html', form=form, title="Login")
+        return render_template('login.html', form=form, title='Login')
 
 # Logout Route
 
