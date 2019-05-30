@@ -122,7 +122,7 @@ a:hover {
   
 }
 
-/*Search Box*/
+/*Alert Box*/
 
 #alert_box {
   margin-bottom: 0;
@@ -143,6 +143,16 @@ a:hover {
    padding: 10px;
 }
 
+/*Search Box*/
+
+.tp-search {
+   display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 10px 0;
+  border-bottom: solid 1px #e4e6eb;
+  height: 15vh;
+}
 /*Hover*/
 .txt-hover {
   text-decoration: none;
@@ -154,6 +164,15 @@ text {
   font-weight: 400;
   letter-spacing: 2px;
   color: white;
+}
+
+/*Select*/
+.select-wrapper input.select-dropdown {
+  color:black;
+}
+
+.select-wrapper input.select-dropdown:focus {
+  bottom-border:1px solid #00000;
 }
 
 /*Register Page styles*/
@@ -222,12 +241,11 @@ text {
   padding: 0 20px;
   display: inline-block;
   text-decoration: none;
-  background-color:#000;
+  background-color:#f26226;
   border: 2px solid;
   font-size: 20px;
   border-color: #f26226;
   outline: none;
-  background-color: transparent;
   font-family: 'Margarine', cursive;
 }
 
@@ -419,9 +437,6 @@ nav ul a:hover {
     position: absolute;
     right: 10px; }
     }
-@media only screen and (max-width: 600px) {
-  .logo {
-    font-size: 20px; }
 
   .input-field.col .prefix ~ label,
   .input-field.col .prefix ~ .validate ~ label {
@@ -434,14 +449,13 @@ nav ul a:hover {
     font-size: 18px; }
 
   p,
-  span,
   a,
   div {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 2px;
-    font-size: 17px; }
+    font-size: 15px; }
 
   .card .card-content .card-title i {
     font-size: 50px; }
