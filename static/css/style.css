@@ -1,18 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
-    flex: 1 0 auto;
-  }
 
 /*Headings */
 .main-heading {
   font-family: 'Margarine', cursive;
-  color: #000000;
+  color: #333333;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 2px;
@@ -20,6 +12,42 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+/* Recipe Decscription and Icons*/
+
+.recipe-description,
+.ingredients-section,
+.recipe-ingredients,
+.labels {
+ font-family: 'Margarine', cursive;
+ color:#333333;
+  font-style: normal;
+  font-size: 2em;
+}
+
+img.responsive-img {
+  width: 100%;
+  
+}
+
+.nut-icons {
+  text-align: center;
+  color:#333333;
+}
+
+.recipe-icons {
+  font-size:1.5em;
+  padding:2em;
+  color:#333333;
+}
+
+/*Ingredients*/
+
+.ingredients-section {
+  padding: 0rem 2rem;
+}
+
+
 /*Cards*/
 .card .card-title {
   font-size: 21px;
@@ -67,6 +95,54 @@ a {
 a:hover {
   color: #2e62af;
 }
+
+/* Single Recipe view styles */
+.page-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem; }
+
+.restrict-btn {
+  padding: 2rem;
+  color: #2e62af; }
+
+.recipe-description {
+  padding: 2rem;
+  font-size: 22px; }
+
+.recipe-ingredients {
+  font-size: 22px;
+  padding: 0rem 2rem; }
+
+.ingredients-section {
+  padding: 0rem 2rem; }
+
+.labels {
+  font-size: 21px; 
+  
+}
+
+/*Search Box*/
+
+#alert_box {
+  margin-bottom: 0;
+  width: 80%
+}
+
+.alert {
+  font-size: 24px;
+  text-align: center;
+  margin: 0;
+}
+
+.alert-bg {
+  background-color: #2e62af
+}
+
+.card-alert .card-content-alert {
+   padding: 10px;
+}
+
 /*Hover*/
 .txt-hover {
   text-decoration: none;
@@ -132,6 +208,29 @@ text {
 }
 
 /*Buttons */
+
+
+.restrict-btn,
+.search-btn,
+.source-btn {
+  border-radius: 2px;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: content-box;
+  padding: 0 20px;
+  display: inline-block;
+  text-decoration: none;
+  background-color:#000;
+  border: 2px solid;
+  font-size: 20px;
+  border-color: #f26226;
+  outline: none;
+  background-color: transparent;
+  font-family: 'Margarine', cursive;
+}
+
 .my-btn {
   border-radius: 2px;
   -moz-user-select: -moz-none;
@@ -165,24 +264,18 @@ text {
 
 /*Footer Styles*/
 
-.ft-user {
-  float: right;
-}
-
 .ft-me {
-  float:none;
+  padding-left: 2rem;
   }
 
 .site-footer {
   color:#ffffff;
-  background-color: #000000;
+  background-color: #1a8cff;
 }
 
 .site-footer,
 .footer {
-  width:100%;
-  overflow: hidden;
-  min-height: 100%;
+  height:100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -196,9 +289,8 @@ text {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 10px 0px;
-  /*color: rgba(255, 255, 255, 0.8);*/
-  /*background-color: rgba(51, 51, 51, 0.08);*/
-}
+  }
+
 /*Navigation Bar*/
 .nav {
   color: #6a6d75;
@@ -206,8 +298,6 @@ text {
   width: 100%;
  }
  
-
-
 .nav .brand-logo {
   position:absolute;
   position: absolute;
@@ -321,16 +411,123 @@ nav ul a:hover {
 
 /*Navbar */
 
-@media (min-width:601px) {
 
+/* Home page media queries */
+@media only screen and (max-width: 992px) {
+  nav .sidenav-trigger {
+    height: 56px;
+    position: absolute;
+    right: 10px; }
+    }
+@media only screen and (max-width: 600px) {
+  .logo {
+    font-size: 20px; }
+
+  .input-field.col .prefix ~ label,
+  .input-field.col .prefix ~ .validate ~ label {
+    font-size: 18px; }
+
+  .collapsible-header {
+    font-size: 20px; }
+
+  .collapsible-body {
+    font-size: 18px; }
+
+  p,
+  span,
+  a,
+  div {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 17px; }
+
+  .card .card-content .card-title i {
+    font-size: 50px; }
+
+  #inner-title {
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 1; }
+
+  .inner-card-text {
+    font-size: 25px; }
+
+  .inner-card-icon {
+    margin-right: 10px; }
+
+  .inner-card-container {
+    margin-top: 5rem; } 
+  
+}
+
+/* Navbar media queries */
+@media only screen and (min-width: 601px) {
   nav,
   nav .nav-wrapper i,
   nav a.sidenav-trigger,
-  nav a.sidenav-trigger {
+  nav a.sidenav-trigger i {
     height: 64px;
-    line-height: 64px;
-  }
-}
+    line-height: 64px; } }
+/* Login/register Media Queries */
+@media only screen and (min-width: 1600px) {
+  .inner-container {
+    min-width: 500px;
+    margin-top: 50%; } }
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 70px; }
+
+  .input-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 20px; }
+
+  input[type=text]:not(.browser-default) {
+    font-size: 20px; }
+
+  .btn i {
+    font-size: 1.4rem; }
+
+  .my-btn {
+    font-size: 20px;
+    height: 50.88px;
+    padding: 0 13px;
+    font-weight: 400; } }
+@media only screen and (max-width: 600px) {
+  .inner-container {
+    min-width: 90%;
+    margin-top: 50%; }
+
+  .title {
+    font-size: 40px; }
+
+  .input-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 15px; }
+
+  input[type=text]:not(.browser-default) {
+    font-size: 15px; }
+
+  .btn i {
+    font-size: 0.8rem; }
+
+  .my-btn {
+    font-size: 15px;
+    height: 39.88px;
+    padding: 0 13px;
+    font-weight: 500;
+    line-height: 24.88px; }
+
+  .close-icon {
+    top: 0.2em;
+    right: 0.3em;
+    font-size: 3rem; }
+
+  .middle-container {
+    width: 100%; } }
 
 /*Logo Media Queries*/
 @media (max-width:400px) {
@@ -370,5 +567,18 @@ nav ul a:hover {
         padding: 0 13px;
         font-weight: 400;
 
+}
+}
+
+@media(max-width:400px){
+
+.restrict-btn,
+.search-btn,
+.source-btn {
+  border-radius: 2px;
+  width:80%;
+}
+.labels {
+  font-size: 1.2rem;
 }
 }
