@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
-
 /*Headings */
 .main-heading {
   font-family: 'Margarine', cursive;
@@ -286,10 +285,11 @@ text {
   padding-left: 2rem;
   }
 
-.site-footer {
+.site-footer
+ {
   color:#ffffff;
   background-color: #1a8cff;
-}
+  }
 
 .site-footer,
 .footer {

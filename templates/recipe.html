@@ -49,6 +49,11 @@
                 <h4 class="left-align ingredients-section">Ingredients</h4>
                 <p class="section recipe-ingredients" style="white-space: pre-wrap;">{{ recipe.ingredients }}</p>
             </div>
+            <div class ="section">
+                <h4 class="left-align ingredients-section">Recipe Method</h4>
+                <p class="section recipe-ingredients">{{ recipe.instruction }}{{ recipe.instruction1 }}<br><br>{{ recipe.instruction2 }}<br><br>{{ recipe.instruction3 }}<br><br>{{ recipe.instruction4 }}<br><br>{{ recipe.instruction5 }}</p>
+                
+            </div>
             <!--Recipe - Health and Diet labels-->
             <div class="section row">
                 <div class="col s6">
@@ -62,9 +67,7 @@
             </div>
 
             <!--Recipe Method-->
-            <div class="section">
-                <p class="centre-align source-btn"><a href="{{ recipe.source }}">Get Cooking</a></p>
-            </div>
+            
             <!--Editing and deleting a recipe- only is user is logged in-->
             <div class="section">
                 <span class="restrict-btn center-align"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a></span>
