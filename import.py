@@ -40,7 +40,7 @@ coll = conn[DBS_NAME][COLLECTION_NAME]
 
 url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
  
-search = "daal" 
+search = "steamed salmon" 
 
 api_id="f69a50fd"
 

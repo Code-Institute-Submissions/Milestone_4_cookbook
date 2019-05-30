@@ -51,7 +51,7 @@
             </div>
             <div class ="section">
                 <h4 class="left-align ingredients-section">Recipe Method</h4>
-                <p class="section recipe-ingredients">{{ recipe.instruction }}{{ recipe.instruction1 }}<br><br>{{ recipe.instruction2 }}<br><br>{{ recipe.instruction3 }}<br><br>{{ recipe.instruction4 }}<br><br>{{ recipe.instruction5 }}</p>
+                <p class="section recipe-ingredients"><ol class= recipe-ingredients><li>{{ recipe.instruction }}</li>{{ recipe.instruction1 }}</li><br><br><li>{{ recipe.instruction2 }}</li><br><br><li>{{ recipe.instruction3 }}</li><br><br><li>{{ recipe.instruction4 }}</li><br><br><li>{{ recipe.instruction5 }}</li><ol></ol></p>
                 
             </div>
             <!--Recipe - Health and Diet labels-->
@@ -70,8 +70,8 @@
             
             <!--Editing and deleting a recipe- only is user is logged in-->
             <div class="section">
-                <span class="restrict-btn center-align"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a></span>
-                <span class="restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a></span>
+                <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a></span>
+                <span class="center-align restrict-btn" ><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"">Delete Recipe</a></span>
                 <div></div>
             </div>
             <!--end of col-md7 -->

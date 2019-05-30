@@ -103,7 +103,7 @@ a:hover {
 
 .restrict-btn {
   padding: 2rem;
-  color: #2e62af; }
+  color: #000000; }
 
 .recipe-description {
   padding: 2rem;
@@ -227,10 +227,27 @@ text {
 
 /*Buttons */
 
-
+.my-btn,
 .restrict-btn,
-.search-btn,
 .source-btn {
+  border-radius: 2px;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: content-box;
+  padding: 0px 10px 10px;
+  display: inline-block;
+  text-decoration: none;
+  background-color:#fff;
+  border: 2px solid;
+  font-size: 30px;
+  border-color: #f26226;
+  outline: none;
+  font-family: 'Margarine', cursive;
+}
+
+.search-btn {
   border-radius: 2px;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -240,12 +257,18 @@ text {
   padding: 0 20px;
   display: inline-block;
   text-decoration: none;
-  background-color:#f26226;
+  color: #000;
   border: 2px solid;
   font-size: 20px;
   border-color: #f26226;
   outline: none;
-  font-family: 'Margarine', cursive;
+  background-color: transparent;
+  font-family: 'Margarine', cursive; 
+}
+
+.search-btn:hover {
+  color: #fff;
+  background-color: #f26226;
 }
 
 .my-btn {
@@ -273,14 +296,25 @@ text {
   float: right; 
   
  }
-
-.my-btn:hover {
+ 
+ .my-btn:hover {
   background-color: rgba(46, 98, 175, 0.9);
-  color: #fff; 
-}
+  color: #fff
+ }
+ 
+ 
+ .restrict-btn:hover{
+   background-color:#e65c00;
+  }
+
+
 
 /*Footer Styles*/
 
+.footer-container {
+  position:absolute;
+  width:100%;
+}
 .ft-me {
   padding-left: 2rem;
   }
