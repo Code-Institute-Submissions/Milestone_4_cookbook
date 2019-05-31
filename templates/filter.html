@@ -39,7 +39,7 @@
                 <div class="collapsible-body">
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
-                              <option value="" disabled selected>Choose your options</option>
+                              <option value="" disabled selected></option>Choose your options</option>
                               <option value="Gluten-Free">Gluten-Free</option>
                               <option value="High-Protein">High-Protein</option>
                               <option value="Balanced">Balanced</option>
@@ -75,7 +75,7 @@
         <div>Sorry no results found.</div>
         {% else %} {% for r in results %}
         <div class="col s12 m4">
-           <div class="card hoverable">
+            <div class="card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{{ r['recipe_image'] }}">
                 </div>

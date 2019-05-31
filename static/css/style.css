@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
-
 /*Headings */
 
 .main-heading {
@@ -13,6 +12,14 @@
   text-transform: uppercase;
 }
 
+.view {
+  color:#0033cc;
+  font-size:1.5em;
+}
+
+.view:hover {
+  color:#ff0000;
+}
 /* Recipe Decscription and Icons*/
 
 .recipe-description,
@@ -96,11 +103,11 @@ input[type=text]:not(.browser-default) {
 }
 
 a {
-  color: #f26226;
+  color: #000;
 }
 
 a:hover {
-  color: #2e62af;
+  color: #fff;
 
 }
 
@@ -112,10 +119,6 @@ a:hover {
   margin-top: 2rem;
 }
 
-.restrict-btn {
-  padding: 2rem;
-  color: #000000;
-}
 
 .recipe-description {
   padding: 2rem;
@@ -186,11 +189,13 @@ text {
 /*Select*/
 
 .select-wrapper input.select-dropdown {
-  color: black;
+  color: black; 
+  
 }
 
 .select-wrapper input.select-dropdown:focus {
-  bottom-border: 1px solid #00000;
+  border-bottom: 1px solid #f26226; 
+  
 }
 
 /*Register Page styles*/
@@ -259,12 +264,16 @@ text {
   padding: 0px 10px 10px;
   display: inline-block;
   text-decoration: none;
-  background-color: #fff;
-  border: 2px solid;
+  background-color: #f26226;
+  color:#000;
   font-size: 30px;
-  border-color: #f26226;
   outline: none;
   font-family: 'Margarine', cursive;
+}
+
+.restrict-btn:hover {
+  background-color:#2e62af;
+  color:#fff;
 }
 
 .search-btn {
@@ -282,13 +291,14 @@ text {
   font-size: 20px;
   border-color: #f26226;
   outline: none;
-  background-color: transparent;
+  background-color:#f26226 ;
+  color:#000;
   font-family: 'Margarine', cursive;
 }
 
 .search-btn:hover {
   color: #fff;
-  background-color: #f26226;
+  background-color:#2e62af;
 }
 
 .my-btn {
@@ -323,30 +333,39 @@ text {
 }
 
 
-.restrict-btn:hover {
-  background-color: #e65c00;
+.filter-btn {
+  background-color:#f26226;
+  moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  color:#000;
+  text-decoration: none;
+  font-family:'Margarine', cursive;
 }
 
+.filter-btn:hover {
+  background-color:#2e62af;
+  color:#fff;
+}
 
 
 /*Footer Styles*/
 
 .footer-wrapper {
-  position: fixed;
-  bottom:0;
   width: 100%;
 }
 
 .ft-me {
   padding-left: 2rem;
-  font-size: 15px;
+  font-size:25px;
   color: #2e62af;
   font-family: 'Margarine', cursive;
 }
 
 .site-footer {
   color: #2e62af;
-  background-color: #e6e6e6;
+  background-color: #8c8c8c;
 }
 
 .site-footer,
@@ -424,18 +443,19 @@ nav ul a:hover {
   display: inline-block;
   text-decoration: none;
   font-weight: 500;
-  color: #ffffff;
+  color: #000;
   background-color: #f26226;
   outline: none;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-family:'Margarine', cursive;
 
 }
 
 .nav-wrapper {
-  background-color: #e6e6e6;
+  background-color:  #d9d9d9;
 }
 
 .v-align {
@@ -477,13 +497,14 @@ nav ul a:hover {
   text-decoration: none;
   border: 0px;
   font-weight: 500;
-  color: #ffffff;
+  color: #000;
   background-color: #f26226;
   outline: none;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-family: 'Margarine', cursive;
 }
 
 /*Add recipes styles*/
@@ -503,13 +524,14 @@ nav ul a:hover {
   text-decoration: none;
   border: 0px;
   font-weight: 500;
-  color: #fff;
+  color: #000;
   background-color: #f26226;
   outline: none;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-family: 'Margarine', cursive;
 }
 
 .my-recipes {
@@ -527,13 +549,14 @@ nav ul a:hover {
   text-decoration: none;
   border: 0px;
   font-weight: 500;
-  color: #fff;
+  color: #000;
   background-color: #f26226;
   outline: none;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-family:'Margarine', cursive;
 
 }
 
@@ -565,12 +588,11 @@ nav ul a:hover {
 }
 
 p,
-a,
 div {
   font-family: 'Josefin Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: -2px;
   font-size: 15px;
 }
 
@@ -596,7 +618,7 @@ div {
   margin-top: 5rem;
 }
 
-}
+
 
 /* Navbar media queries */
 
@@ -744,3 +766,25 @@ div {
     font-size: 1.2rem;
   }
 }
+@media(max-width:600px){
+  .logo {
+    font-size: 20px; }
+
+  .input-field.col .prefix ~ label,
+  .input-field.col .prefix ~ .validate ~ label {
+    font-size: 18px; }
+
+  .collapsible-header {
+    font-size: 20px; }
+
+  .collapsible-body {
+    font-size: 18px; }
+}
+
+
+@media(max-width:1050px){
+.inner-card-text{
+  font-size:18px;
+}  
+}
+
