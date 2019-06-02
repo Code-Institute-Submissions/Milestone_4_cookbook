@@ -96,6 +96,7 @@ def filtered():
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
    
 # Create Recipes
+
 @app.route('/create_recipe', methods=['GET', 'POST'])
 def create_recipe():
     """Create a new recipe to db collection"""
@@ -129,6 +130,7 @@ def create_recipe():
     return render_template('add_recipe.html', form=form)
     
 # Edit Recipe
+
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     """Function to edit seclect recipe"""
@@ -168,6 +170,7 @@ def edit_recipe(recipe_id):
     return redirect(url_for('recipe', recipe_id=recipe_id))
     
 # Delete  Recipe
+
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
     """Function for deleting a single recipe"""
