@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
+/*HTML and Body Styles*/
+
 html {
-  height: 100%; }
+  height: 100%;
+  }
 body {
     min-height:100%; 
     position:relative; 
     padding-bottom:30px;
-}
+   }
+
 
 /*Headings */
 
@@ -61,6 +65,13 @@ img.responsive-img {
 
 .ingredients-section {
   padding: 0rem 2rem;
+}
+
+/*label*/
+
+label {
+  color: #000;
+  
 }
 
 
@@ -212,10 +223,11 @@ text {
 
 .outer-container {
   height: 100vh;
-  display: flex;
   width: 100vw;
-  overflow: hidden;
+  overflow-y: hidden;
   justify-content: center;
+  margin: 0 ;
+  display:flex;
 }
 
 .middle-container {
@@ -245,6 +257,7 @@ text {
 .bg-img {
   background-color: rgba(39, 55, 73, 0.98);
   color: #fff;
+  
 }
 
 
@@ -616,7 +629,13 @@ div {
   margin-top: 5rem;
 }
 
+/*Button media queries*/
 
+@media(min-width:320px) and (max-width:790px){
+  .my-btn {
+    float:none;
+  }
+}
 
 /* Navbar media queries */
 
@@ -638,6 +657,7 @@ div {
     margin-top: 50%;
   }
 }
+
 
 @media only screen and (max-width: 768px) {
   .title {
@@ -709,6 +729,13 @@ div {
   }
 }
 
+/* Container Media Queries */
+
+@media(min-width:300px)and (max-width:780px){
+  .middle-container {
+    width:75%;
+  }
+}
 /*Logo Media Queries*/
 
 @media (max-width:400px) {
