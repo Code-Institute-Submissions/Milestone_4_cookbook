@@ -178,6 +178,7 @@ a:hover {
   width: 100%;
   border-bottom: solid 1px #e4e6eb;
   height: 15vh;
+  color:#000;
 }
 
 /*Hover*/
@@ -549,6 +550,12 @@ nav ul a:hover {
   letter-spacing: 0.1em;
   font-family:'Margarine', cursive;
 
+}
+
+/* Database Query Search Box*/
+
+#db_query {
+  color:#000;
 }
 
 /*Media Queries*/

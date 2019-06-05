@@ -43,7 +43,7 @@ def recipe(recipe_id):
     """Route for viewing a single recipe"""
     a_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     pprint(a_recipe)
-    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'])
+    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'] )
     
 # Search for Recipe
 @app.route('/search')
@@ -53,6 +53,7 @@ def search():
     current_page = int(request.args.get('current_page', 1))
     db_query = request.args['db_query']
     total = mongo.db.recipe.find({'$text': {'$search': db_query }})
+    mongo.db.recipe.createIndex({recipe:"text"})
     t_total = len([x for x in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
     results = mongo.db.recipe.find({'$text': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
