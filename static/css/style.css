@@ -91,7 +91,9 @@ label {
   display: inline-flex;
   width: 100%;
   justify-content: center;
-  font-family: monospace;
+  font-family: cursive;
+  font-size: 1.2em;
+  color: #000;
 }
 
 .pagination .active {
@@ -123,11 +125,11 @@ input[type=text]:not(.browser-default) {
 }
 
 a {
-  color: #000;
+  color: #0033cc;
 }
 
 a:hover {
-  color: #fff;
+  color: #ff0000;
 
 }
 
@@ -177,7 +179,7 @@ a:hover {
 }
 
 .card-alert .card-content-alert {
-  padding: 10px;
+ 
 }
 
 /*Search Box*/
@@ -377,9 +379,15 @@ text {
 
 .ft-me {
   padding-left: 2rem;
-  text-align: center;
   font-size:25px;
   color: #2e62af;
+  font-family: 'Margarine', cursive;
+}
+
+.ft-user {
+  padding-left: 20rem;
+  font-size:25px;
+  color: #000;
   font-family: 'Margarine', cursive;
 }
 
