@@ -17,7 +17,7 @@
     </div>
 </div>
 {% endfor %} {% endif %} {% endwith %}
-
+<div class="content">
 <div class="row tp-search">
      <div class="col s12 m9 container-fluid">
         <form action="{{ url_for('search') }}" class="search-form">
@@ -113,6 +113,7 @@
                 </div>
             </div>
         </div>
+        
         {% endfor %}
 
         <ul class="pagination">
@@ -128,5 +129,8 @@
     </div>
     <!-- end of row -->
 </div>
+</div>
+
+
 
 {% endblock %} {% block footer %} {% include '_footer.html' %} {% endblock %}

@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
+
+html {
+  height: 100%; }
+body {
+    min-height:100%; 
+    position:relative; 
+    padding-bottom:30px;
+}
+
 /*Headings */
 
 .main-heading {
@@ -352,38 +361,20 @@ text {
 
 /*Footer Styles*/
 
-.footer-wrapper {
-  width: 100%;
-}
-
 .ft-me {
   padding-left: 2rem;
+  text-align: center;
   font-size:25px;
   color: #2e62af;
   font-family: 'Margarine', cursive;
 }
 
-.site-footer {
-  color: #2e62af;
-  background-color: #8c8c8c;
-}
-
-.site-footer,
-.footer {
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px 0px;
+.site-footer { 
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height:80px;
+    color: #2e62af;
+     background-color: #8c8c8c;
 }
 
 /*Navigation Bar*/
