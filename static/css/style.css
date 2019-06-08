@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
+<<<<<<< HEAD
 HTML and Body Styles
 
 html {
@@ -9,6 +10,18 @@ html {
 body {
     min-height:100%; 
     }
+=======
+/*HTML and Body Styles*/
+
+html {
+  height: 100%;
+  }
+body {
+    min-height:100%; 
+    position:relative; 
+    padding-bottom:30px;
+   }
+>>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
 
 
 /*Headings */
@@ -258,6 +271,7 @@ text {
 .bg-img {
   background-color: rgba(39, 55, 73, 0.98);
   color: #fff;
+<<<<<<< HEAD
   overflow: auto;
   min-height:100%; 
   position:relative; 
@@ -265,6 +279,10 @@ text {
    }
   
 
+=======
+  
+}
+>>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
 
 
 .title {
@@ -398,11 +416,19 @@ text {
 }
 
 .site-footer { 
+<<<<<<< HEAD
     position: relative; 
     left: 0 ; right: 0; bottom: 0; 
     height:80px;
     color: #2e62af;
      background-color: #d9d9d9;
+=======
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height:80px;
+    color: #2e62af;
+     background-color: #8c8c8c;
+>>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
 }
 
 /*Navigation Bar*/

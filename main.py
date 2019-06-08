@@ -43,7 +43,7 @@ def recipe(recipe_id):
     """Route for viewing a single recipe"""
     a_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     pprint(a_recipe)
-    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'])
+    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'] )
     
 # Search for Recipe
 @app.route('/search')
@@ -53,6 +53,7 @@ def search():
     current_page = int(request.args.get('current_page', 1))
     db_query = request.args['db_query']
     total = mongo.db.recipe.find({'$text': {'$search': db_query }})
+    mongo.db.recipe.create_Index({recipe:"text"})
     t_total = len([x for x in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
     results = mongo.db.recipe.find({'$text[0]': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
@@ -96,6 +97,7 @@ def filtered():
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
    
 # Create Recipes
+
 @app.route('/create_recipe', methods=['GET', 'POST'])
 def create_recipe():
     """Create a new recipe to db collection"""
@@ -129,6 +131,7 @@ def create_recipe():
     return render_template('add_recipe.html', form=form)
     
 # Edit Recipe
+
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     """Function to edit seclect recipe"""
@@ -168,6 +171,7 @@ def edit_recipe(recipe_id):
     return redirect(url_for('recipe', recipe_id=recipe_id))
     
 # Delete  Recipe
+
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
     """Function for deleting a single recipe"""
