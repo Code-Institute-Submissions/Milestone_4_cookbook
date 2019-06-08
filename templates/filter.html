@@ -37,12 +37,12 @@
             <li class="active">
                 <div class="collapsible-header">Diet Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                 <div class="collapsible-body">
-                    <form method="POST" action="{{ url_for('filtered') }}">
+                    <form method="GET,POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
-                              <option value="" disabled selected></option>Choose your options</option>
-                              <option value="Gluten-Free">Gluten-Free</option>
-                              <option value="High-Protein">High-Protein</option>
-                              <option value="Balanced">Balanced</option>
+                              <label ="" disabled selected>Choose your options</label>
+                              <label ="Gluten-Free">Gluten-Free</label>
+                              <label ="High-Protein">High-Protein</label>
+                              <label ="Balanced">Balanced</label>
                             </select>
                         <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
                     </form>
@@ -54,14 +54,14 @@
             <li class="active">
                 <div class="collapsible-header">Health Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                 <div class="collapsible-body">
-                    <form method="POST" action="{{ url_for('filtered') }}">
+                    <form method="GET,POST" action="{{ url_for('filtered') }}">
                         <select multiple name="health_labels">
-                              <option value="" disabled selected>Choose your options</option>
-                             <option value="Peanut-Free">Peanut-Free</option>
-                              <option value="Tree-Nut-Free">Tree-Nut-Free</option>
-                              <option value="Alcohol-Free">Alcohol-Free</option>
-                              <option value="Vegan">Vegan</option>
-                              <option value="Vegetarian">Vegetarian</option>
+                              <label= "" disabled selected>Choose your options</label>
+                             <label ="Peanut-Free">Peanut-Free</label>
+                              <label="Tree-Nut-Free">Tree-Nut-Free</label>
+                              <label="Alcohol-Free">Alcohol-Free</label>
+                              <label ="Vegan">Vegan</option>
+                              <label="Vegetarian">Vegetarian</label>
                             </select>
                         <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
                     </form>
