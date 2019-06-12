@@ -37,7 +37,7 @@
             <li class="active">
                 <div class="collapsible-header">Diet Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                 <div class="collapsible-body">
-                    <form method="GET,POST" action="{{ url_for('filtered') }}">
+                    <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
                               <label ="" disabled selected>Choose your options</label>
                               <label ="Gluten-Free">Gluten-Free</label>
@@ -54,7 +54,7 @@
             <li class="active">
                 <div class="collapsible-header">Health Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                 <div class="collapsible-body">
-                    <form method="GET,POST" action="{{ url_for('filtered') }}">
+                    <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="health_labels">
                               <label= "" disabled selected>Choose your options</label>
                              <label ="Peanut-Free">Peanut-Free</label>

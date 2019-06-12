@@ -10,9 +10,9 @@ The user will be able to add and delete receipes from the web application and fi
 As User I should be alble to :
 <ul>
 <li>  View the site from any device - should be responsive design. </li>
-<li>  As a guest user (without a registered username or passord) , all recipes should be allowed to be viewed in ful which includes the ingredients and instructions on how to cook that particular recipe.</li>
+<li>  As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and instructions on how to cook that particular recipe.</li>
 <li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible thorugh a drop down category selector. </li>
-<li> As a user recipes  shoudl filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
+<li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
 <li>  A user should be able to add and delete recipes.</li>
 <li> A user should be able to register an login to the site. </li>
 </ul>

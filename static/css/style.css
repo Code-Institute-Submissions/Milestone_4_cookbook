@@ -1,28 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
-<<<<<<< HEAD
-HTML and Body Styles
-
-html {
-  height: 100%;
-  width:100%;
-  }
-body {
-    min-height:100%; 
-    }
-=======
 /*HTML and Body Styles*/
 
 html {
-  height: 100%;
+  /*height: 100%;*/
   }
 body {
-    min-height:100%; 
-    position:relative; 
-    padding-bottom:30px;
+    /*min-height:100%; */
+    /*position:relative; */
+    /*min-height: 100%;*/
+    /*display: table;*/
+    /*width: 100%;*/
    }
->>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
-
 
 /*Headings */
 
@@ -262,16 +251,20 @@ text {
 }
 
 
-
-.close-icon:hover {
+.inner-close-icon{
+  position:absolute;
+  top:10px;
+  right:10px;
   color: #f26226;
+}
+.inner-close-icon:hover {
+  color: #2e62af;
 
 }
 
 .bg-img {
   background-color: rgba(39, 55, 73, 0.98);
   color: #fff;
-<<<<<<< HEAD
   overflow: auto;
   min-height:100%; 
   position:relative; 
@@ -279,10 +272,6 @@ text {
    }
   
 
-=======
-  
-}
->>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
 
 
 .title {
@@ -402,33 +391,29 @@ text {
 /*Footer Styles*/
 
 .ft-me {
-  padding-left: 2rem;
   font-size:25px;
   color: #2e62af;
   font-family: 'Margarine', cursive;
+  text-align: center;
+  margin:0;
+  padding-top:0.5em;
 }
 
 .ft-user {
-  padding-left: 20rem;
   font-size:25px;
   color: #000;
   font-family: 'Margarine', cursive;
+  margin:0;
+  text-align: center;
 }
 
 .site-footer { 
-<<<<<<< HEAD
-    position: relative; 
-    left: 0 ; right: 0; bottom: 0; 
+
+    position:absolute;
+    width:100%;
     height:80px;
     color: #2e62af;
-     background-color: #d9d9d9;
-=======
-    position: absolute; 
-    left: 0 ; right: 0; bottom: 0; 
-    height:80px;
-    color: #2e62af;
-     background-color: #8c8c8c;
->>>>>>> 48eb5c93c446af6db40117b0c22c5c239a90b137
+    background-color: #d9d9d9;
 }
 
 /*Navigation Bar*/
@@ -440,7 +425,6 @@ text {
 }
 
 .nav .brand-logo {
-  position: absolute;
   position: absolute;
   color: #6a6d75;
   display: inline-block;

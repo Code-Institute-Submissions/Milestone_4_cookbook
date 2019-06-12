@@ -1,9 +1,9 @@
 <footer class="site-footer">
         <div class="footer">
         <div class="container-fluid">
-            <span class="ft-me"><strong>By Pranita Gandhi</strong> </span>
+            <h2 class="ft-me"><strong>By Pranita Gandhi</strong> </h2>
             {% if 'username' in session %}
-            <span class="ft-user">User: {{ session['username'].title() }}</span>
+            <h2 class="ft-user">User: {{ session['username'].title() }}</span>
             {% else%}
             {% endif %}
         </div>

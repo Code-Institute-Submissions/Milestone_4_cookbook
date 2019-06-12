@@ -52,11 +52,10 @@ def search():
     page_limit = 6 #Logic for pagination
     current_page = int(request.args.get('current_page', 1))
     db_query = request.args['db_query']
-    total = mongo.db.recipe.find({'$text': {'$search': db_query }})
-    mongo.db.recipe.create_Index({recipe:"text"})
+    total = mongo.db.recipe.create_index({'$text': {'$search': db_query }})
     t_total = len([x for x in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
-    results = mongo.db.recipe.find({'$text[0]': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
+    results = mongo.db.recipe.find({'$text': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
     return render_template('search.html', results=results, pages=pages, current_page=current_page, db_query=db_query)
     
 # Filter search
@@ -80,7 +79,7 @@ def filtered():
                         filter_items.append({i: item})
                 results = mongo.db.recipe.find({'$and': filter_items })
                 total_results =  mongo.db.recipe.find({'$and': filter_items }).count()
-                return render_template('filter.html', title="Filtered Seach",sresults=results, total_results=total_results)
+                return render_template('filter.html', title="Filtered Search",results=results, total_results=total_results)
             
             if i == "health_labels":
                 filter_items = []
@@ -95,7 +94,7 @@ def filtered():
                 
     recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
-   
+
 # Create Recipes
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
