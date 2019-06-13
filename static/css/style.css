@@ -1,17 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
-/*HTML and Body Styles*/
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-html {
-  /*height: 100%;*/
-  }
-body {
-    /*min-height:100%; */
-    /*position:relative; */
-    /*min-height: 100%;*/
-    /*display: table;*/
-    /*width: 100%;*/
-   }
+
 
 /*Headings */
 
@@ -26,6 +20,15 @@ body {
   text-transform: uppercase;
 }
 
+.pot-section {
+  font-family: 'Margarine', cursive;
+  font-size:15px ;
+  letter-spacing: 10px;
+  color: #ffff1a;
+}
+
+
+
 .view {
   color:#0033cc;
   font-size:1.5em;
@@ -34,7 +37,7 @@ body {
 .view:hover {
   color:#ff0000;
 }
-/* Recipe Decscription and Icons*/
+/* Recipe Description and Icons*/
 
 .recipe-description,
 .ingredients-section,
@@ -68,7 +71,7 @@ img.responsive-img {
   padding: 0rem 2rem;
 }
 
-/*label*/
+/*labels*/
 
 label {
   color: #000;
@@ -126,12 +129,22 @@ input[type=text]:not(.browser-default) {
 }
 
 a {
-  color: #0033cc;
+  color: #0000ff;
 }
 
 a:hover {
-  color: #ff0000;
+  color:   #ff0000;
 
+}
+
+.register {
+  
+  color: #ff0000;
+  
+}
+
+.register:hover {
+  color:#0000ff;
 }
 
 /* Single Recipe view styles */
@@ -146,6 +159,7 @@ a:hover {
 .recipe-description {
   padding: 2rem;
   font-size: 22px;
+  
 }
 
 .recipe-ingredients {
@@ -160,6 +174,12 @@ a:hover {
 .labels {
   font-size: 21px;
 
+}
+
+.input-field > label {
+  font-size: 20px;
+  letter-spacing:2px;
+  
 }
 
 /*Alert Box*/
@@ -202,13 +222,6 @@ a:hover {
   color: #0f346c;
 }
 
-text {
-  font-family: 'Josefin Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 2px;
-  color: white;
-}
 
 /*Select*/
 
@@ -265,8 +278,8 @@ text {
 .bg-img {
   background-color: rgba(39, 55, 73, 0.98);
   color: #fff;
-  overflow: auto;
-  min-height:100%; 
+  overflow: hidden;
+  min-height:100vh; 
   position:relative; 
   padding-bottom:0px;
    }
@@ -306,6 +319,7 @@ text {
   font-size: 30px;
   outline: none;
   font-family: 'Margarine', cursive;
+  margin-top:34px;
 }
 
 .restrict-btn:hover {
@@ -373,7 +387,6 @@ text {
 
 .filter-btn {
   background-color:#f26226;
-  moz-user-select: -moz-none;
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
@@ -409,12 +422,23 @@ text {
 
 .site-footer { 
 
-    position:absolute;
     width:100%;
-    height:80px;
     color: #2e62af;
     background-color: #d9d9d9;
+  }
+  
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -75px;
 }
+
+
+.site-footer,
+.push {
+  height: 80px;
+}
+
+
 
 /*Navigation Bar*/
 
@@ -444,12 +468,16 @@ text {
 
 nav i,
 nav [class^="mdi-"],
-nav [class*="mdi-"],
+nav [class*="mdi-"], 
 nav i.material-icons {
   display: inherit;
   font-size: 30px;
   padding: 0px 5px 0px 5px;
   color: #2e62af;
+}
+
+.material-icons {
+  padding-left: 1rem;
 }
 
 nav ul a:hover {
@@ -563,6 +591,8 @@ nav ul a:hover {
   font-family: 'Margarine', cursive;
 }
 
+
+
 .my-recipes {
   border-radius: 2px;
   -moz-user-select: -moz-none;
@@ -588,6 +618,8 @@ nav ul a:hover {
   font-family:'Margarine', cursive;
 
 }
+
+
 
 /* Database Query Search Box*/
 
@@ -649,6 +681,16 @@ div {
   margin-right: 10px;
 }
 
+.caret {
+    position: absolute;
+    right: 0;
+    left: 220px;
+    top: 0px;
+    bottom: 0;
+    margin: auto 0px;
+    z-index: 0;
+  }
+
 .inner-card-container {
   margin-top: 5rem;
 }
@@ -693,10 +735,7 @@ div {
     margin-bottom: 2rem;
     font-size: 20px;
   }
-
-  input[type=text]:not(.browser-default) {
-    font-size: 20px;
-  }
+  
 
   .btn i {
     font-size: 1.4rem;
@@ -708,6 +747,8 @@ div {
     padding: 0 13px;
     font-weight: 400;
   }
+  
+   
 }
 
 @media only screen and (max-width: 600px) {
@@ -726,10 +767,9 @@ div {
     font-size: 15px;
   }
 
-  input[type=text]:not(.browser-default) {
-    font-size: 15px;
+  .cooking_time {
+    padding-top:10px;
   }
-
   .btn i {
     font-size: 0.8rem;
   }
@@ -737,7 +777,7 @@ div {
   .my-btn {
     font-size: 15px;
     height: 39.88px;
-    padding: 0 13px;
+    padding: 0 9px;
     font-weight: 500;
     line-height: 24.88px;
   }
@@ -751,6 +791,13 @@ div {
   .middle-container {
     width: 100%;
   }
+  
+  .input-field > label {
+  font-size: 15px;
+  letter-spacing:0.5px;
+  
+}
+
 }
 
 /* Container Media Queries */
@@ -837,4 +884,16 @@ div {
 .inner-card-text{
   font-size:18px;
 }  
+}
+
+@media (max-width:500px){
+  .input-field.col label {
+    left: .50rem;
+}
+}
+
+@media (min-width:768px) {
+   input[type=text]:not(.browser-default) {
+    font-size: 15px;
+  }
 }

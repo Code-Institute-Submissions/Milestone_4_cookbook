@@ -21,13 +21,14 @@
 </head>
 
 <body>
-    <main>
+   <div class="wrapper">
    {% block nav %} {% endblock %}
    
    {% block content %} {% endblock %}
-
+   <div class="push"></div>
+   </div>
    {% block footer %} {% endblock %}
-   </main>
+   
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -37,3 +38,4 @@
     <script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script> 
 
 </body>
+</html>

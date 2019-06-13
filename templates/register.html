@@ -14,9 +14,10 @@
                 <div class="input-field">
                     {{ form.password(size=32, required=true, placeholder="Enter password") }}
                 </div>
-                <div class="section">Already registered? Click <a href="{{ url_for('user_login') }}">here.</a></div>
+                <div class="pot-section">Already registered? Click <a class="register" href="{{ url_for('user_login') }}">here.</a></div>
                 <button class="btn waves-effect waves-light my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
             </form>
         </div>
     </div>
+</div>
 {% endblock %}
