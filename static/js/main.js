@@ -1,6 +1,7 @@
 $(document).ready(function() {
     //Materialize function
     $('select').formSelect();
+    $('select').not('.disabled').formSelect();
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     //End of Materialize functions
@@ -12,3 +13,5 @@ $(document).ready(function() {
     //End of my functions
 
 });
+
+

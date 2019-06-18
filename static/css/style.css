@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
+  overflow:hidden;
 }
 
 
@@ -22,21 +24,66 @@ html, body {
 
 .pot-section {
   font-family: 'Margarine', cursive;
-  font-size:15px ;
+  font-size: 15px;
   letter-spacing: 10px;
   color: #ffff1a;
 }
 
+#inner-title {
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 1;
+}
 
 
 .view {
-  color:#0033cc;
-  font-size:1.5em;
+  color: #0033cc;
+  font-size: 1.5em;
 }
 
 .view:hover {
-  color:#ff0000;
+  color: #ff0000;
 }
+
+
+/* Outer and Reveal Card styles */
+
+p,
+div {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -2px;
+  font-size: 15px;
+}
+
+.card .card-content .card-title i {
+  font-size: 50px;
+}
+
+
+.inner-card-text {
+  font-size: 20px;
+  margin-left: -10px;
+}
+
+
+
+.caret {
+  position: absolute;
+  right: 0;
+  left: 220px;
+  top: 0px;
+  bottom: 0;
+  margin: auto 0px;
+  z-index: 0;
+}
+
+.inner-card-container {
+  margin-top: 5rem;
+}
+
+
 /* Recipe Description and Icons*/
 
 .recipe-description,
@@ -65,6 +112,15 @@ img.responsive-img {
   color: #333333;
 }
 
+.icons-container {
+  margin-right: 10px;
+  margin-left: -10px;
+}
+
+.inner-card-icon {
+  margin-right: 10px;
+}
+
 /*Ingredients*/
 
 .ingredients-section {
@@ -75,7 +131,7 @@ img.responsive-img {
 
 label {
   color: #000;
-  
+
 }
 
 
@@ -133,18 +189,18 @@ a {
 }
 
 a:hover {
-  color:   #ff0000;
+  color: #ff0000;
 
 }
 
 .register {
-  
+
   color: #ff0000;
-  
+
 }
 
 .register:hover {
-  color:#0000ff;
+  color: #0000ff;
 }
 
 /* Single Recipe view styles */
@@ -159,7 +215,7 @@ a:hover {
 .recipe-description {
   padding: 2rem;
   font-size: 22px;
-  
+
 }
 
 .recipe-ingredients {
@@ -176,10 +232,10 @@ a:hover {
 
 }
 
-.input-field > label {
+.input-field>label {
   font-size: 20px;
-  letter-spacing:2px;
-  
+  letter-spacing: 2px;
+
 }
 
 /*Alert Box*/
@@ -199,9 +255,7 @@ a:hover {
   background-color: #2e62af
 }
 
-.card-alert .card-content-alert {
- 
-}
+.card-alert .card-content-alert {}
 
 /*Search Box*/
 
@@ -212,7 +266,7 @@ a:hover {
   width: 100%;
   border-bottom: solid 1px #e4e6eb;
   height: 15vh;
-  color:#000;
+  color: #000;
 }
 
 /*Hover*/
@@ -226,13 +280,13 @@ a:hover {
 /*Select*/
 
 .select-wrapper input.select-dropdown {
-  color: black; 
-  
+  color: black;
+
 }
 
 .select-wrapper input.select-dropdown:focus {
-  border-bottom: 1px solid #f26226; 
-  
+  border-bottom: 1px solid #f26226;
+
 }
 
 /*Register Page styles*/
@@ -242,8 +296,8 @@ a:hover {
   width: 100vw;
   overflow-y: hidden;
   justify-content: center;
-  margin: 0 ;
-  display:flex;
+  margin: 0;
+  display: flex;
 }
 
 .middle-container {
@@ -264,12 +318,13 @@ a:hover {
 }
 
 
-.inner-close-icon{
-  position:absolute;
-  top:10px;
-  right:10px;
+.inner-close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   color: #f26226;
 }
+
 .inner-close-icon:hover {
   color: #2e62af;
 
@@ -279,11 +334,11 @@ a:hover {
   background-color: rgba(39, 55, 73, 0.98);
   color: #fff;
   overflow: hidden;
-  min-height:100vh; 
-  position:relative; 
-  padding-bottom:0px;
-   }
-  
+  min-height: 100vh;
+  position: fixed;
+  padding-bottom: 0px;
+}
+
 
 
 
@@ -294,10 +349,10 @@ a:hover {
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 20px;
-  text-align:center;
+  text-align: center;
   text-transform: uppercase;
   text-transform: uppercase;
-  font-size:25px;
+  font-size: 25px;
 }
 
 /*Buttons */
@@ -315,16 +370,16 @@ a:hover {
   display: inline-block;
   text-decoration: none;
   background-color: #f26226;
-  color:#000;
+  color: #000;
   font-size: 30px;
   outline: none;
   font-family: 'Margarine', cursive;
-  margin-top:34px;
+  margin-top: 34px;
 }
 
 .restrict-btn:hover {
-  background-color:#2e62af;
-  color:#fff;
+  background-color: #2e62af;
+  color: #fff;
 }
 
 .search-btn {
@@ -342,14 +397,14 @@ a:hover {
   font-size: 20px;
   border-color: #f26226;
   outline: none;
-  background-color:#f26226 ;
-  color:#000;
+  background-color: #f26226;
+  color: #000;
   font-family: 'Margarine', cursive;
 }
 
 .search-btn:hover {
   color: #fff;
-  background-color:#2e62af;
+  background-color: #2e62af;
 }
 
 .my-btn {
@@ -381,52 +436,51 @@ a:hover {
 .my-btn:hover {
   background-color: rgba(46, 98, 175, 0.9);
   color: #fff
-  
 }
 
 
 .filter-btn {
-  background-color:#f26226;
+  background-color: #f26226;
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  color:#000;
+  color: #000;
   text-decoration: none;
-  font-family:'Margarine', cursive;
+  font-family: 'Margarine', cursive;
 }
 
 .filter-btn:hover {
-  background-color:#2e62af;
-  color:#fff;
+  background-color: #2e62af;
+  color: #fff;
 }
 
 
 /*Footer Styles*/
 
 .ft-me {
-  font-size:25px;
+  font-size: 25px;
   color: #2e62af;
   font-family: 'Margarine', cursive;
   text-align: center;
-  margin:0;
-  padding-top:0.5em;
+  margin: 0;
+  padding-top: 0.5em;
 }
 
 .ft-user {
-  font-size:25px;
+  font-size: 25px;
   color: #000;
   font-family: 'Margarine', cursive;
-  margin:0;
+  margin: 0;
   text-align: center;
 }
 
-.site-footer { 
+.site-footer {
 
-    width:100%;
-    color: #2e62af;
-    background-color: #d9d9d9;
-  }
-  
+  width: 100%;
+  color: #2e62af;
+  background-color: #d9d9d9;
+}
+
 .wrapper {
   min-height: 100%;
   margin-bottom: -75px;
@@ -468,7 +522,7 @@ a:hover {
 
 nav i,
 nav [class^="mdi-"],
-nav [class*="mdi-"], 
+nav [class*="mdi-"],
 nav i.material-icons {
   display: inherit;
   font-size: 30px;
@@ -477,7 +531,7 @@ nav i.material-icons {
 }
 
 .material-icons {
-  padding-left: 1rem;
+  text-align: center;
 }
 
 nav ul a:hover {
@@ -507,12 +561,12 @@ nav ul a:hover {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-family:'Margarine', cursive;
+  font-family: 'Margarine', cursive;
 
 }
 
 .nav-wrapper {
-  background-color:  #d9d9d9;
+  background-color: #d9d9d9;
 }
 
 .v-align {
@@ -615,17 +669,32 @@ nav ul a:hover {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-family:'Margarine', cursive;
+  font-family: 'Margarine', cursive;
 
 }
 
+/* Filter Serach */
+
+.input-field.col .prefix~label,
+.input-field.col .prefix~.validate~label {
+  font-size: 18px;
+}
+
+.collapsible-header {
+  font-size: 20px;
+}
+
+.collapsible-body {
+  font-size: 18px;
+}
 
 
 /* Database Query Search Box*/
 
 #db_query {
-  color:#000;
+  color: #000;
 }
+
 
 /*Media Queries*/
 
@@ -641,65 +710,15 @@ nav ul a:hover {
   }
 }
 
-.input-field.col .prefix~label,
-.input-field.col .prefix~.validate~label {
-  font-size: 18px;
-}
 
-.collapsible-header {
-  font-size: 20px;
-}
 
-.collapsible-body {
-  font-size: 18px;
-}
 
-p,
-div {
-  font-family: 'Josefin Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -2px;
-  font-size: 15px;
-}
-
-.card .card-content .card-title i {
-  font-size: 50px;
-}
-
-#inner-title {
-  font-size: 23px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.inner-card-text {
-  font-size: 25px;
-}
-
-.inner-card-icon {
-  margin-right: 10px;
-}
-
-.caret {
-    position: absolute;
-    right: 0;
-    left: 220px;
-    top: 0px;
-    bottom: 0;
-    margin: auto 0px;
-    z-index: 0;
-  }
-
-.inner-card-container {
-  margin-top: 5rem;
-}
 
 /*Button media queries*/
 
-@media(min-width:320px) and (max-width:790px){
+@media(min-width:320px) and (max-width:790px) {
   .my-btn {
-    float:none;
+    float: none;
   }
 }
 
@@ -735,7 +754,7 @@ div {
     margin-bottom: 2rem;
     font-size: 20px;
   }
-  
+
 
   .btn i {
     font-size: 1.4rem;
@@ -747,8 +766,8 @@ div {
     padding: 0 13px;
     font-weight: 400;
   }
-  
-   
+
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -768,7 +787,7 @@ div {
   }
 
   .cooking_time {
-    padding-top:10px;
+    padding-top: 10px;
   }
   .btn i {
     font-size: 0.8rem;
@@ -791,22 +810,23 @@ div {
   .middle-container {
     width: 100%;
   }
-  
-  .input-field > label {
-  font-size: 15px;
-  letter-spacing:0.5px;
-  
-}
+
+  .input-field>label {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+
+  }
 
 }
 
 /* Container Media Queries */
 
-@media(min-width:300px)and (max-width:780px){
+@media(min-width:300px)and (max-width:780px) {
   .middle-container {
-    width:75%;
+    width: 75%;
   }
 }
+
 /*Logo Media Queries*/
 
 @media (max-width:400px) {
@@ -827,7 +847,7 @@ div {
     margin-top: 50%;
   }
 
-   .input-field {
+  .input-field {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 20px;
@@ -859,41 +879,51 @@ div {
   }
 }
 
-@media(max-width:700px){
+@media(max-width:700px) {
   .restrict-btn {
-    font-size:20px;
+    font-size: 20px;
   }
 }
-@media(max-width:600px){
-  .logo {
-    font-size: 20px; }
 
-  .input-field.col .prefix ~ label,
-  .input-field.col .prefix ~ .validate ~ label {
-    font-size: 18px; }
+@media(max-width:600px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .input-field.col .prefix~label,
+  .input-field.col .prefix~.validate~label {
+    font-size: 18px;
+  }
 
   .collapsible-header {
-    font-size: 20px; }
+    font-size: 20px;
+  }
 
   .collapsible-body {
-    font-size: 18px; }
+    font-size: 18px;
+  }
 }
 
 
-@media(max-width:1050px){
-.inner-card-text{
-  font-size:18px;
-}  
+@media(max-width:1050px) {
+  .inner-card-text {
+    font-size: 15px;
+    margin-left: -10px;
+  }
 }
 
-@media (max-width:500px){
+@media (max-width:500px) {
   .input-field.col label {
     left: .50rem;
-}
+  }
 }
 
 @media (min-width:768px) {
-   input[type=text]:not(.browser-default) {
+  input[type=text]:not(.browser-default) {
     font-size: 15px;
+  }
+
+  .inner-close-icon {
+    right: 1px;
   }
 }
