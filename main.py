@@ -37,7 +37,7 @@ def index():
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
 
    
-# Viewing Recipe   
+# Viewing Recipe Route
 @app.route('/recipe/<recipe_id>', methods=['GET','POST'])
 def recipe(recipe_id):
     """Route for viewing a single recipe"""
@@ -45,7 +45,7 @@ def recipe(recipe_id):
     pprint(a_recipe)
     return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'] )
     
-# Search for Recipe
+# Search for Recipe Route
 @app.route('/search')
 def search():
     """Route for full text search bar"""
@@ -58,7 +58,7 @@ def search():
     results = mongo.db.recipe.find({'$text': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
     return render_template('search.html', results=results, pages=pages, current_page=current_page, db_query=db_query)
     
-# Filter search
+# Filter search Route
 
 @app.route('/filtered_search', methods=['GET', 'POST'])
 def filtered():
@@ -95,7 +95,7 @@ def filtered():
     recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
 
-# Create Recipes
+# Create Recipes Route
 
 @app.route('/create_recipe', methods=['GET', 'POST'])
 def create_recipe():
@@ -129,7 +129,7 @@ def create_recipe():
         return redirect(url_for('index'))
     return render_template('add_recipe.html', form=form)
     
-# Edit Recipe
+# Edit Recipe Route
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
@@ -169,7 +169,7 @@ def edit_recipe(recipe_id):
     flash("Sorry this is not your recipe to edit!") #In case a user tried to enter URL manually
     return redirect(url_for('recipe', recipe_id=recipe_id))
     
-# Delete  Recipe
+# Delete  Recipe Route
 
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):

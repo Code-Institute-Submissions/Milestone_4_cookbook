@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+<!--Register-->
 <div class="outer-container bg-img">
     <a href=" {{ url_for('index') }}"><i class="material-icons close-icon">highlight_off</i></a>
     <div class="middle-container">
@@ -15,7 +16,7 @@
                     {{ form.password(size=32, required=true, placeholder="Enter password") }}
                 </div>
                 <div class="pot-section">Already registered? Click <a class="register" href="{{ url_for('user_login') }}">here.</a></div>
-                <button class="btn waves-effect waves-light my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                <button class="btn waves-effect my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
             </form>
         </div>
     </div>

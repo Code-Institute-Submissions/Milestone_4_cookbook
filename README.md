@@ -10,22 +10,43 @@ The user login and password application is not secure as the project brief does 
 <strong>Please note this website is only for educational purposes to fulfil the criteria for Milestone 4 Data Centric Development Project </strong>
 <hr>
 
-## User Experience
+## UX Design - User Experience
 
 The recipe cookbook enables the user to; firstly, view the; cooking time, serving and calories per recipe, then view the recipe instructions, search recipe using the search bar, filter diet and health labels for example; gluten-free and find recipes pertaining to filter.
 The registered users are able to login, add, edit and delete their own recipes without deleting those that have been added by the website author.
 The website contains a navigation bar whereby the user can click on the 'cookbook logo' and return to the homepage. The navigation bar also contains; login, register, add (only once logged in) buttons.
+
+The web application should fulfil the CRUD operations.
+
+### Create
+
+<p>The user should be able to create recipes.</p>
+
+### Read
+
+<p> The non-logged in and non-registered user should be able to read the recipes </p>
+
+
+### Update
+
+<p> The user should be able to edit recipes. </p>
+
+
+
+### Delete 
+
+<p> The user should be able to delete recipes. </p>
 
 The user interface is simple and easy to understand with an image of finished dish.
 
 
 <hr>
 
-## User Stories
+## UX Design - User Stories
 
 <p> A User should be able to : </p>
 <ul>
-<li> View the site from any device - should be responsive design. </li>
+<li> View the site from any device - should be responsive design in desktop, laptop, mobile and tablet views. </li>
 <li> As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and instructions, search for a recipe, filter according to health and diet labels and view instructions on how to cook that particular recipe.</li>
 <li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
 <li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
@@ -45,7 +66,26 @@ desktop and mobile versions.</p>
 ## Features
 
 ###  Recipe Insertion
-<p> The website contains a total of 12 recipes. The recipes have been inserted into the backend of the  MongoDB database using an import.py script which contains the fields below. A database has been created in MongoDB and then a collection name 'recipe The MONGODb collection contains the following fields:
+
+
+## Mongo DB
+
+A database and collecetion created as below
+
+```database :myCookBook```
+```collection:recipe```
+```collection: user```
+
+To main.py :
+
+Config Vars added:
+
+```app.config["MONGO_DBNAME"]= 'DBNAME'``` <br>
+```app.config["MONGO_URI"] = mongosrv added ```
+
+#### Collection - recipe
+
+<p> The website contains a total of 12 recipes. The recipes have been inserted into the backend of the  MongoDB database using an import.py script which contains the fields below. A database has been created in MongoDB and then a collection name 'recipe The MONGODB collection contains the following fields:
 <ul>
 <li> recipe image - URL for recipe image inserted </li>
 <li> ingredients - data type is 'string'</li>
@@ -64,6 +104,11 @@ desktop and mobile versions.</p>
 <ul>
 <li> instructions - five fields - data type is 'string'</li>
 </ul>
+
+#### Collection - user
+
+When users register , there usernames are inserted into the the collection user in the database.
+
 <hr>
 
 ### Search and Filter
@@ -101,7 +146,7 @@ Two main search options exist:
 <li> <a href ="https://www.python.org/">Python</a></li> Python is used for the back-code to fullfil the 'GET' and 'POST' requests and import.</li>
 <li> <a href = "https://git-scm.com/">Git</a></li> Git was used to push the files to the local repository.</li> 
 <li><a href="https://www.heroku.com/">Heroku</a><li>Heroku is use to deploy sites using Python.</li>
-<li><a href ="https://www.mongodb.com/">MongoDB</a></li>MongoDB is the database whereby recipes are inserted using the import.py script into the respective collection once a database is set up.</li>
+<li><a href ="https://www.mongodb.com/">MongoDB</a></li>MongoDB is a nonSQL based database whereby recipes are inserted using the import.py script into the respective collection once a database is set up.</li>
 </ul>
 
 ## Framework 
@@ -139,6 +184,12 @@ The website was tested on the following devices and the website was found to dis
 <li> iPad Mini </li>
 <li> iPad Pro </li>
 </ul> 
+
+### Responsive Design Testing
+
+<p> On mobile view the responsive design fits the user stories as the diet and health labels filter search satck on top of each other , alongside the recipes below. The toggle button is functional with users able to select login or register. The website is functional and visiable in mobile view.</p>
+<p> On large screen view, tablet and laptop view the website is functional and fully visiable without compromising pixelation in images.</p>
+    
 
 
 ### Coding Bugs
@@ -180,15 +231,84 @@ additional benifit of : adding, deleting and editing their recipes. The recipes 
 The user unfortunately is not able to reselect the filter options once selected and filtered.  The user is not able to search for a recipe due to the
 the 'TypeError' mentioned in 'Coding Bugs'.</p>
 
+#### CRUD operations testing
+
+##### Create
+<p> The logged in user is able to create recipes through the add recipe form nce logged in. </p>
+
+##### Read
+
+<p> The user is able to view recipes fully. </p>
+
+
+##### Update
+<p> The logged in user is able to edit their own  added recipes. </p>
+
+##### Delete
+<p> The logged in user to able to delete their own recipes. </p>
+
+
 <hr>
 
 ## Deployment
 
+#### IDE
+
 The IDE used to write the code for the website  was AWS Cloud 9 student account : https://www.awseducate.com/student/s/awssite
+
+#### Git and GitHub
+
 The code was pushed to a local repository created in Git Hub using git commands [Milestone_4_cookbook](https://github.com/pranitastudent/Milestone_4_cookbook)
 
-The code was deployed to Heroku as Heroku supports Python plateforms while Github only hosts static sites.  A Procfile and requirements.txt files were created using the ```sudo pip3`` command.
-'sudo pip3' commands.
+#### Deploying to Heroku
+
+<strong> The code was deployed to Heroku as Heroku supports Python plateforms while Github only hosts static sites. </strong>
+
+Name of app: pranita-cookbook
+[URI](https://pranita-cookbook.herokuapp.com/)
+
+The bash command used is:
+
+``` heroku login ````
+<ol>
+<li> A requirements.txt file is created as Heroku deployment requries the dependencies. </li>
+
+The bash command used is :
+
+``` sudo pip3 freeze -- local > requirements.txt ```
+
+<li> A Procfile is requireed to be created so that Heroku recognises the Python3 language. </li>
+
+The bash command used is :
+
+``` sudo pip3 > Procfile ```
+
+A git repository is initialised
+
+``` git init ```
+
+```heroku:git: remote -a pranita-cookbook ``` 
+
+Files are them added and committed
+
+The bash command to push the code to Heroku is :
+
+``` git push heroku master ```
+
+<li> The config vars need to be set up in Heroku with the relevant IP and Port Settings: </li>
+
+pranita-cookbook > settings > Reveal  Config Vars:
+
+``` IP: 0.0.0.0```
+
+```PORT : 5000```
+
+<li> pranita-cookbook > Open App </li>
+
+The app is finally deployed at [pranita-cookbook](https://pranita-cookbook.herokuapp.com/)
+
+</ol>
+
 
 <hr>
 

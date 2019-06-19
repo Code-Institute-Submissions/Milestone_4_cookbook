@@ -3,6 +3,8 @@
     <a href=" {{ url_for('index') }}"><i class="material-icons close-icon">highlight_off</i></a>
     <div class="container">
         <h2 class="title"><strong>Add Recipe</strong></h2>
+        
+        <!--Add Recipe Form-->
         <form method="POST" action="" class="form-width">
             <div class="row">
                 <div class="container-fluid">
@@ -47,10 +49,12 @@
                     {{ form.hidden_tag() }} {{ form.source(placeholder="https://www.bbcgoodfood.com/recipes/1167651/chicken-and-chorizo-jambalaya") }}
                     <label for="source">Source URL</label>
                 </div>
-                <button class="btn waves-effect waves-light my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                <button class="btn waves-effect my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
             </div>
             </div>
         </form>
     </div>
     </div>
+    
+    <!--End of add recipe form-->
     {% endblock %}

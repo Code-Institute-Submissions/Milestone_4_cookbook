@@ -34,7 +34,7 @@ def mongo_connect(url):
 
 conn = mongo_connect(MONGODB_URI)
 
-# Set Collection name 
+# Set collection name 
 
 coll = conn[DBS_NAME][COLLECTION_NAME]
 
@@ -62,6 +62,7 @@ recipe = {
           'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
            }
 #  Adding Recipe from API to MongoDB
+
 pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":

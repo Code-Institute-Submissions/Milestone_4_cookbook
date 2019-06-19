@@ -7,7 +7,7 @@
     <div class="container">
         <h2 class="title">Edit Recipe</h2>
 
-
+  <!--Edit Form-->
         <form method="POST" action="" class="form-width">
             {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
             <p class="flashMessage">{{ message }}</p>
@@ -55,9 +55,11 @@
                 </div>
 
 
-                <button class="btn waves-effect waves-light my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+                <button class="btn waves-effect my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
             </div>
         </form>
+        
+        <!--End of Edit Form-->
 
     </div>
     </div>

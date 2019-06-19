@@ -2,16 +2,18 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, IntegerField, PasswordField
 from wtforms.validators import DataRequired, ValidationError, Optional
 
+
+# Login
 class LoginForm(FlaskForm):
     username = StringField('Username',validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
   
-
+# Registration
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
   
-  
+# Fields to add own recipes  
 class RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
