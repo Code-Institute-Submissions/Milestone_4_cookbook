@@ -34,6 +34,10 @@ def index():
     total = mongo.db.recipe.count()
     pages = range(1, int(math.ceil(total / page_limit)) + 1)
     recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
+    if session:
+        current_user = mongo.db.user.find_one({'name': session['username'].title()})
+        return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages, current_user=current_user)
+
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
 
    
@@ -42,8 +46,22 @@ def index():
 def recipe(recipe_id):
     """Route for viewing a single recipe"""
     a_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    pprint(a_recipe)
-    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'] )
+    if session:		
+	        current_user = mongo.db.user.find_one({'name': session['username'].title()})		
+	        return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'], current_user=current_user)		
+	        		
+    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'])
+    
+    
+# User ID Route
+
+@app.route('/profile/<user_id>')
+def profile_page(user_id):
+    """Route for users to view their profile page"""
+    user = mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    pprint(user)
+    #recipes = mongo.db.recipe.find
+    return "You are on the profile page"
     
 # Search for Recipe Route
 @app.route('/search')
@@ -52,12 +70,15 @@ def search():
     page_limit = 6 #Logic for pagination
     current_page = int(request.args.get('current_page', 1))
     db_query = request.args['db_query']
-    total = mongo.db.recipe.create_index({'$text':{'$search': db_query }})
+    total = mongo.db.recipe.find({'$text': {'$search': db_query }})
     t_total = len([x for x in total])
     pages = range(1, int(math.ceil(t_total / page_limit)) + 1)
     results = mongo.db.recipe.find({'$text': {'$search': db_query }}).sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
-    return render_template('search.html', results=results, pages=pages, current_page=current_page, db_query=db_query)
     
+    if session:
+        current_user = mongo.db.user.find_one({'name': session['username'].title()})
+    return render_template('search.html', results=results, pages=pages, current_page=current_page, db_query=db_query, current_user=current_user)
+
 # Filter search Route
 
 @app.route('/filtered_search', methods=['GET', 'POST'])
@@ -67,6 +88,8 @@ def filtered():
     current_page = int(request.args.get('current_page', 1))
     total = mongo.db.recipe.count()
     pages = range(1, int(math.ceil(total / page_limit)) + 1)
+    if session:
+        current_user = mongo.db.user.find_one({'name': session['username'].title()})
     
     if request.method == "POST":
         for i in request.form:
@@ -79,7 +102,7 @@ def filtered():
                         filter_items.append({i: item})
                 results = mongo.db.recipe.find({'$and': filter_items })
                 total_results =  mongo.db.recipe.find({'$and': filter_items }).count()
-                return render_template('filter.html', title="Filtered Search",results=results, total_results=total_results)
+                return render_template('filter.html', title="Filtered Search",results=results, total_results=total_results, current_user=current_user)
             
             if i == "health_labels":
                 filter_items = []
@@ -90,7 +113,7 @@ def filtered():
                         filter_items.append({i: item})
                 results = mongo.db.recipe.find({'$and': filter_items })
                 total_results = mongo.db.recipe.find({'$and': filter_items }).count()
-                return render_template('filter.html', title="Filtered Search", results=results, total_results=total_results)
+                return render_template('filter.html', title="Filtered Search", results=results, total_results=total_results,current_user=current_user)
                 
     recipes = mongo.db.recipe.find().sort('_id', pymongo.ASCENDING).skip((current_page - 1)*page_limit).limit(page_limit)
     return render_template('index.html', recipe=recipes, title='Home', current_page=current_page, pages=pages)
@@ -120,6 +143,7 @@ def create_recipe():
         'calories': request.form['calories'],
         'cooking_time': request.form['cooking_time'],
         'description': request.form['description'],
+        'i-made-it: int(0)'
         'source': request.form['source'],
         'username' : session['username'],
         'created_by': {
@@ -191,7 +215,6 @@ def delete_recipe(recipe_id):
     else:
         flash('Sorry, only logged in user can view this page')
         return redirect(url_for('index'))
-        
         
 # Add Likes to each Recipe
 

@@ -96,11 +96,6 @@ div {
   font-size: 2em;
 }
 
-img.responsive-img {
-  width: 100%;
-
-}
-
 .nut-icons {
   text-align: center;
   color: #333333;
@@ -119,7 +114,7 @@ img.responsive-img {
 
 .inner-card-icon {
   margin-right: 10px;
-}
+  }
 
 /*Ingredients*/
 
@@ -375,7 +370,35 @@ a:hover {
   outline: none;
   font-family: 'Margarine', cursive;
   margin-top: 34px;
+  }
+
+.section {
+  text-align: center;
 }
+
+.restrict-btn {
+  margin-left:45px;
+}
+
+.btn-centre,
+.btn-style{
+  font-family: 'Margarine', cursive;
+  text-align: center;
+  color:#000;
+  text-decoration: none;
+  font-size:15px;
+  }
+  
+  .btn-style {
+    background-color: #f26226;
+  }
+  
+  
+.btn-style:hover {
+  background-color: #2e62af;
+  color: #fff
+}
+
 
 .restrict-btn:hover {
   background-color: #2e62af;
@@ -454,7 +477,25 @@ a:hover {
   color: #fff;
 }
 
+#mytop {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  z-index:80;
+  font-size: 18px;
+  background-color:#f26226;
+  color: 000;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  font-family:'Margarine', cursive;
+  opacity:0.5;
+}
 
+#mytop:hover {
+  background-color: #2e62af;
+  color:#fff;
+}
 /*Footer Styles*/
 
 .ft-me {
@@ -879,6 +920,11 @@ nav ul a:hover {
   }
 }
 
+  .clear {
+    font-size:1.2rem;
+    letter-spacing: 2.5px;
+  }
+
 @media(max-width:700px) {
   .restrict-btn {
     font-size: 20px;
@@ -925,5 +971,30 @@ nav ul a:hover {
 
   .inner-close-icon {
     right: 1px;
+  }
+}
+
+@media (min-width:780px) {
+  
+.inner-card-icon {
+  margin-right: 10px;
+  margin-left:10px;
+  }
+}
+
+@media (max-width:500px) {
+  .inner-card-icon {
+  margin-right: 10px;
+  margin-left:10px;
+  }
+}
+
+@media only screen and (max-width:768px){
+  #mytop {
+    bottom:400px;
+  }
+  
+  .restrict-btn {
+   text-align:none;
   }
 }
