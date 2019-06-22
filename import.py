@@ -60,6 +60,9 @@ recipe = {
           'calories': int(r['hits'][0]['recipe']['calories']),
           'cooking_time': r['hits'][0]['recipe']['totalTime'],
           'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
+          'likes': {
+              
+          }
            }
 #  Adding Recipe from API to MongoDB
 

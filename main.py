@@ -192,6 +192,18 @@ def delete_recipe(recipe_id):
         flash('Sorry, only logged in user can view this page')
         return redirect(url_for('index'))
         
+        
+# Add Likes to each Recipe
+
+@app.route('/i-made-it/<recipe_id>')
+def i_made_it(recipe_id):
+    """ Funtion to increment the counte i-made-it counter"""
+    mongo.db.recipe.find_one_and_update (
+        {'_id':ObjectId(recipe_id)},
+        {'$inc': {'i-made-it': 1}})
+    return redirect(url_for('recipe', recipe_id=recipe_id))    
+    
+        
 # Registration Route
 
 @app.route('/register', methods=['GET', 'POST'])

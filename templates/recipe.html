@@ -47,51 +47,64 @@
                     <div><i class="medium material-icons recipe-icon">whatshot</i></div>
                     <p class="clear">{{ recipe.calories }} Calories</p>
                 </div>
-              </div>
-             <!--End of recipe name and description -->
-              
+            </div>
+            <!--End of recipe name and description -->
+
             <!--Recipe Ingredients-->
             <div class="divider"></div>
             <div class="section">
                 <h4 class="left-align ingredients-section">Ingredients</h4>
                 <p class="section recipe-ingredients" style="white-space: pre-wrap;">{{ recipe.ingredients }}</p>
             </div>
-            <div class ="section">
+            <div class="section">
                 <h4 class="left-align ingredients-section">Recipe Method</h4>
-<p class="section recipe-ingredients"><ol class= recipe-ingredients><li>{{ recipe.instruction }}</li><br><br><li>{{ recipe.instruction1 }}</li><br><br><li>{{ recipe.instruction2 }}</li><br><br><li>{{ recipe.instruction3 }}</li><br><br><li>{{ recipe.instruction4 }}</li><br><br><li>{{ recipe.instruction5 }}</li></ol></p>
-                
+                <p class="section recipe-ingredients">
+                    <ol class=r ecipe-ingredients>
+                        <li>{{ recipe.instruction }}</li><br><br>
+                        <li>{{ recipe.instruction1 }}</li><br><br>
+                        <li>{{ recipe.instruction2 }}</li><br><br>
+                        <li>{{ recipe.instruction3 }}</li><br><br>
+                        <li>{{ recipe.instruction4 }}</li><br><br>
+                        <li>{{ recipe.instruction5 }}</li>
+                    </ol>
+                </p>
+
             </div>
-            
+
             <!-- End of Recipe Ingredients-->
-            
+
             <!--Recipe - Health and Diet labels-->
             <div class="section row">
                 <div class="col s6">
-                    <h4 class= "main-heading">Health Labels</h4>
+                    <h4 class="main-heading">Health Labels</h4>
                     <p class="center-align labels">{{ recipe.health_labels }}</p>
                 </div>
                 <div class="col s6">
-                    <h4 class= "main-heading">Diet Labels</h4>
+                    <h4 class="main-heading">Diet Labels</h4>
                     <p class="center-align labels"> {{ recipe.diet_labels }}</p>
                 </div>
             </div>
             <!--End of Recipe- Health and Diet labels-->
 
             <!--Recipe Method-->
-            
+
             <!--Editing and deleting a recipe- only is user is logged in-->
-            
+
             <div class="section">
                 <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a></span>
-                <span class="center-align restrict-btn" ><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a></span>
+                <span class="center-align restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a></span>
             </div>
             <!--end of col-md7 -->
         </div>
         <div class="col m5 img-container section">
             <img class="responsive-img" src="{{ recipe.recipe_image }}">
+            <p class="center-align labels">{{ recipe['i-made-it'] }} People have made this.</p>
+            <div class="btn-centre"><a id="i-made-it" href="{{ url_for('i_made_it', recipe_id=recipe._id) }}" class="waves-effect btn btn-style"><i class="material-icons left i-made-it-icon">favorite</i>I made this</a></div>
         </div>
-        <!-- end of page section -->
+
+
     </div>
+    <!-- end of page section -->
 </div>
 
 
