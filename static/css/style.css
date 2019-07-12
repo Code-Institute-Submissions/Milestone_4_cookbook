@@ -148,11 +148,12 @@ label {
   justify-content: center;
   font-family: cursive;
   font-size: 1.2em;
-  color: #000;
+  color:#f26226;
+
 }
 
 .pagination .active {
-  background-color: #2e62af;
+  background-color: #f26226;
 }
 
 .recipe-paragraph,
@@ -330,11 +331,8 @@ a:hover {
   color: #fff;
   overflow: hidden;
   min-height: 100vh;
-  position: fixed;
   padding-bottom: 0px;
 }
-
-
 
 
 .title {
@@ -452,8 +450,12 @@ a:hover {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  float: right;
+  margin-top:10px;
 
+}
+
+.submit-button {
+  text-align:center;
 }
 
 .my-btn:hover {
@@ -532,7 +534,6 @@ a:hover {
 .push {
   height: 80px;
 }
-
 
 
 /*Navigation Bar*/
@@ -686,6 +687,9 @@ nav ul a:hover {
   font-family: 'Margarine', cursive;
 }
 
+textarea.materialize-textarea {
+  color:#fff;
+}
 
 
 .my-recipes {

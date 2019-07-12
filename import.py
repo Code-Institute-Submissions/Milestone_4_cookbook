@@ -1,6 +1,6 @@
 # Import pymongo
 
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import PyMongo, pymongo, mongo
 from flask import Flask
 
 # Import python os module

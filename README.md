@@ -12,7 +12,7 @@ The user login and password application is not secure as the project brief does 
 
 ## UX Design - User Experience
 
-The recipe cookbook enables the user to; firstly, view the; cooking time, serving and calories per recipe, then view the recipe instructions, search recipe using the search bar, filter diet and health labels for example; gluten-free and find recipes pertaining to filter.
+The recipe cookbook enables the user to; firstly view the; cooking time, serving and calories per recipe, then view the recipe instructions, search recipe using the search bar, filter diet and health labels for example; gluten-free and find recipes pertaining to filter.
 The registered users are able to login, add, edit and delete their own recipes without deleting those that have been added by the website author.
 The website contains a navigation bar whereby the user can click on the 'cookbook logo' and return to the homepage. The navigation bar also contains; login, register, add (only once logged in) buttons.
 
@@ -51,7 +51,7 @@ The user interface is simple and easy to understand with an image of finished di
 <li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
 <li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
 <li>  A user should be able to register an login to the site. </li>
-<li> A user should be able to add and delete recipes once they are a registered user and have logged in.</li>
+<li> A user should be able to add and delete their own recipes once they are a registered user and have logged in.</li>
 </ul>
 
 <hr>
@@ -70,7 +70,9 @@ desktop and mobile versions.</p>
 
 ## Mongo DB
 
-A database and collecetion created as below
+
+Mongo DB has been the choice of database use (document-orientated database) where data is stored in key and field format (JSON).
+A database and collecetion created as below:
 
 ```database :myCookBook```
 ```collection:recipe```
@@ -112,7 +114,7 @@ When users register , there usernames are inserted into the the collection user 
 <hr>
 
 ### Search and Filter
-There is at least once recipe pertaining to one health label option or diet label option. The user can select the 'up arrow' on each recipe to quickly view the: time taken to prepare, serving size and amount of calories in that particular dish. The user can then decide to whether view the recipe which contains: a description of the dish, cooking time, serving size and calories indicated, instructions on how to prepare the dish and an image of the finished dish.
+There is at least one recipe pertaining to one health label option or diet label option. The user can select the 'up arrow' on each recipe to quickly view the: time taken to prepare, serving size and amount of calories in that particular dish. The user can then decide to whether view the recipe which contains: a description of the dish, cooking time, serving size and calories indicated, instructions on how to prepare the dish and an image of the finished dish.
 The navigation bar contains the title of the cookbook 'Pranita's cookbook' and enables the user to click on the 'cookbook logo' to return to the homepage.
 
 Two main search options exist:
@@ -142,7 +144,9 @@ Two main search options exist:
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"> HTML5 </a></li> HTML 5 was used to create the structure of webpage with the necessary elements.</li>
 <li><a href="https://www.w3.org/Style/CSS/Overview.en.html"> CSS3 </a></li> CSS3 was used to write custom css style the webpage with the necessary attributes.</li>
 <li><a href="https://materializecss.com/"> Materilaize 1.0.0 </a> </li>  The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.</li>
-<li><a href="https://jquery.com/"> Jquery </a></li> Jquery was used to create the collapsible navbar in toggle mode for mobile devices and for smooth scroll of the website.</li>
+<li><a href="https://jquery.com/"> Jquery </a></li> Jquery was used to create the collapsible navbar in toggle mode for mobile devices</li>
+<li><a href="https://www.javascript.com/"> Javascript </a></li> Javascript was used to create a scroll button to redirect the user back to the top of the website.</li>
+
 <li> <a href ="https://www.python.org/">Python</a></li> Python is used for the back-code to fullfil the 'GET' and 'POST' requests and import.</li>
 <li> <a href = "https://git-scm.com/">Git</a></li> Git was used to push the files to the local repository.</li> 
 <li><a href="https://www.heroku.com/">Heroku</a><li>Heroku is use to deploy sites using Python.</li>
