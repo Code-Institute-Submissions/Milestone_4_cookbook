@@ -21,10 +21,10 @@
 
 <!--Search Box-->
 <div class="row tp-search">
-    <div class="col hide-on-small-only m3">
+    <div class="col hide-item-medium 13">
         <span class="v-align site-logo"><i class="small material-icons nav-icon">local_dining</i>Cookbook</span>
     </div>
-    <div class="col s12 m9">
+    <div class="col s12 m12">
         <form action="{{ url_for('search') }}" class="search-form">
             <div class="input-field col s12">
                 <i class="material-icons prefix">youtube_searched_for</i>
@@ -131,13 +131,11 @@
         
 <!--Pagination-->
         <ul class="pagination">
-            <li class="disabled"><i class="material-icons">chevron_left</i></li>
             {% for page_number in pages %} {% if page_number == current_page %}
             <li class="active"><a>{{ page_number }}</a></li>
             {% else %}
             <li class="waves-effect"><a href="{{ url_for('search', current_page=page_number, db_query=db_query) }}">{{ page_number }}</a></li>
             {% endif %} {% endfor %}
-            <li class="disabled"><i class="material-icons">chevron_right</i></li>
         </ul>
 
         <!-- end of col-9 -->

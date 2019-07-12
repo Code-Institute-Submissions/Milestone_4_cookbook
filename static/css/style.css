@@ -741,6 +741,56 @@ textarea.materialize-textarea {
 }
 
 
+/*Error Handling*/
+
+.error-container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  overflow: hidden
+}
+
+.error-sec-title {
+  text-align: center;
+  color: #2e62af;
+}
+
+.error-text {
+  text-align: center;
+  color: black;
+}
+
+.error-title {
+  text-align: center;
+  color: #f26226;
+}
+
+/*Profile */
+
+.profile-container {
+   width: 250px;
+  margin: auto;
+}
+
+.img-responsive img {
+  width:100;
+}
+
+.heading {
+  text-align: left;
+  color: #2e62af;
+  padding: 20px 0px 10px 0px
+}
+
+.profile-img {
+  margin-top:2em;
+}
+
+.text{
+  font-size: 20px;
+}
+
+
 /*Media Queries*/
 
 /*Navbar */

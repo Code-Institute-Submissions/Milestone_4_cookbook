@@ -45,19 +45,19 @@
 
         <!--diet options-->
         <div class="row">
-            <div class="col s12 m3">
+            <div class="col s12 m3 hide-on-small-only">
                 <ul class="collapsible">
                     <li class="active">
                         <div class="collapsible-header">Diet Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                         <div class="collapsible-body">
                             <form method="POST" action="{{ url_for('filtered') }}">
                                 <select multiple name="diet_labels">
-                              <option value="" disabled selected>Choose your options</option>
-                              <option value="Low-Carb">Low-Carb</option>
-                              <option value="Fat-Free">Fat-Free</option>
-                              <option value="Gluten-Free">Gluten-Free</option>
-                              <option value="High-Protein">High-Protein</option>
-                              <option value="Balanced">Balanced</option>
+                              <label="free option" disabled selected>Choose your options</label>
+                              <label="Low-Carb">Low-Carb</label>
+                              <label="Fat-Free">Fat-Free</label>
+                              <label="Gluten-Free">Gluten-Free</label>
+                              <label="High-Protein">High-Protein</label>
+                              <option value="Balanced">Balanced</label>
                             </select>
                                 <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
                             </form>
@@ -73,20 +73,20 @@
                         <div class="collapsible-body">
                             <form method="POST" action="{{ url_for('filtered') }}">
                                 <select multiple name="health_labels">
-                              <option value="" disabled selected>Choose your options</option>
-                              <option value="Sugar-Conscious">Sugar-Conscious</option>
-                              <option value="Peanut-Free">Peanut-Free</option>
-                              <option value="Tree-Nut-Free">Tree-Nut-Free</option>
-                              <option value="Alcohol-Free">Alcohol-Free</option>
-                              <option value="Vegan">Vegan</option>
-                              <option value="Vegetarian">Vegetarian</option>
+                              <label="free option" disabled selected> Choose your options</labe l>
+                              <label="Sugar-Conscious">Sugar-Conscious</label>
+                              <label="Peanut-Free">Peanut-Free</label>
+                              <label="Tree-Nut-Free">Tree-Nut-Free</label>
+                              <label="Alcohol-Free">Alcohol-Free</label>
+                              <label="Vegan">Vegan</label>
+                              <label="Vegetarian">Vegetarian</label>
                             </select>
                                 <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
                             </form>
                         </div>
                     </li>
                 </ul>
-            </div>
+            
 
             <!--End of health options-->
 
@@ -145,14 +145,12 @@
                 
                 <!--Pagination  -->
                 <ul class="pagination">
-                    <li class="disabled"><i class="material-icons">chevron_left</i></li>
                     {% for page_number in pages %} {% if page_number == current_page %}
                     <li class="active"><a>{{ page_number }}</a></li>
                     {% else %}
                     <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}">{{ page_number }}</a></li>
                     {% endif %} {% endfor %}
-                    <li class="disabled"><i class="material-icons">chevron_right</i></li>
-                </ul>
+                 </ul>
                 <!-- end of col-9 -->
             </div>
             <!-- end of row -->
