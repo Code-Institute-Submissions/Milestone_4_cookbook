@@ -98,16 +98,6 @@
             <!--Recipe Method-->
 
             <!--Editing and deleting a recipe- only is user is logged in-->
-             <div class="section">
-                <h4 class="left-align user-section">Created by</h4>
-                <p class="user">{{ recipe.username.title() }} </p>
-                {% if 'logged_in' in session %} {% if session['username'].title() == recipe.username.title() %}
-                <span class="restrict-btn center-align"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn waves-effect waves-light search-btn">Edit Recipe</a></span>
-                <span class="restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn waves-effect waves-light search-btn">Delete Recipe</a></span>                
-                {% else %}
-                <div></div>
-                {% endif %} {% endif %}
-            </div>
 
             
             <!--end of col-md7 -->

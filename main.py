@@ -45,11 +45,11 @@ def recipe(recipe_id):
     """Route for viewing a single recipe"""
     a_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     
-    if 'logged_in' in session:
-        current_user = mongo.db.user.find_one({'name': session['username'].title()})
-        return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'], current_user=current_user)
-    else:
-        return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'])
+    if session:		
+	        current_user = mongo.db.user.find_one({'name': session['username'].title()})		
+	        return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'], current_user=current_user)		
+
+    return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'])
     
 @app.route('/profile/<user_id>')
 def profile_page(user_id):
@@ -273,7 +273,6 @@ def user_login():
         """Function for handling the logging in of users"""
         if 'logged_in' in session: #Check is already logged in
             return redirect(url_for('index'))
-            
         form = LoginForm()
 
         if form.validate_on_submit():
@@ -297,7 +296,9 @@ def logout():
     session.clear() 
     return redirect(url_for('index'))
     
+    
 # Error Handling
+
 
 @app.errorhandler(404)
 def page_not_found(e):

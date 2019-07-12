@@ -93,7 +93,7 @@ div {
   font-family: 'Margarine', cursive;
   color: #333333;
   font-style: normal;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .nut-icons {
@@ -831,12 +831,18 @@ textarea.materialize-textarea {
 
 /* Login/register Media Queries */
 
-@media only screen and (min-width: 1600px) {
-  .inner-container {
-    min-width: 500px;
-    margin-top: 50%;
-  }
-}
+/*@media only screen and (min-width: 1600px) {*/
+/*  .inner-container {*/
+/*    min-width: 500px;*/
+/*    margin-top: 50%;*/
+/*  }*/
+/*}*/
+
+/*@media only screen and (max-width:1024px){*/
+/*.input-field {*/
+/* font-size:0.55em; */
+/*}*/
+/*}*/
 
 
 @media only screen and (max-width: 768px) {
@@ -962,6 +968,33 @@ textarea.materialize-textarea {
   }
 }
 
+@media (min-width:700px) and (max-width:800px){
+  #ingredients.materialize-textarea {
+  font-size:13px;
+ 
+}
+
+#description.materialize-textarea {
+  font-size:13px;
+
+}
+}
+
+@media (min-width:300px) and (max-width:500px){
+    #ingredients.materialize-textarea {
+  font-size:11px;
+  line-height:14px;
+ 
+}
+
+#description.materialize-textarea {
+  font-size:11px;
+  line-height:14px;
+
+}
+  
+}
+
 @media(max-width:900px) {
 
   .restrict-btn,
@@ -1052,3 +1085,16 @@ textarea.materialize-textarea {
    text-align:none;
   }
 }
+
+@media only screen and (min-wdith:600px) and (max-width:1024px){
+  .tp-search:{
+    height:10vh;
+  }
+  }
+
+@media only screen and (max-width:700px){
+  .tp-search {
+    height:29vh;
+  }
+  
+ }
