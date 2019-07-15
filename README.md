@@ -262,35 +262,6 @@ The website was tested on the following devices and the website was found to dis
 
 ### Coding Bugs
 
-<p> During the coding process of the project there were two main bugs encountered : </p>
-
-#### Search Box Error
-
-<p> When the 'Go' button is pressed in teh search filed the following erros appears which I have been Unable to resolve 'TypeError:if no direction is specified, key_or_list must be an instance of list'</p>
-
-```line 55: total = mongo.db.recipe.create_index({'$text':{'$search': db_query }})```
-
-<p> It was specuated that a syntax error maybe causing this error  for example (code from the site below:
-[MongoDB site](https://jira.mongodb.org/browse/PYTHON-953)
-
-Code : ```db.collection.create_index({"$**": "text"})```
-Code replaced : ```db.collection.create_index([('$**', 'text')])```
-
-This however did not resolve the problem. </p>
-
-In order to resolve theis error, the question as asked on [stackoverflow.com](https://stackoverflow.com/questions/56506781/how-to-fix-typeerror-if-no-direction-is-specified-key-or-list-must-be-an-inst)
-<p> The solution provided by a user on stackoverflow was :
-
-Code ```receip.find({keyword: request.query.keyword, active: true})``` was also found to not work despite the insertion of the keyword.
-
-The error unfortunately breaks the site and the user would have to reload the site.
-
-</p>
-
-#### Reselecting once options have been selected
-
-<p> The user is unable to select the options again , once these have been selected </p>
-
 
 ## Testing User Stories
 

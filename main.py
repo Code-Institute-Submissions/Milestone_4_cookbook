@@ -98,7 +98,7 @@ def filtered():
         for i in request.form:
             if i == "diet_labels":
                 filter_items = []
-                items = request.form.getlist('diet_labels') #get as a list []
+                items = request.form.getlist('diet_labels') # get as a list []
                 my_key = request.form # get as a multdict 
                 for item in items: # iterate through the list
                     for i in my_key: #grab key_name

@@ -87,13 +87,18 @@ div {
 /* Recipe Description and Icons*/
 
 .recipe-description,
-.ingredients-section,
 .recipe-ingredients,
 .labels {
   font-family: 'Margarine', cursive;
   color: #333333;
   font-style: normal;
   font-size: 1.5em;
+}
+
+.ingredients-section {
+  font-family: 'Margarine', cursive;
+  font-size: 2em;
+  font-style:normal;
 }
 
 .nut-icons {
@@ -124,7 +129,7 @@ div {
 
 /*labels*/
 
-label {
+option {
   color: #000;
 
 }
@@ -533,7 +538,7 @@ a:hover {
 
 .site-footer,
 .push {
-  height: 80px;
+  height: 107px;
 }
 
 
@@ -721,8 +726,8 @@ textarea.materialize-textarea {
 
 /* Filter Serach */
 
-.input-field.col .prefix~label,
-.input-field.col .prefix~.validate~label {
+.input-field.col .prefix~option,
+.input-field.col .prefix~.validate~option {
   font-size: 18px;
 }
 
@@ -913,7 +918,7 @@ textarea.materialize-textarea {
     width: 100%;
   }
 
-  .input-field>label {
+  .input-field>option {
     font-size: 15px;
     letter-spacing: 0.5px;
 
@@ -1024,8 +1029,8 @@ textarea.materialize-textarea {
     font-size: 20px;
   }
 
-  .input-field.col .prefix~label,
-  .input-field.col .prefix~.validate~label {
+  .input-field.col .prefix~option,
+  .input-field.col .prefix~.validate~option {
     font-size: 18px;
   }
 
@@ -1047,7 +1052,7 @@ textarea.materialize-textarea {
 }
 
 @media (max-width:500px) {
-  .input-field.col label {
+  .input-field.col option {
     left: .50rem;
   }
 }

@@ -46,19 +46,19 @@
                 <div class="collapsible-body">
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
-                              <label ="free-option" disabled selected>Choose your options</label>
-                              <label ="Gluten-Free">Gluten-Free</label>
-                              <label ="High-Protein">High-Protein</label>
-                              <label ="Balanced">Balanced</label>
+                              <option ="free-option" disabled selected>Choose your options</option>
+                              <option ="Gluten-Free">Gluten-Free</option>
+                              <option ="High-Protein">High-Protein</option>
+                              <option ="Balanced">Balanced</option>
                             </select>
                         <button class="btn waves-effect  filter-btn" type="submit">Submit</button>
                     </form>
                 </div>
             </li>
         </ul>
-        
+
         <!--End of diet options-->
-        
+
         <!--Health options-->
 
         <ul class="collapsible">
@@ -66,23 +66,23 @@
                 <div class="collapsible-header">Health Labels<i class="material-icons dropdown-icon">arrow_drop_down</i></div>
                 <div class="collapsible-body">
                     <form method="POST" action="{{ url_for('filtered') }}">
-                        <select multiple name="health_labels">
-                              <label= "free-option" disabled selected>Choose your options</label>
-                             <label ="Peanut-Free">Peanut-Free</label>
-                              <label="Tree-Nut-Free">Tree-Nut-Free</label>
-                              <label="Alcohol-Free">Alcohol-Free</label>
-                              <label ="Vegan">Vegan</option>
-                              <label="Vegetarian">Vegetarian</label>
-                            </select>
-                        <button class="btn filter-btn" type="submit">Submit</button>
+                        <select multiple name="diet_labels">
+                              <option ="free-option" disabled selected>Choose your options</option>
+                              <option ="Tree-Nut-Free">Tree-Nut-Free</option>
+                              <option ="Alcohol-Free">Alcohol-Free</option>
+                              <option ="Sugar-Concious">Sugar-Concious</option>
+                              <option ="Vegan">Vegan</option>
+                              <option ="Vegetarian">Vegetarian</option>
+                          </select>
+                        <button class="btn waves-effect  filter-btn" type="submit">Submit</button>
                     </form>
                 </div>
             </li>
         </ul>
     </div>
-    
+
     <!--End of Health options-->
-    
+
     <!--Inner card and card reveal-->
 
     <div class="col m9">
