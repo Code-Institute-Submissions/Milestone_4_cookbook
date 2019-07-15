@@ -56,20 +56,83 @@ The user interface is simple and easy to understand with an image of finished di
 
 <hr>
 
-## Wire frames
+## Wire frames and Database Schema
 
 <p> The wireframes for the Data Centric Development project were created using Balsamiq. Mocks-ups were produced for 
 desktop and mobile versions.</p> 
 
 [Wire Frames](static/wireframe/milestone_4_project.pdf)
 
+<p> In this project before development I wanted to see how my database Schema would work. I devised a table as shown below. My developed site matches the database schema.</p>
+
+[Database Schema](static/wireframe/database_schema.pdf)
+
 ## Features
 
 ###  Recipe Insertion
 
+<p> The recipe were inserted using the import.py script. First a connection to the MongoDB database was made as indicated below and then the api through the api_key. The collection name and then the fields were inserted as indicated below. </p
 
+# config vars
+
+app = Flask(__name__)
+
+MONGODB_URI= os.getenv("MONGO_URI")
+DBS_NAME="myCookBook"
+COLLECTION_NAME="recipes"
+
+app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true'
+
+mongo = PyMongo(app)
+
+# Connecting to database
+
+def mongo_connect(url):
+    try:
+        conn = pymongo.MongoClient(url)
+        print('Mongo is connected')
+        return conn
+    except pymongo.errors.ConnectionFailure as e:
+        print('Could not connect to MongoDB: %s') % e
+
+# Assigning our connection to connect to MongoDB
+
+conn = mongo_connect(MONGODB_URI)
+
+# Set collection name 
+
+coll = conn[DBS_NAME][COLLECTION_NAME]
+
+url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
+ 
+search = "steamed salmon" 
+
+api_id="f69a50fd"
+
+api_key="ef3a76518f0364a6f1958b13efcf06af"
+
+r = requests.get(url.format(search,api_id,api_key)).json()
+
+recipe = {
+          'recipe': search,
+          'recipe_name': r['hits'][0]['recipe']['label'],
+          'recipe_image': r['hits'][0]['recipe']['image'],
+          'serving_size': int(r['hits'][0]['recipe']['yield']),
+          'diet_labels':r['hits'][0]['recipe']['dietLabels'],
+          'health_labels': r['hits'][0]['recipe']['healthLabels'],
+          'ingredients': r['hits'][0]['recipe']['ingredientLines'],
+          'ingredients_raw': r['hits'][0]['recipe']['ingredients'],
+          'calories': int(r['hits'][0]['recipe']['calories']),
+          'cooking_time': r['hits'][0]['recipe']['totalTime'],
+          'total_nutrients': r['hits'][0]['recipe']['totalNutrients'],
+          'likes': {
+              
+          }
+           }
+           
+           
+   
 ## Mongo DB
-
 
 Mongo DB has been the choice of database use (document-orientated database) where data is stored in key and field format (JSON).
 A database and collecetion created as below:
@@ -84,6 +147,7 @@ Config Vars added:
 
 ```app.config["MONGO_DBNAME"]= 'DBNAME'``` <br>
 ```app.config["MONGO_URI"] = mongosrv added ```
+
 
 #### Collection - recipe
 
