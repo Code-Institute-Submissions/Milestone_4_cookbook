@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {%block content %}
-<div class="bg-img">
+<main class="bg-img">
     <a href=" {{ url_for('index') }}"><i class="material-icons close-icon">highlight_off</i></a>
     <div class="container">
         <h2 class="title"><strong>Add Recipe</strong></h2>
@@ -47,11 +47,10 @@
                 <div class="input-field col s12">
                     {{ form.hidden_tag() }} {{ form.source(placeholder="https://www.bbcgoodfood.com/recipes/1167651/chicken-and-chorizo-jambalaya") }}
                     <label for="source">Source URL</label>
-                <div class= "submit-button">
+                </div>    
                 <button class="btn waves-effect my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
-          </div>
-        </form>
-    </div>
+           </form>
+    </main>
     
     
     <!--End of add recipe form-->

@@ -23,9 +23,9 @@
 {% endfor %} {% endif %} {% endwith %}
 
 <!-- Page Layout here -->
-<div class="page-container section">
+<main class="page-container section">
 
-    <!--Recipe Name and Description    -->
+    <!--Recipe Name and Description-->
     <div class="row">
         <div class="col m7">
             <h3 class="main-heading">{{ recipe.recipe_name }}</h3>
@@ -56,23 +56,10 @@
                 <h4 class="center-align ingredients-section">Ingredients</h4>
                 <p class="section recipe-ingredients" style="white-space: pre-wrap;">{{ recipe.ingredients }}</p>
             </div>
-            <div class="section">
-                <h4 class="center-align ingredients-section">Recipe Method</h4>
-                <p class="section recipe-ingredients">
-                    <ol class= recipe-ingredients>
-                        <li>{{ recipe.instruction }}</li><br><br>
-                        <li>{{ recipe.instruction1 }}</li><br><br>
-                        <li>{{ recipe.instruction2 }}</li><br><br>
-                        <li>{{ recipe.instruction3 }}</li><br><br>
-                        <li>{{ recipe.instruction4 }}</li><br><br>
-                        <li>{{ recipe.instruction5 }}</li>
-                    </ol>
-                </p>
-
-            </div>
-
+            
             <!-- End of Recipe Ingredients-->
-
+            
+            <p class="centre-align source-btn"><a href="{{ recipe.source }}" class="waves-effect waves-light btn btn-style">Get Cooking</a></p>
             <!--Recipe - Health and Diet labels-->
             <div class="section row">
                 <div class="col s6">
@@ -111,7 +98,7 @@
 
     </div>
     <!-- end of page section -->
-</div>
+</main>
 
 
 {% endblock %} {% block footer %}{% include '_footer.html' %} {% endblock %}

@@ -1,11 +1,15 @@
 # Importing - Setup Flask
 
-import os,math,re
-from flask import Flask, render_template, redirect, request, url_for, flash, session
+import os
+import math
+import re
+
 from flask_pymongo import PyMongo, pymongo
-from bson.objectid import ObjectId
-from forms import LoginForm, RegistrationForm, RecipeForm
-from werkzeug.security import generate_password_hash, check_password_hash
+from bson.objectid import ObjectId	
+from forms import LoginForm, RegistrationForm, RecipeForm	
+from werkzeug.security import generate_password_hash, check_password_hash		
+from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import session
 
 
 
@@ -45,7 +49,7 @@ def recipe(recipe_id):
     """Route for viewing a single recipe"""
     a_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     
-    if session:		
+    if 'logged_in'in session:		
 	        current_user = mongo.db.user.find_one({'name': session['username'].title()})		
 	        return render_template('recipe.html', recipe=a_recipe, title=a_recipe['recipe_name'], current_user=current_user)		
 
@@ -229,9 +233,9 @@ def delete_recipe(recipe_id):
         
 # Add Likes to each Recipe
 
-@app.route('/i-made-it/<recipe_id>')
+@app.route('/i-made-this/<recipe_id>')
 def i_made_it(recipe_id):
-    """ Funtion to increment the counte i-made-it counter"""
+    """ Function to increment the counter i-made-it counter"""
     mongo.db.recipe.find_one_and_update (
         {'_id':ObjectId(recipe_id)},
         {'$inc': {'i-made-it': 1}})
@@ -306,7 +310,7 @@ def page_not_found(e):
     return render_template('404.html', title="Page not found!"),404
     
 @app.errorhandler(500)
-def internale_server_error(e):
+def internal_server_error(e):
     """Route for hadnling 500 server error"""
     return render_template('500.html',title="Internal Server Error"),500
 

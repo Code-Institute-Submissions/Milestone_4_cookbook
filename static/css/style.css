@@ -2,9 +2,8 @@
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  overflow-x:hidden;
+ margin: 0;
+ height:100%!important;
 }
 
 
@@ -68,19 +67,14 @@ div {
 }
 
 
-
-.caret {
-  position: absolute;
-  right: 0;
-  left: 220px;
-  top: 0px;
-  bottom: 0;
-  margin: auto 0px;
-  z-index: 0;
-}
-
 .inner-card-container {
   margin-top: 5rem;
+}
+
+.results {
+  font-family: 'Margarine', cursive;
+  font-size: 1.5em;
+  color: #000;
 }
 
 
@@ -95,10 +89,15 @@ div {
   font-size: 1.5em;
 }
 
+input[type=text]:not(.browser-default) {
+  letter-spacing: 2px;
+}
+
 .ingredients-section {
   font-family: 'Margarine', cursive;
   font-size: 2em;
-  font-style:normal;
+  font-style: normal;
+  letter-spacing: 1px;
 }
 
 .nut-icons {
@@ -119,7 +118,7 @@ div {
 
 .inner-card-icon {
   margin-right: 10px;
-  }
+}
 
 /*Ingredients*/
 
@@ -129,9 +128,8 @@ div {
 
 /*labels*/
 
-option {
+label {
   color: #000;
-
 }
 
 
@@ -153,7 +151,7 @@ option {
   justify-content: center;
   font-family: cursive;
   font-size: 1.2em;
-  color:#f26226;
+  color: #f26226;
 
 }
 
@@ -226,6 +224,7 @@ a:hover {
 
 .ingredients-section {
   padding: 0rem 2rem;
+  text-transform: uppercase;
 }
 
 .labels {
@@ -234,16 +233,18 @@ a:hover {
 }
 
 .input-field>label {
-  font-size: 20px;
-  letter-spacing: 2px;
-
+  font-size: 15px;
+  letter-spacing: 1px;
+  color:orange;
 }
 
 /*Alert Box*/
 
 #alert_box {
   margin-bottom: 0;
-  width: 80%
+  width: 100%;
+  padding-top:5px;
+  font-size:30px;
 }
 
 .alert {
@@ -263,7 +264,7 @@ a:hover {
 .tp-search {
   display: flex;
   align-items: center;
-  background: #f7f7f7;
+  background-color: #f7f7f7;
   width: 100%;
   border-bottom: solid 1px #e4e6eb;
   height: 15vh;
@@ -293,8 +294,8 @@ a:hover {
 /*Register Page styles*/
 
 .outer-container {
-  height: 100vh;
-  width: 100vw;
+  min-height:100%;
+  height: 100%;
   overflow-y: hidden;
   justify-content: center;
   margin: 0;
@@ -355,9 +356,7 @@ a:hover {
 
 /*Buttons */
 
-.my-btn,
-.restrict-btn,
-.source-btn {
+.my-btn  {
   border-radius: 2px;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -373,30 +372,46 @@ a:hover {
   outline: none;
   font-family: 'Margarine', cursive;
   margin-top: 34px;
-  }
+ 
+}
+
+
+.restrict-btn {
+  padding: 10px 10px 10px;
+  font-size:20px;
+  font-family: 'Margarine', cursive;
+}
+
+.restrict-btn {
+  background-color: #f26226;
+}
+
+.my-btn {
+  text-align:center;
+}
 
 .section {
   text-align: center;
 }
 
 .restrict-btn {
-  margin-left:45px;
+  margin-left: 45px;
 }
 
 .btn-centre,
-.btn-style{
+.btn-style {
   font-family: 'Margarine', cursive;
   text-align: center;
-  color:#000;
+  color: #000;
   text-decoration: none;
-  font-size:15px;
-  }
-  
-  .btn-style {
-    background-color: #f26226;
-  }
-  
-  
+  font-size: 15px;
+}
+
+.btn-style {
+  background-color: #f26226;
+}
+
+
 .btn-style:hover {
   background-color: #2e62af;
   color: #fff
@@ -423,8 +438,7 @@ a:hover {
   font-size: 20px;
   border-color: #f26226;
   outline: none;
-  background-color: #f26226;
-  color: #000;
+  background-color: transparent;
   font-family: 'Margarine', cursive;
 }
 
@@ -433,6 +447,24 @@ a:hover {
   background-color: #2e62af;
 }
 
+.nav-btn {
+  background-color: transparent;
+  font-family:'Margarine', cursive;
+  font-size:15px;
+}
+
+.nav-btn:hover {
+  background-color:#d3d3d3;
+}
+
+.input-field .prefix.active,
+.input-field.col .prefix ~ label{
+  color: #f26226;
+}
+
+#password {
+color:#fff;  
+}
 .my-btn {
   border-radius: 2px;
   -moz-user-select: -moz-none;
@@ -455,19 +487,18 @@ a:hover {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-top:10px;
+  margin-top: 10px;
 
 }
 
 .submit-button {
-  text-align:center;
+  text-align: center;
 }
 
 .my-btn:hover {
   background-color: rgba(46, 98, 175, 0.9);
   color: #fff
 }
-
 
 .filter-btn {
   background-color: #f26226;
@@ -476,33 +507,43 @@ a:hover {
   user-select: none;
   color: #000;
   text-decoration: none;
+  font-size: 1em;
   font-family: 'Margarine', cursive;
 }
 
 .filter-btn:hover {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background-color: #2e62af;
   color: #fff;
+  font-family: 'Margarine', cursive;
+}
+
+.filter-btn:hover:after {
+  background-color: #2e62af;
 }
 
 #mytop {
   position: fixed;
   bottom: 100px;
   right: 30px;
-  z-index:80;
+  z-index: 80;
   font-size: 18px;
-  background-color:#f26226;
+  background-color: #f26226;
   color: 000;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
-  font-family:'Margarine', cursive;
-  opacity:0.5;
+  font-family: 'Margarine', cursive;
+  opacity: 0.5;
 }
 
 #mytop:hover {
   background-color: #2e62af;
-  color:#fff;
+  color: #fff;
 }
+
 /*Footer Styles*/
 
 .ft-me {
@@ -531,10 +572,9 @@ a:hover {
 
 .wrapper {
   min-height: 100%;
-  margin-bottom: -94px;
+  margin-bottom: -110px;
   overflow: hidden;
 }
-
 
 .site-footer,
 .push {
@@ -630,7 +670,6 @@ nav ul a:hover {
 
 .btn-space {
   margin: 0px 20px;
-
 }
 
 /*Logo*/
@@ -694,7 +733,7 @@ nav ul a:hover {
 }
 
 textarea.materialize-textarea {
-  color:#fff;
+  color: #fff;
 }
 
 
@@ -739,6 +778,9 @@ textarea.materialize-textarea {
   font-size: 18px;
 }
 
+a {
+  color: blue;
+}
 
 /* Database Query Search Box*/
 
@@ -764,6 +806,7 @@ textarea.materialize-textarea {
 .error-text {
   text-align: center;
   color: black;
+  font-size: 1.5em;
 }
 
 .error-title {
@@ -774,12 +817,12 @@ textarea.materialize-textarea {
 /*Profile */
 
 .profile-container {
-   width: 250px;
+  width: 250px;
   margin: auto;
 }
 
 .img-responsive img {
-  width:100;
+  width: 100;
 }
 
 .heading {
@@ -789,10 +832,10 @@ textarea.materialize-textarea {
 }
 
 .profile-img {
-  margin-top:2em;
+  margin-top: 2em;
 }
 
-.text{
+.text {
   font-size: 20px;
 }
 
@@ -836,19 +879,6 @@ textarea.materialize-textarea {
 }
 
 /* Login/register Media Queries */
-
-/*@media only screen and (min-width: 1600px) {*/
-/*  .inner-container {*/
-/*    min-width: 500px;*/
-/*    margin-top: 50%;*/
-/*  }*/
-/*}*/
-
-/*@media only screen and (max-width:1024px){*/
-/*.input-field {*/
-/* font-size:0.55em; */
-/*}*/
-/*}*/
 
 
 @media only screen and (max-width: 768px) {
@@ -974,31 +1004,40 @@ textarea.materialize-textarea {
   }
 }
 
-@media (min-width:700px) and (max-width:800px){
+@media (min-width:700px) and (max-width:800px) {
   #ingredients.materialize-textarea {
-  font-size:13px;
- 
+    font-size: 13px;
+
+  }
+
+  #description.materialize-textarea {
+    font-size: 13px;
+
+  }
 }
 
-#description.materialize-textarea {
-  font-size:13px;
+@media (min-width:300px) and (max-width:500px) {
+  #ingredients.materialize-textarea {
+    font-size: 11px;
+    line-height: 14px;
+
+  }
+
+  #description.materialize-textarea {
+    font-size: 11px;
+    line-height: 14px;
+
+  }
 
 }
-}
 
-@media (min-width:300px) and (max-width:500px){
-    #ingredients.materialize-textarea {
-  font-size:11px;
-  line-height:14px;
- 
-}
-
-#description.materialize-textarea {
-  font-size:11px;
-  line-height:14px;
-
-}
+@media (max-width:500px){
+  .input-field>label {
+  font-size: 15px;
+  letter-spacing: 0px;
   
+
+}
 }
 
 @media(max-width:900px) {
@@ -1013,10 +1052,10 @@ textarea.materialize-textarea {
   }
 }
 
-  .clear {
-    font-size:1.2rem;
-    letter-spacing: 2.5px;
-  }
+.clear {
+  font-size: 1.2rem;
+  letter-spacing: 2.5px;
+}
 
 @media(max-width:700px) {
   .restrict-btn {
@@ -1068,39 +1107,39 @@ textarea.materialize-textarea {
 }
 
 @media (min-width:780px) {
-  
-.inner-card-icon {
-  margin-right: 10px;
-  margin-left:10px;
+
+  .inner-card-icon {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
 @media (max-width:500px) {
   .inner-card-icon {
-  margin-right: 10px;
-  margin-left:10px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:768px) {
   #mytop {
-    bottom:400px;
+    bottom: 400px;
   }
-  
+
   .restrict-btn {
-   text-align:none;
+    text-align: none;
   }
 }
 
-@media only screen and (min-wdith:600px) and (max-width:1024px){
-  .tp-search:{
-    height:10vh;
+@media only screen and (min-wdith:600px) and (max-width:1024px) {
+  .tp-search: {
+    height: 10vh;
   }
+}
+
+@media only screen and (max-width:700px) {
+  .tp-search {
+    height: 29vh;
   }
 
-@media only screen and (max-width:700px){
-  .tp-search {
-    height:29vh;
-  }
-  
- }
+}

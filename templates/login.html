@@ -12,10 +12,10 @@
                 <p class="flashMessage">{{ message }}</p>
                 {% endfor %} {% endif %} {% endwith %}
                 <div class="input-field">
-                    {{ form.hidden_tag() }} {{ form.username(size=32, autofocus=true, required=true, placeholder="Enter username") }}
+                    {{ form.hidden_tag() }} {{ form.username(size=32, autofocus=true, required=true,placeholder="Enter username") }}
                 </div>
                 <div class="input-field">
-                    {{ form.password(size=32, required=true, placeholder="Enter password") }}
+                    {{ form.password(size=32, required=true,placeholder="Enter password") }}
                 </div>
                 <div class="pot-section">Not registered? Click <a class="register" href ="{{ url_for('register') }}">here.</a></div>
                 <button class="btn waves-effect my-btn section hoverable" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
