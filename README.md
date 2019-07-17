@@ -2,10 +2,10 @@
 
 # Cookbook - Milestone Project 4 
 
-<p>The data centric development module requires a project to be built using : MongoDB, HTML, CSS, JavaScript , Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to browse through recipes, allow addition of recipes , allow allergens and ingredients to be displayed. 
+<p>The data centric development module requires a project to be built using: MongoDB, HTML, CSS, JavaScript , Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to browse through recipes, allow addition of recipes, allow removal of recipes, allow allergens and ingredients to be displayed. 
 
 The user is able to add and delete recipes from the web application and filter according to allergen information and health information. Finally a basic user and password registration will be added to the site for the user to access and login into the cookbook web application in order to edit and delete recipes they have added </p>
-The user login and password application is not secure as the project brief does not cover this scope.
+The user login and password application is not secure as the project brief does not cover this scope and authentication will be covered in the next module.
 
 <strong>Please note this website is only for educational purposes to fulfil the criteria for Milestone 4 Data Centric Development Project </strong>
 <hr>
@@ -20,24 +20,23 @@ The web application should fulfil the CRUD operations.
 
 ### Create
 
-<p>The user should be able to create recipes.</p>
+<p>The user should be able to create recipes through filling in the add recipe form.</p>
 
 ### Read
 
-<p> The non-logged in and non-registered user should be able to read the recipes </p>
+<p> The non-logged in and non-registered user should be able to read the recipes as well as registered and logged in users who can view their own profile of added recipes. </p>
 
 
 ### Update
 
-<p> The user should be able to edit recipes. </p>
-
+<p> The user should be able to edittheir own recipes. A 404 page should appear if they click 'Edit' to edit author's recipes and the user is able to return to the homepage </p>
 
 
 ### Delete 
 
-<p> The user should be able to delete recipes. </p>
+<p> The user should be able to delete their own recipes. </p>
 
-The user interface is simple and easy to understand with an image of finished dish.
+The user interface is simple and easy to understand with an image of the finished dish.
 
 
 <hr>
@@ -47,10 +46,10 @@ The user interface is simple and easy to understand with an image of finished di
 <p> A User should be able to : </p>
 <ul>
 <li> View the site from any device - should be responsive design in desktop, laptop, mobile and tablet views. </li>
-<li> As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and instructions, search for a recipe, filter according to health and diet labels and view instructions on how to cook that particular recipe.</li>
+<li> As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and receipe method 'Get Cooking' button, search for a recipe, filter according to health and diet labels.</li>
 <li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
 <li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
-<li>  A user should be able to register an login to the site. </li>
+<li>  A user should be able to register and login to the site. </li>
 <li> A user should be able to add and delete their own recipes once they are a registered user and have logged in.</li>
 </ul>
 
@@ -71,10 +70,13 @@ desktop and mobile versions.</p>
 
 ###  Recipe Insertion
 
-<p> The recipe were inserted using the import.py script. First a connection to the MongoDB database was made as indicated below and then the api through the api_key. The collection name and then the fields were inserted as indicated below. </p
+<p> The recipe were inserted through the import.py script. First a connection to the MongoDB database was made as indicated below and then the api through the api_key. The collection name and then the fields were inserted as indicated below. </p>
 
-# config vars
+#### Config Vars
 
+<p> AWS is conneceted to the database as below</p>
+
+```
 app = Flask(__name__)
 
 MONGODB_URI= os.getenv("MONGO_URI")
@@ -85,22 +87,13 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mon
 
 mongo = PyMongo(app)
 
-# Connecting to database
+```
 
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print('Mongo is connected')
-        return conn
-    except pymongo.errors.ConnectionFailure as e:
-        print('Could not connect to MongoDB: %s') % e
+#### Collection Name set and Recipe insertion through API
 
-# Assigning our connection to connect to MongoDB
+<p> The fields below are inserted into the collection. The data is extracted through the api </p>
 
-conn = mongo_connect(MONGODB_URI)
-
-# Set collection name 
-
+```
 coll = conn[DBS_NAME][COLLECTION_NAME]
 
 url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
@@ -129,9 +122,21 @@ recipe = {
               
           }
            }
-           
-           
-   
+```
+
+#### Imported into Collection
+
+<p> Through the pprint function, the data is inputed into the collection fields <p>
+
+```
+pprint(recipe)
+i = input("Y/N: ")
+if i == "Y":
+    coll = mongo.db.recipe
+    coll.insert_one(recipe)
+```    
+
+
 ## Mongo DB
 
 Mongo DB has been the choice of database use (document-orientated database) where data is stored in key and field format (JSON).
@@ -165,15 +170,14 @@ Config Vars added:
 <li> description - data type is 'string'</li>
 </ul>
 
-<p> It was decided at a later stage to include full instructions of recipe preparation rather than direct the user to an alternative site using a button linked to. There following additional fields were added below to the collection:  </p>
-
+<p> It was decided at a later stage to not include full instructions of recipe preparation but use a 'Get Cooking' button which directs the user to a site where the recipe instructions are contained.
 <ul>
 <li> instructions - five fields - data type is 'string'</li>
 </ul>
 
 #### Collection - user
 
-When users register , there usernames are inserted into the the collection user in the database.
+When users register , there usernames are stored into the the collection user in the database.
 
 <hr>
 
@@ -185,7 +189,7 @@ Two main search options exist:
 
 <ol>
 <li> Search Box : User is able to search by typing in a recipe name e.g 'Bhindi Kadhi' to filter through the 12 recipes to bring up the chosen recipe.</li><br>
-<li> Filter Options: User can filter using Diet and Health labels to choose the options presented. They can only filter for one option at time. </li>
+<li> Filter Options: User can filter using diet and health labels to choose the options presented.</li>
 </ol>
 </p>
 <hr>
@@ -260,25 +264,20 @@ The website was tested on the following devices and the website was found to dis
     
 
 
-### Coding Bugs
-
-
 ## Testing User Stories
 
 <p> A potential user/user is able to view the recipes fully with instructions without registering and logging in. A registered and logged in user has the
 additional benifit of : adding, deleting and editing their recipes. The recipes which have been imported by author of the website are protected from being deleted.
-The user unfortunately is not able to reselect the filter options once selected and filtered.  The user is not able to search for a recipe due to the
-the 'TypeError' mentioned in 'Coding Bugs'.</p>
+The user is able to filter recipes through the diet and health filters and search for a receipe through the search box.</p>
 
 #### CRUD operations testing
 
 ##### Create
-<p> The logged in user is able to create recipes through the add recipe form nce logged in. </p>
+<p> The logged in user is able to create recipes through the add recipe form once logged in. </p>
 
 ##### Read
 
 <p> The user is able to view recipes fully. </p>
-
 
 ##### Update
 <p> The logged in user is able to edit their own  added recipes. </p>

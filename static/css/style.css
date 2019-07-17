@@ -6,7 +6,9 @@ body {
  height:100%!important;
 }
 
-
+.materialize-textarea {
+  color: #f26226;
+}
 
 /*Headings */
 
