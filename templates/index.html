@@ -1,57 +1,53 @@
-    <!DOCTYPE html>
-<html lang="en">
-
-<body>
-    {% extends 'base.html' %} {% block nav %} {% include '_navbar.html' %} {% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-    <!--alert box-->-->
-    <div class="row" id="alert_box">
-        <div class="col s12 m12">
-            <div class="card-alert alert-bg">
-                <div class="row">
-                    <div class="col s12 m12">
-                        <div class="card-content-alert white-text">
-                            <p class="alert">{{ message }}</p>
-                        </div>
+{% extends 'base.html' %} {% block nav %} {% include '_navbar.html' %} {% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<!--alert box-->-->
+<div class="row" id="alert_box">
+    <div class="col s12 m12">
+        <div class="card-alert alert-bg">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card-content-alert white-text">
+                        <p class="alert">{{ message }}</p>
                     </div>
-                    <div class="col s12 m2">
-                        <i class="fa fa-times icon_style" id="alert_close" aria-hidden="true"></i>
-                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <i class="fa fa-times icon_style" id="alert_close" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--End of alert box-->
+<!--End of alert box-->
 
-    {% endfor %} {% endif %} {% endwith %}
+{% endfor %} {% endif %} {% endwith %}
 
-    <!--Search Box-->
-    <div class="content">
-        <div class="row tp-search">
-            <div class="col s12 m9 container-fluid">
-                <form action="{{ url_for('search') }}" class="search-form">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">youtube_searched_for</i>
-                        <input type="text" id="db_query" name="db_query" placeholder="Search">
-                        <button class="btn search-btn" type="submit">GO<i class="material-icons right">send</i></button>
-                    </div>
-                </form>
-            </div>
+<!--Search Box-->
+<div class="content">
+    <div class="row tp-search">
+        <div class="col s12 m9 container-fluid">
+            <form action="{{ url_for('search') }}" class="search-form">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">youtube_searched_for</i>
+                    <input type="text" id="db_query" name="db_query" placeholder="Search">
+                    <button class="btn search-btn" type="submit">GO<i class="material-icons right">send</i></button>
+                </div>
+            </form>
         </div>
-        <!--End of search box      -->
+    </div>
+    <!--End of search box      -->
 
 
-        <!-- Page Layout here -->
+    <!-- Page Layout here -->
 
-        <!--diet options-->
-        <div class="row">
-            <div class="col s12 m3">
-                <ul class="collapsible">
-                    <li class="active">
-                        <div class="collapsible-header">Diet Labels<i class="material-icons dropdown-icon hide-on-small-only">arrow_drop_down</i></div>
-                        <div class="collapsible-body">
-                            <form method="POST" action="{{ url_for('filtered') }}">
-                                <select multiple name="diet_labels">
+    <!--Diet Options-->
+    <div class="row">
+        <div class="col s12 m3">
+            <ul class="collapsible">
+                <li class="active">
+                    <div class="collapsible-header">Diet Labels<i class="material-icons dropdown-icon hide-on-small-only">arrow_drop_down</i></div>
+                    <div class="collapsible-body">
+                        <form method="POST" action="{{ url_for('filtered') }}">
+                            <select multiple name="diet_labels">
                               <option ="" disabled selected>Choose your options</option>
                               <option ="Low-Carb">Low-Carb</option>
                               <option ="Fat-Free">Fat-Free</option>
@@ -59,20 +55,20 @@
                               <option ="High-Protein">High-Protein</option>
                               <option ="Balanced">Balanced</option>
                             </select>
-                                <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-                <!--End of diet options-->
+                            <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+            <!--End of diet options-->
 
-                <!--health options-->
-                <ul class="collapsible">
-                    <li class="active">
-                        <div class="collapsible-header">Health Labels<i class="material-icons dropdown-icon hide-on-small-only">arrow_drop_down</i></div>
-                        <div class="collapsible-body">
-                            <form method="POST" action="{{ url_for('filtered') }}">
-                                <select multiple name="health_labels">
+            <!--Health Options-->
+            <ul class="collapsible">
+                <li class="active">
+                    <div class="collapsible-header">Health Labels<i class="material-icons dropdown-icon hide-on-small-only">arrow_drop_down</i></div>
+                    <div class="collapsible-body">
+                        <form method="POST" action="{{ url_for('filtered') }}">
+                            <select multiple name="health_labels">
                               <option ="" disabled selected> Choose your options</option>
                               <option ="Sugar-Conscious">Sugar-Conscious</option>
                               <option ="Peanut-Free">Peanut-Free</option>
@@ -81,87 +77,82 @@
                               <option ="Vegan">Vegan</option>
                               <option ="Vegetarian">Vegetarian</option>
                             </select>
-                                <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                            <button class="btn waves-effect waves-light filter-btn" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            <!--End of health options-->
+        <!--End of health options-->
 
-            <!--Inner card reveal and content-->
-            <div class="col s12 m9">
-                {% for r in recipe %}
-                <div class="col s12 m4">
-                    <div class="card hoverable">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{{ r['recipe_image'] }}">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4 left-align">{{ r.recipe_name }}<i class="material-icons right">arrow_drop_up</i></span>
-                            <p><a class="view" href="{{url_for('recipe', recipe_id=r._id)}}">View Recipe</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title" id="inner-title">{{ r.recipe_name }}<i class="material-icons inner-close-icon">close</i></span>
-                            <div class="inner-card-container">
-                                <div class="row inner-card-row">
-                                    <div class="container-fluid icons-container">
-                                        <div class="col s4 ">
-                                            <i class="medium material-icons inner-card-icon">timer</i>
-                                        </div>
-                                        <div class="col s4">
-                                            <i class="medium material-icons  inner-card-icon">local_dining</i>
-                                        </div>
-                                        <div class="col s4">
-                                            <i class="medium material-icons  inner-card-icon">whatshot</i>
-                                        </div>
+        <!--Inner card reveal and content-->
+        <div class="col s12 m9">
+            {% for r in recipe %}
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ r['recipe_image'] }}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4 left-align">{{ r.recipe_name }}<i class="material-icons right">arrow_drop_up</i></span>
+                        <p><a class="view" href="{{url_for('recipe', recipe_id=r._id)}}">View Recipe</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title" id="inner-title">{{ r.recipe_name }}<i class="material-icons inner-close-icon">close</i></span>
+                        <div class="inner-card-container">
+                            <div class="row inner-card-row">
+                                <div class="container-fluid icons-container">
+                                    <div class="col s4 ">
+                                        <i class="medium material-icons inner-card-icon">timer</i>
+                                    </div>
+                                    <div class="col s4">
+                                        <i class="medium material-icons  inner-card-icon">local_dining</i>
+                                    </div>
+                                    <div class="col s4">
+                                        <i class="medium material-icons  inner-card-icon">whatshot</i>
                                     </div>
                                 </div>
-                                <div class="row inner-card-row">
+                            </div>
+                            <div class="row inner-card-row">
 
-                                    <div class="col s4">
-                                        <p class="valign-wrapper inner-card-text"> Time: {{ r.cooking_time }} Min</p>
-                                    </div>
-                                    <div class="col s4">
-                                        <p class="valign-wrapper  inner-card-text">Servings: {{ r.serving_size }}</p>
-                                    </div>
-                                    <div class="col s4">
-                                        <p class="valign-wrapper  inner-card-text">Calories: {{ r.calories }}</p>
-                                    </div>
+                                <div class="col s4">
+                                    <p class="valign-wrapper inner-card-text"> Time: {{ r.cooking_time }} Min</p>
+                                </div>
+                                <div class="col s4">
+                                    <p class="valign-wrapper  inner-card-text">Servings: {{ r.serving_size }}</p>
+                                </div>
+                                <div class="col s4">
+                                    <p class="valign-wrapper  inner-card-text">Calories: {{ r.calories }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!--End of inner card reveal and content-->
-
-                {% endfor %}
-                
-                <!--Back to the top button-->
-                <button onclick="topFunction()" id="mytop" title="Go to top">Top</button>
-                <!--End of back to the top button-->
-                
-                <!--Pagination  -->
-                <ul class="pagination">
-                    <li class="disabled"><i class="material-icons">chevron_left</i></li>
-                    {% for page_number in pages %} {% if page_number == current_page %}
-                    <li class="active"><a>{{ page_number }}</a></li>
-                    {% else %}
-                    <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}">{{ page_number }}</a></li>
-                    {% endif %} {% endfor %}
-                    <li class="disabled"><i class="material-icons">chevron_right</i></li>
-                </ul>
-                <!-- end of col-9 -->
             </div>
-            <!-- end of row -->
+
+            <!--End of inner card reveal and content-->
+
+            {% endfor %}
+
+            <!--Back to the top button-->
+            <button onclick="topFunction()" id="mytop" title="Go to top">Top</button>
+            <!--End of back to the top button-->
+
+            <!--Pagination  -->
+            <ul class="pagination">
+                <li class="disabled"><i class="material-icons">chevron_left</i></li>
+                {% for page_number in pages %} {% if page_number == current_page %}
+                <li class="active"><a>{{ page_number }}</a></li>
+                {% else %}
+                <li class="waves-effect"><a href="{{ url_for('index', current_page=page_number) }}">{{ page_number }}</a></li>
+                {% endif %} {% endfor %}
+                <li class="disabled"><i class="material-icons">chevron_right</i></li>
+            </ul>
+            <!-- end of col-9 -->
         </div>
+        <!-- end of row -->
     </div>
+</div>
 
-
-
-    {% endblock %} {% block footer %} {% include '_footer.html' %} {% endblock %}
-</body>
-
-</html>
+{% endblock %} {% block footer %} {% include '_footer.html' %} {% endblock %}

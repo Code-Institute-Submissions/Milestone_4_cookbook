@@ -3,7 +3,6 @@
 import os
 import math
 import re
-
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId	
 from forms import LoginForm, RegistrationForm, RecipeForm	
@@ -30,8 +29,11 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    """Route lets users see all recipes"""
-    page_limit = 6 #Logic for pagination
+    """
+    Route lets users see all recipes
+    
+    """
+    page_limit = 6 # Logic for pagination
     current_page = int(request.args.get('current_page', 1))
     total = mongo.db.recipe.count()
     pages = range(1, int(math.ceil(total / page_limit)) + 1)
@@ -318,4 +320,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),
     debug=True)
-    

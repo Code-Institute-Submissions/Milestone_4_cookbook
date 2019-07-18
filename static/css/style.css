@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
 
+
+/*HTML and Body */
+
 html,
 body {
- margin: 0;
- height:100%!important;
+  margin: 0;
+  height: 100%!important;
 }
 
-.materialize-textarea {
-  color: #f26226;
-}
 
 /*Headings */
 
@@ -237,7 +237,7 @@ a:hover {
 .input-field>label {
   font-size: 15px;
   letter-spacing: 1px;
-  color:orange;
+  color: orange;
 }
 
 /*Alert Box*/
@@ -245,8 +245,8 @@ a:hover {
 #alert_box {
   margin-bottom: 0;
   width: 100%;
-  padding-top:5px;
-  font-size:30px;
+  padding-top: 5px;
+  font-size: 30px;
 }
 
 .alert {
@@ -296,7 +296,7 @@ a:hover {
 /*Register Page styles*/
 
 .outer-container {
-  min-height:100%;
+  min-height: 100%;
   height: 100%;
   overflow-y: hidden;
   justify-content: center;
@@ -358,7 +358,7 @@ a:hover {
 
 /*Buttons */
 
-.my-btn  {
+.my-btn {
   border-radius: 2px;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -374,31 +374,20 @@ a:hover {
   outline: none;
   font-family: 'Margarine', cursive;
   margin-top: 34px;
- 
+
 }
 
-
-.restrict-btn {
-  padding: 10px 10px 10px;
-  font-size:20px;
-  font-family: 'Margarine', cursive;
+.source-btn {
+  padding:10px 10px 10px;
 }
-
-.restrict-btn {
-  background-color: #f26226;
-}
-
 .my-btn {
-  text-align:center;
+  text-align: center;
 }
 
 .section {
   text-align: center;
 }
 
-.restrict-btn {
-  margin-left: 45px;
-}
 
 .btn-centre,
 .btn-style {
@@ -419,11 +408,6 @@ a:hover {
   color: #fff
 }
 
-
-.restrict-btn:hover {
-  background-color: #2e62af;
-  color: #fff;
-}
 
 .search-btn {
   border-radius: 2px;
@@ -451,22 +435,23 @@ a:hover {
 
 .nav-btn {
   background-color: transparent;
-  font-family:'Margarine', cursive;
-  font-size:15px;
+  font-family: 'Margarine', cursive;
+  font-size: 15px;
 }
 
 .nav-btn:hover {
-  background-color:#d3d3d3;
+  background-color: #d3d3d3;
 }
 
 .input-field .prefix.active,
-.input-field.col .prefix ~ label{
+.input-field.col .prefix~label {
   color: #f26226;
 }
 
 #password {
-color:#fff;  
+  color: #fff;
 }
+
 .my-btn {
   border-radius: 2px;
   -moz-user-select: -moz-none;
@@ -533,7 +518,7 @@ color:#fff;
   z-index: 80;
   font-size: 18px;
   background-color: #f26226;
-  color: 000;
+  color: #000;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
@@ -824,7 +809,7 @@ a {
 }
 
 .img-responsive img {
-  width: 100;
+  width: 100%;
 }
 
 .heading {
@@ -844,8 +829,6 @@ a {
 
 /*Media Queries*/
 
-/*Navbar */
-
 /* Home page media queries */
 
 @media only screen and (max-width: 992px) {
@@ -855,9 +838,6 @@ a {
     right: 10px;
   }
 }
-
-
-
 
 
 /*Button media queries*/
@@ -881,7 +861,6 @@ a {
 }
 
 /* Login/register Media Queries */
-
 
 @media only screen and (max-width: 768px) {
   .title {
@@ -907,6 +886,33 @@ a {
   }
 
 
+}
+
+
+@media (min-width: 600px) {
+  .inner-container {
+    min-width: 90%;
+    margin-top: 50%;
+  }
+
+  .input-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+  }
+  input[type=text]:not(.browser-default) {
+    font-size: 20px;
+  }
+  .btn i {
+    font-size: 1.4rem;
+  }
+  .my-btn {
+    font-size: 20px;
+    height: 50.88px;
+    padding: 0 13px;
+    font-weight: 400;
+
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -978,33 +984,7 @@ a {
   }
 }
 
-/* Login/register Media Queries */
-
-@media (min-width: 600px) {
-  .inner-container {
-    min-width: 90%;
-    margin-top: 50%;
-  }
-
-  .input-field {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 20px;
-  }
-  input[type=text]:not(.browser-default) {
-    font-size: 20px;
-  }
-  .btn i {
-    font-size: 1.4rem;
-  }
-  .my-btn {
-    font-size: 20px;
-    height: 50.88px;
-    padding: 0 13px;
-    font-weight: 400;
-
-  }
-}
+/* Ingredients Media Queries */
 
 @media (min-width:700px) and (max-width:800px) {
   #ingredients.materialize-textarea {
@@ -1012,39 +992,43 @@ a {
 
   }
 
-  #description.materialize-textarea {
-    font-size: 13px;
-
-  }
 }
 
 @media (min-width:300px) and (max-width:500px) {
-  #ingredients.materialize-textarea {
+  #ingredients.materialize-textarea,
+  #description.materialize-textarea,
+  #health_labels.materialize-textarea,
+  #dietLabels.materialize-textarea,
+  #source.materilaize-textarea {
     font-size: 11px;
     line-height: 14px;
 
   }
-
-  #description.materialize-textarea {
-    font-size: 11px;
-    line-height: 14px;
-
-  }
-
-}
-
-@media (max-width:500px){
-  .input-field>label {
-  font-size: 15px;
-  letter-spacing: 0px;
   
+}
 
+
+@media(max-width:400px) {
+  #cooking_time,
+  #serving_size,
+  #calories {
+    padding-top:10px;
+    font-size: 11px;
+  }
 }
+
+@media (max-width:500px) {
+  .input-field>label {
+    font-size: 15px;
+    letter-spacing: 0px;
+
+  }
 }
+
+/*Buttons/Logo Media Queries*/
 
 @media(max-width:900px) {
 
-  .restrict-btn,
   .search-btn,
   .source-btn {
     border-radius: 2px;
@@ -1059,11 +1043,6 @@ a {
   letter-spacing: 2.5px;
 }
 
-@media(max-width:700px) {
-  .restrict-btn {
-    font-size: 20px;
-  }
-}
 
 @media(max-width:600px) {
   .logo {
@@ -1127,13 +1106,9 @@ a {
   #mytop {
     bottom: 400px;
   }
+ }
 
-  .restrict-btn {
-    text-align: none;
-  }
-}
-
-@media only screen and (min-wdith:600px) and (max-width:1024px) {
+@media only screen and (min-width:600px) and (max-width:1024px) {
   .tp-search: {
     height: 10vh;
   }

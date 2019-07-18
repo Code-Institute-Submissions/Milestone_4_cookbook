@@ -1,9 +1,9 @@
-<!--Navigation Bar-->
+<!--Navigation Bar on Desktop-->
 <header>
     <nav>
         <div class="nav-wrapper">
             <div class="container">
-                 <a href=" {{ url_for('index')  }}"><span class="v-align logo"><i class=" large material-icons nav-icon">book</i>Pranita's Cookbook</span></a>
+                <a href=" {{ url_for('index')  }}"><span class="v-align logo"><i class=" large material-icons nav-icon">book</i>Pranita's Cookbook</span></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if 'username' in session %}
@@ -16,16 +16,19 @@
                     {% endif %}
                 </ul>
             </div>
+        </div>
     </nav>
-<!--Sidebar - Mobile and Tablet Views-->
+    <!--End of Navigation Bar on desktop    -->
+
+    <!--Sidebar - Mobile and Tablet Views-->
     <ul class="sidenav" id="mobile-demo">
         {% if 'username' in session %}
         <li><a class="nav-btn  " href="{{ url_for('profile_page', user_id=current_user._id) }}">My Recipes</a></li>
         <li><a class="nav-btn " href="{{ url_for('create_recipe') }}">Add recipe</a></li>
         <li><a class="nav-btn" href="{{ url_for('logout') }}">Logout</a></li>
         {% else %}
-        <li><a class= "nav-btn" href="{{ url_for('user_login') }}">Login</a></li>
-        <li><a class= "nav-btn" href="{{ url_for('register') }}">Sign Up</a></li>
+        <li><a class="nav-btn" href="{{ url_for('user_login') }}">Login</a></li>
+        <li><a class="nav-btn" href="{{ url_for('register') }}">Sign Up</a></li>
         {% endif %}
     </ul>
 </header>

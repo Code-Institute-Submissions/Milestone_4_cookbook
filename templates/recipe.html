@@ -70,9 +70,9 @@
                     <h4 class="main-heading">Diet Labels</h4>
                     <p class="center-align labels"> {{ recipe.diet_labels }}</p>
                 </div>
-                <div class="section col-s6">
-                <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a></span>
-                <span class="center-align restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a></span>
+                <div class="section col-s12">
+                <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Edit Recipe</a></span>
+                <span class="center-align restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Delete Recipe</a></span>
             </div>
             </div>
             
