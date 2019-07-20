@@ -56,37 +56,38 @@
                 <h4 class="center-align ingredients-section">Ingredients</h4>
                 <p class="section recipe-ingredients" style="white-space: pre-wrap;">{{ recipe.ingredients }}</p>
             </div>
-            
+
             <!-- End of Recipe Ingredients-->
-            
+
             <p class="centre-align source-btn"><a href="{{ recipe.source }}" class="waves-effect waves-light btn btn-style">Get Cooking</a></p>
             <!--Recipe - Health and Diet labels-->
             <div class="section row">
                 <div class="col s6">
                     <h4 class="main-heading">Health Labels</h4>
-                    <p class="center-align labels">{{ recipe.health_labels }}</p>
+                    <p class="center-align labels labels-2">{{ recipe.health_labels }}</p>
                 </div>
+
                 <div class="col s6">
                     <h4 class="main-heading">Diet Labels</h4>
                     <p class="center-align labels"> {{ recipe.diet_labels }}</p>
                 </div>
-                <div class="section col-s12">
-                <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Edit Recipe</a></span>
-                <span class="center-align restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Delete Recipe</a></span>
+                <div class="col s12 m12">
+                    <span class="center-align restrict-btn "><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Edit Recipe</a></span>
+                    <span class="center-align restrict-btn"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn btn-style">Delete Recipe</a></span>
+                </div>
             </div>
-            </div>
-            
+
             <!--Back to the top button-->
-                <button onclick="topFunction()" id="mytop" title="Go to top">Top</button>
+            <button onclick="topFunction()" id="mytop" title="Go to top">Top</button>
             <!--End of back to the top button-->
-            
+
             <!--End of Recipe- Health and Diet labels-->
 
             <!--Recipe Method-->
 
             <!--Editing and deleting a recipe- only is user is logged in-->
 
-            
+
             <!--end of col-md7 -->
         </div>
         <div class="col m5 img-container section">

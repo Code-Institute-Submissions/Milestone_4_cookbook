@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine");
-
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Margarine|Raleway");
 
 /*HTML and Body */
 
 html,
 body {
-  margin: 0;
   height: 100%!important;
+  margin: 0%!important;
+  width: 100%!important;
 }
 
 
@@ -79,16 +79,22 @@ div {
   color: #000;
 }
 
+.main-boxes {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
 /* Recipe Description and Icons*/
 
 .recipe-description,
 .recipe-ingredients,
 .labels {
-  font-family: 'Margarine', cursive;
+  font-family: 'Raleway', 'sans-serif';
   color: #333333;
   font-style: normal;
   font-size: 1.5em;
+  letter-spacing: 1px;
 }
 
 input[type=text]:not(.browser-default) {
@@ -132,6 +138,14 @@ input[type=text]:not(.browser-default) {
 
 label {
   color: #000;
+}
+
+/*Checkboxes*/
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-bottom: 2px solid #f26226;
+  border-right: 2px solid #f26226;
+  ;
 }
 
 
@@ -378,8 +392,9 @@ a:hover {
 }
 
 .source-btn {
-  padding:10px 10px 10px;
+  padding: 10px 10px 10px;
 }
+
 .my-btn {
   text-align: center;
 }
@@ -692,6 +707,27 @@ nav ul a:hover {
   font-family: 'Margarine', cursive;
 }
 
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #f26226;
+  -webkit-box-shadow: 0 1px 0 0 #f26226;
+  box-shadow: 0 1px 0 0 #f26226;
+
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label {
+  color: #f26226;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solod #f26226;
+}
+
+::placeholder {
+  color: #fff;
+}
+
 /*Add recipes styles*/
 
 .add-recipe {
@@ -972,6 +1008,14 @@ a {
   }
 }
 
+/* labels media queries */
+
+@media (min-width:1024px) and (max-width:1045px) {
+  .labels-2 {
+    margin-top: 62px;
+  }
+}
+
 /*Logo Media Queries*/
 
 @media (max-width:400px) {
@@ -998,13 +1042,23 @@ a {
   #ingredients.materialize-textarea,
   #description.materialize-textarea,
   #health_labels.materialize-textarea,
-  #dietLabels.materialize-textarea,
-  #source.materilaize-textarea {
+  #diet_labels,
+  #source,
+  #recipe_name,
+  #cooking_time,
+  #serving_size,
+  #recipe_image {
     font-size: 11px;
     line-height: 14px;
 
   }
-  
+
+}
+
+@media (min-width:700px) and (max-width:750px) {
+  .diet-heading {
+    margin-top: 62px;
+  }
 }
 
 
@@ -1012,7 +1066,7 @@ a {
   #cooking_time,
   #serving_size,
   #calories {
-    padding-top:10px;
+    padding-top: 10px;
     font-size: 11px;
   }
 }
@@ -1106,7 +1160,7 @@ a {
   #mytop {
     bottom: 400px;
   }
- }
+}
 
 @media only screen and (min-width:600px) and (max-width:1024px) {
   .tp-search: {
