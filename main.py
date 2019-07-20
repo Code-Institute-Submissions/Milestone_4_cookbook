@@ -4,22 +4,19 @@ import os
 import math
 import re
 from flask_pymongo import PyMongo, pymongo
-from bson.objectid import ObjectId	
-from forms import LoginForm, RegistrationForm, RecipeForm	
-from werkzeug.security import generate_password_hash, check_password_hash		
+from bson.objectid import ObjectId
+from forms import LoginForm, RegistrationForm, RecipeForm
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask import session
 
-
-
 #  App Config
-
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"]= 'myCookBook'
+app.config["MONGO_DBNAME"] = 'myCookBook'
 app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true'
 
-SECRET_KEY = os.urandom(32)
+SECRET_KEY =os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 
@@ -27,7 +24,10 @@ mongo = PyMongo(app)
 
 # Routing
 
+# Index Page
+
 @app.route('/')
+
 def index():
     """
     Route lets users see all recipes
@@ -46,6 +46,7 @@ def index():
 
    
 # Viewing Recipe Route
+
 @app.route('/recipe/<recipe_id>', methods=['GET','POST'])
 def recipe(recipe_id):
     """Route for viewing a single recipe"""
@@ -60,7 +61,7 @@ def recipe(recipe_id):
 @app.route('/profile/<user_id>')
 def profile_page(user_id):
     """Route for users to view their profile page"""
-    if 'logged_in' not in session: #Check if its a logged in user
+    if 'logged_in' not in session: # Check if its a logged in user
         flash('Sorry, only logged in users can view the profile page. Please register')
         return redirect(url_for('index'))
     
@@ -72,9 +73,10 @@ def profile_page(user_id):
     
     
 # Search for Recipe Route
+
 @app.route('/search')
 def search():
-    """Route for full text search bar"""
+    # Route for full text search bar
     page_limit = 6 #Logic for pagination
     current_page = int(request.args.get('current_page', 1))
     db_query = request.args['db_query']
@@ -91,7 +93,6 @@ def search():
         
 # Filter search Route
 
-
 @app.route('/filtered_search', methods=['GET', 'POST'])
 def filtered():
     """Logic for filtering recipes collection"""
@@ -107,7 +108,7 @@ def filtered():
                 items = request.form.getlist('diet_labels') # get as a list []
                 my_key = request.form # get as a multdict 
                 for item in items: # iterate through the list
-                    for i in my_key: #grab key_name
+                   for i in my_key: #grab key_name
                         filter_items.append({i: item})
                 results = mongo.db.recipe.find({'$and': filter_items })
                 total_results =  mongo.db.recipe.find({'$and': filter_items }).count()
@@ -163,9 +164,7 @@ def create_recipe():
         'description': request.form['description'],
         'source': request.form['source'],
         'username' : session['username'].title(),
-        'created_by': {
-            '_id': user['_id'],
-            'name': user['name']}})
+        })
         flash('Recipe Added!')
         return redirect(url_for('index'))
     return render_template('add_recipe.html', form=form, title="Add Recipe")
@@ -235,10 +234,10 @@ def delete_recipe(recipe_id):
         
 # Add Likes to each Recipe
 
-@app.route('/i-made-this/<recipe_id>')
+@app.route('/i-made-it/<recipe_id>')
 def i_made_it(recipe_id):
     """ Function to increment the counter i-made-it counter"""
-    mongo.db.recipe.find_one_and_update (
+    mongo.db.recipe.find_one_and_update( 
         {'_id':ObjectId(recipe_id)},
         {'$inc': {'i-made-it': 1}})
     return redirect(url_for('recipe', recipe_id=recipe_id))    
@@ -315,6 +314,7 @@ def page_not_found(e):
 def internal_server_error(e):
     """Route for hadnling 500 server error"""
     return render_template('500.html',title="Internal Server Error"),500
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

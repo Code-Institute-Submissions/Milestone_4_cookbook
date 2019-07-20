@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block nav %} {% include '_navbar.html' %} {% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-<!--alert box-->
+
+<!--Alert Box-->
+
 <div class="row" id="alert_box">
     <div class="col s12 m12">
         <div class="card-alert alert-bg">
@@ -17,8 +19,10 @@
     </div>
 </div>
 
-<!--End of alert box-->
+
 {% endfor %} {% endif %} {% endwith %}
+
+<!--End of Alert Box-->
 
 <!--search box-->
 <div class="row tp-search">
@@ -38,7 +42,7 @@
 <!-- Page Layout here -->
 
 <!--Diet options-->
-<div class="row">
+<div class="row main-boxes">
     <div class="col s12 m3 hide-on-small-only">
         <ul class="collapsible">
             <li class="active">

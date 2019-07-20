@@ -2,18 +2,23 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, IntegerField, PasswordField
 from wtforms.validators import DataRequired, ValidationError, Optional
 
-
 # Login
+
+
 class LoginForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-  
-# Registration
+
+# Register
+
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-  
-# Fields to add own recipes  
+
+# Add Recipe
+
+
 class RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
@@ -23,5 +28,6 @@ class RecipeForm(FlaskForm):
     cooking_time = IntegerField('Cooking Time', validators=[DataRequired()])
     serving_size = IntegerField('Serving Size', validators=[DataRequired()])
     calories = IntegerField('Calories', validators=[DataRequired()])
-    recipe_image = StringField('Copy Image Address Link', validators=[DataRequired()])
-    source = StringField('Source URL Link', validators=[Optional()]) 
+    recipe_image = StringField(
+        'Copy Image Address Link', validators=[DataRequired()])
+    source = StringField('Source URL Link', validators=[Optional()])

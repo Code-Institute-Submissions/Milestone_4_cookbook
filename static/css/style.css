@@ -261,6 +261,7 @@ a:hover {
   width: 100%;
   padding-top: 5px;
   font-size: 30px;
+  height:100%;
 }
 
 .alert {
@@ -270,7 +271,9 @@ a:hover {
 }
 
 .alert-bg {
-  background-color: #2e62af
+  margin-top:15px;
+  background-color: #2e62af;
+ 
 }
 
 .card-alert .card-content-alert {}
@@ -725,7 +728,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 ::placeholder {
-  color: #fff;
+  color: rgb(128, 128, 128);
 }
 
 /*Add recipes styles*/
