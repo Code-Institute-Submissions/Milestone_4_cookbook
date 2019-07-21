@@ -762,6 +762,9 @@ textarea.materialize-textarea {
   color: #fff;
 }
 
+.filtered-recipe {
+  font-size: 1.5em;
+}
 
 .my-recipes {
   border-radius: 2px;

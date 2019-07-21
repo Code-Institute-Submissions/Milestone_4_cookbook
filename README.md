@@ -29,7 +29,7 @@ The web application should fulfil the CRUD operations.
 
 ### Update
 
-<p> The user should be able to edittheir own recipes. A 404 page should appear if they click 'Edit' to edit author's recipes and the user is able to return to the homepage </p>
+<p> The user should be able to edit their own recipes. If a user tries to edit or delete a recipe which is not their own then a message is flashed in teh alert box 'Asking the user to login'. Users can only update their own recipes </p>
 
 
 ### Delete 
@@ -209,16 +209,20 @@ Two main search options exist:
 ## Technologies Used
 
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"> HTML5 </a></li> HTML 5 was used to create the structure of webpage with the necessary elements.</li>
-<li><a href="https://www.w3.org/Style/CSS/Overview.en.html"> CSS3 </a></li> CSS3 was used to write custom css style the webpage with the necessary attributes.</li>
-<li><a href="https://materializecss.com/"> Materilaize 1.0.0 </a> </li>  The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.</li>
-<li><a href="https://jquery.com/"> Jquery </a></li> Jquery was used to create the collapsible navbar in toggle mode for mobile devices</li>
-<li><a href="https://www.javascript.com/"> Javascript </a></li> Javascript was used to create a scroll button to redirect the user back to the top of the website.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"> HTML5 </a> HTML 5 was used to create the structure of webpage with the necessary elements.</li>
+<li><a href="https://www.w3.org/Style/CSS/Overview.en.html"> CSS3 </a> CSS3 was used to write custom css style the webpage with the necessary attributes.</li>
+<li><a href="https://materializecss.com/"> Materilaize 1.0.0 </a> The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.</li>
+<li><a href="https://jquery.com/"> Jquery </a> Jquery was used to create the collapsible navbar in toggle mode for mobile devices</li>
+<li><a href="https://www.javascript.com/"> Javascript </a>Javascript was used to create a scroll button to redirect the user back to the top of the website.</li>
 
-<li> <a href ="https://www.python.org/">Python</a></li> Python is used for the back-code to fullfil the 'GET' and 'POST' requests and import.</li>
-<li> <a href = "https://git-scm.com/">Git</a></li> Git was used to push the files to the local repository.</li> 
-<li><a href="https://www.heroku.com/">Heroku</a><li>Heroku is use to deploy sites using Python.</li>
-<li><a href ="https://www.mongodb.com/">MongoDB</a></li>MongoDB is a nonSQL based database whereby recipes are inserted using the import.py script into the respective collection once a database is set up.</li>
+<li><a href ="https://validator.w3.org/">WC3 Markup Validation service</a> WC3 was used to validate html code</li>
+<li><a href ="https://jigsaw.w3.org/css-validator/">WC3 CSS Validation service</a> WC3 CSS was use to validate css code</li>
+<li><a href ="https://www.python.org/dev/peps/pep-0008/">PEP8</a> PEP8 was installed and used to validate Python code</li>
+
+<li> <a href ="https://www.python.org/">Python</a>Python is used for the back-code to fullfil the 'GET' and 'POST' requests and import.</li>
+<li> <a href = "https://git-scm.com/">Git</a>Git was used to push the files to the local repository.</li> 
+<li><a href="https://www.heroku.com/">Heroku</a>Heroku is use to deploy sites using Python.</li>
+<li><a href ="https://www.mongodb.com/">MongoDB</a>MongoDB is a nonSQL based database whereby recipes are inserted using the import.py script into the respective collection once a database is set up.</li>
 </ul>
 
 ## Framework 
@@ -228,8 +232,19 @@ Two main search options exist:
 
 ## Testing and Validating
 
+### Validating Code
 
-The HTML and CSS3 codes were validated on WSC validator and no syntax errors were found. The Jquery was validated using JS Hint and no errors were found.  The Python code was validated on PEP8 and no errors were found.The website was tested at various screen sizes which include mobile and tablet devices.   
+The HTML and CSS3 codes were validated on WSC validator and no syntax errors were found. The Jquery was validated using JS Hint and no errors were found. 
+
+The Python code was validated on PEP8 and no errors were found.
+PEP 8 was installed usingg the bash command:
+```$ pip install pep8```
+Bash Command:
+```$ pep8 --first main.py``` was used to indicate errors in the python code and erros were subsequently rectified.
+
+### Responsive Design Testing
+
+The website was tested at various screen sizes which include mobile and tablet devices.   
 The website has been found to be fully functional and has been tested on the following browsers:
 
 <ul>
@@ -376,11 +391,17 @@ The recipes and recipe images were imported from the [ Edamam API](https://devel
 [Daal Saag](https://www.bbc.co.uk/food/recipes/daalsaag_74848)<br>
 [Steamed Salmon](https://www.jamieoliver.com/recipes/fish-recipes/super-speedy-steamed-salmon/)<br>
 
+#### WS Schools Code
+
+The code for the back-to-the top button was adapted from WS Schools site
+
+[WS Schools Back to the top button](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
+
 <hr>
 
 ### Acknowledgements
 
-<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors for their helpful input to my queries too.</p>
+<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors for their helpful input into my queries too.</p>
 
 
 
