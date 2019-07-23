@@ -39,7 +39,7 @@ conn = mongo_connect(MONGODB_URI)
 
 coll = conn[DBS_NAME][COLLECTION_NAME]
 url = "https://api.edamam.com/search?q={}&app_id={}&app_key={}&from=1&to=2"
-search = "steamed salmon" 
+search = "steamed salmon"
 api_id = "f69a50fd"
 api_key = "ef3a76518f0364a6f1958b13efcf06af"
 
@@ -66,4 +66,4 @@ pprint(recipe)
 i = input("Y/N: ")
 if i == "Y":
     coll = mongo.db.recipe
-    coll.insert_one(recipe)
+    coll.insert_one(recipe)               

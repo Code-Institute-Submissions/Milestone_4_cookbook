@@ -29,7 +29,7 @@ The web application should fulfil the CRUD operations.
 
 ### Update
 
-<p> The user should be able to edit their own recipes. If a user tries to edit or delete a recipe which is not their own then a message is flashed in teh alert box 'Asking the user to login'. Users can only update their own recipes </p>
+<p> The user should be able to edit their own recipes. If a user tries to edit or delete a recipe which is not their own then a message is flashed in the alert box 'Asking the user to login'. Users can only update their own recipes </p>
 
 
 ### Delete 
@@ -38,6 +38,12 @@ The web application should fulfil the CRUD operations.
 
 The user interface is simple and easy to understand with an image of the finished dish.
 
+### Login and Register
+
+<p> The user chooses a username which is unique otherwise an alert will flask up 'Sorry, username already taken. Please try another`. The user then chooses a password </p>
+<p> The user must use the choosen username and password to login </p>
+
+ password hashing was implemented for security [werkzeug.security](https://werkzeug.palletsprojects.com/en/0.15.x/utils/#module-werkzeug.security) 
 
 <hr>
 
@@ -47,6 +53,7 @@ The user interface is simple and easy to understand with an image of the finishe
 <ul>
 <li> View the site from any device - should be responsive design in desktop, laptop, mobile and tablet views. </li>
 <li> As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and receipe method 'Get Cooking' button, search for a recipe, filter according to health and diet labels.</li>
+<li> The user should quiclly be able view the; cooking time, serving size and calories contained a recipe before clicking on to fully view the ingredients and get teh instructions to cook.</li>
 <li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
 <li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
 <li>  A user should be able to register and login to the site. </li>
@@ -64,7 +71,7 @@ desktop and mobile versions.</p>
 
 <p> In this project before development I wanted to see how my database Schema would work. I devised a table as shown below. My developed site matches the database schema.</p>
 
-[Database Schema](static/wireframe/database_schema.pdf)
+[Database Schema](static/database_schema/database_schema.pdf)
 
 ## Features
 
@@ -177,7 +184,7 @@ Config Vars added:
 
 #### Collection - user
 
-When users register , there usernames are stored into the the collection user in the database.
+When users register , there usernames are stored into the the collection user in the database. Once a recipe is created or deleted by the user , this will also delete and update in the database.
 
 <hr>
 
@@ -292,7 +299,7 @@ The user is able to filter recipes through the diet and health filters and searc
 
 ##### Read
 
-<p> The user is able to view recipes fully. </p>
+<p> The user is able to click on the cards of each recipe and quickly view ; cooking time, serving size and calorie of each dish. The user is able to view recipes fully. </p>
 
 ##### Update
 <p> The logged in user is able to edit their own  added recipes. </p>
@@ -313,6 +320,54 @@ The IDE used to write the code for the website  was AWS Cloud 9 student account 
 
 The code was pushed to a local repository created in Git Hub using git commands [Milestone_4_cookbook](https://github.com/pranitastudent/Milestone_4_cookbook)
 
+##### Running the project from GitHub
+
+<ol>
+<li> Manually downlaod the project from Github and upload to the IDE fo choice. </li>
+<li> Create a requirements txt file using the command:</li>
+
+   ``` sudo pip3 freeze -- local > requirements.txt ``` 
+   
+ <li> Set up environment variables to run the app.</li>
+
+     app.config["MONGO_DBNAME"] = "myCookBook" 
+     
+     app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true' 
+     
+     app.config['SECRET_KEY'] = SECRET_KEY 
+
+<li> Enter the commmand : 
+
+``` python3 main.py ``` to run the app.  </li>
+
+</ol>
+
+##### Running the Project from CLI
+
+
+<ol>
+<li> Clone the repository: 
+
+   ``` https://github.com/pranitastudent/Milestone_4_cookbook.git ``` </li>
+<li> Create a requirements txt file using the command:</li>
+
+   ``` sudo pip3 freeze -- local > requirements.txt ``` 
+   
+ <li> Set up environment variables to run the app.</li>
+
+     app.config["MONGO_DBNAME"] = "myCookBook" 
+     
+     app.config["MONGO_URI"] = 'mongodb+srv://root:RootUser@myfirstdatabase-klrg6.mongodb.net/myCookBook?retryWrites=true' 
+     
+     app.config['SECRET_KEY'] = SECRET_KEY 
+
+<li> Enter the commmand : 
+
+``` python3 main.py ``` to run the app.  </li>
+
+</ol>
+
+
 #### Deploying to Heroku
 
 <strong> The code was deployed to Heroku as Heroku supports Python plateforms while Github only hosts static sites. </strong>
@@ -322,7 +377,7 @@ Name of app: pranita-cookbook
 
 The bash command used is:
 
-``` heroku login ````
+``` heroku login ```
 <ol>
 <li> A requirements.txt file is created as Heroku deployment requries the dependencies. </li>
 
@@ -361,6 +416,8 @@ pranita-cookbook > settings > Reveal  Config Vars:
 The app is finally deployed at [pranita-cookbook](https://pranita-cookbook.herokuapp.com/)
 
 </ol>
+
+
 
 
 <hr>

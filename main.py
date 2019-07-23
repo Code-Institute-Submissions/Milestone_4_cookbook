@@ -76,8 +76,8 @@ def profile_page(user_id):
     recipes = mongo.db.recipe.find({'username': current_user['name']}).sort('_id', pymongo.ASCENDING)
     count = mongo.db.recipe.find({'username': current_user['name']}).count()
     return render_template('profile.html', current_user=current_user, recipes=recipes, count=count, title="Profile Page")
-    
-    
+
+
 #  Search for Recipe Route
 
 @app.route('/search')
@@ -180,7 +180,7 @@ def create_recipe():
     form = RecipeForm(request.form)  # Initialise the form
     user = mongo.db.user.find_one({"name": session['username'].title()})
     
-    if form.validate_on_submit():  #Insert new recipe if form is submitted
+    if form.validate_on_submit():  # Insert new recipe if form is submitted
        recipes = mongo.db.recipe
        recipes.insert_one({
         'recipe': request.form['recipe_name'],
@@ -202,10 +202,11 @@ def create_recipe():
     
 # Edit Recipe Route
 
+
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     """Function to edit seclect recipe"""
-    if 'logged_in' not in session:  #Check if its a logged in user
+    if 'logged_in' not in session:  # Check if its a logged in user
         flash('Sorry, only logged in users can create recipes. Please register')
         return redirect(url_for('index'))
     
@@ -213,7 +214,7 @@ def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipe.find_one_or_404({'_id': ObjectId(recipe_id)})
     form = RecipeForm()
     
-    if user['name'].title() == the_recipe['username'].title(): #If user created then user can edit
+    if user['name'].title() == the_recipe['username'].title():  # If user created then user can edit
         if request.method == 'GET':
             form = RecipeForm(data=the_recipe)
             return render_template('edit_recipe.html', recipe=the_recipe, form=form, title="Edit Recipe")
@@ -237,10 +238,11 @@ def edit_recipe(recipe_id):
                                                           }})
             flash('Recipe updated.')
             return redirect(url_for('recipe', recipe_id=recipe_id))
-    flash("Sorry this is not your recipe to edit!") #In case a user tried to enter URL manually
+    flash("Sorry this is not your recipe to edit!")  # In case a user tried to enter URL manually
     return redirect(url_for('recipe', recipe_id=recipe_id))
     
 # Delete  Recipe Route
+
 
 @app.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -249,7 +251,7 @@ def delete_recipe(recipe_id):
         user = mongo.db.user.find_one({"name": session['username'].title()})
         the_recipe = mongo.db.recipe.find_one_or_404({'_id': ObjectId(recipe_id)})
 
-        if user['name'].title() == the_recipe['username'].title(): #If user created then user can delete
+        if user['name'].title() == the_recipe['username'].title():  # If user created then user can delete
             recipe = mongo.db.recipe
             recipe.delete_one({
                 '_id': ObjectId(recipe_id)
@@ -257,7 +259,7 @@ def delete_recipe(recipe_id):
             flash('Recipe deleted')
             return redirect(url_for('index'))
             
-        flash("Sorry this is not your recipe to edit!")  #In case a user tried to enter URL manually
+        flash("Sorry this is not your recipe to edit!")   # In case a user tried to enter URL manually
         return redirect(url_for('recipe', recipe_id=recipe_id))
     else:
         flash('Sorry, only logged in user can view this page')
@@ -272,7 +274,7 @@ def i_made_it(recipe_id):
     mongo.db.recipe.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
         {'$inc': {'i-made-it': 1}})
-    return redirect(url_for('recipe', recipe_id=recipe_id))    
+    return redirect(url_for('recipe', recipe_id=recipe_id)) 
     
     
 # Registration Route
