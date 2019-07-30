@@ -1,10 +1,10 @@
-[Deployed Site](https://pranita-cookbook.herokuapp.com/)
+[Demo Here](https://pranita-cookbook.herokuapp.com/)
 
 # Cookbook - Milestone Project 4 
 
-<p>The data centric development module requires a project to be built using: MongoDB, HTML, CSS, JavaScript , Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to browse through recipes, allow addition of recipes, allow removal of recipes, allow allergens and ingredients to be displayed. 
+<p>The data centric development module requires a project to be built using: MongoDB, HTML, CSS, JavaScript, Python and PyMongo. The project brief indicates to build a web application for a cookbook. The cookbook should allow the user to; browse through recipes, allow addition of recipes, allow removal of recipes, allow allergens and ingredients to be displayed. 
 
-The user is able to add and delete recipes from the web application and filter according to allergen information and health information. Finally a basic user and password registration will be added to the site for the user to access and login into the cookbook web application in order to edit and delete recipes they have added </p>
+The user can add and delete recipes from the web application and filter according to allergen information and health information. Finally, a basic user and password registration will be added to the site for the user to access and login into the cookbook web application in order to edit and delete recipes they have added </p>
 The user login and password application is not secure as the project brief does not cover this scope and authentication will be covered in the next module.
 
 <strong>Please note this website is only for educational purposes to fulfil the criteria for Milestone 4 Data Centric Development Project </strong>
@@ -12,7 +12,7 @@ The user login and password application is not secure as the project brief does 
 
 ## UX Design - User Experience
 
-The recipe cookbook enables the user to; firstly view the; cooking time, serving and calories per recipe, then view the recipe instructions, search recipe using the search bar, filter diet and health labels for example; gluten-free and find recipes pertaining to filter.
+The recipe cookbook enables the user to; firstly ,view the; cooking time, serving and calories per recipe through flipping the card for each recipe. If the user wishes to proceed then can then; view the recipe instructions, search recipe using the search bar, filter diet and health labels for example; gluten-free and find recipes pertaining to filters. The diet labels pertain to dietary choices such as ; gluten-free, high-protein and balanced recipes. The health labels pertain to; vegan, vegetarian, sugar-conscious choices etc.
 The registered users are able to login, add, edit and delete their own recipes without deleting those that have been added by the website author.
 The website contains a navigation bar whereby the user can click on the 'cookbook logo' and return to the homepage. The navigation bar also contains; login, register, add (only once logged in) buttons.
 
@@ -20,30 +20,33 @@ The web application should fulfil the CRUD operations.
 
 ### Create
 
-<p>The user should be able to create recipes through filling in the add recipe form.</p>
+<p>The user should be able to create recipes through filling in the add recipe form which are then added to the back end of the database.</p>
 
 ### Read
 
-<p> The non-logged in and non-registered user should be able to read the recipes as well as registered and logged in users who can view their own profile of added recipes. </p>
+<p> The non-logged in and non-registered user should be able to read the recipes as well as registered users. </p>
 
 
 ### Update
 
-<p> The user should be able to edit their own recipes. If a user tries to edit or delete a recipe which is not their own then a message is flashed in the alert box 'Asking the user to login'. Users can only update their own recipes </p>
+<p> The user should be able to edit their own recipes. If a user tries to edit or delete a recipe which is not their own, then a message is flashed in the alert box 'Asking the user to login'. Users can only update their own recipes. </p>
 
 
 ### Delete 
 
 <p> The user should be able to delete their own recipes. </p>
 
+
+### The User Interface
+
 The user interface is simple and easy to understand with an image of the finished dish.
 
 ### Login and Register
 
-<p> The user chooses a username which is unique otherwise an alert will flask up 'Sorry, username already taken. Please try another`. The user then chooses a password </p>
-<p> The user must use the choosen username and password to login </p>
+<p> The user chooses a username which is unique to register otherwise an alert will flask up 'Sorry, username already taken. Please try another`. The user then chooses a password </p>
+<p> The user must use the chosen username and password to login </p>
 
- password hashing was implemented for security [werkzeug.security](https://werkzeug.palletsprojects.com/en/0.15.x/utils/#module-werkzeug.security) 
+ Password hashing was implemented for security [werkzeug.security](https://werkzeug.palletsprojects.com/en/0.15.x/utils/#module-werkzeug.security) 
 
 <hr>
 
@@ -53,9 +56,9 @@ The user interface is simple and easy to understand with an image of the finishe
 <ul>
 <li> View the site from any device - should be responsive design in desktop, laptop, mobile and tablet views. </li>
 <li> As a guest user (without a registered username or password) , all recipes should be allowed to be viewed in full which includes the ingredients and receipe method 'Get Cooking' button, search for a recipe, filter according to health and diet labels.</li>
-<li> The user should quiclly be able view the; cooking time, serving size and calories contained a recipe before clicking on to fully view the ingredients and get teh instructions to cook.</li>
-<li>  As a user recipes should filter for : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
-<li> As a user recipes  should filter for the health category : low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
+<li> The user should quickly be able view the; cooking time, serving size and calories contained a recipe before clicking on to fully view the ingredients and get the instructions to cook.</li>
+<li>  As a user recipes should filter for diet options : gluten free , sugar conscious, peanut free, alcohol free, vegan and vegetarian recipes which are all accessible through a drop down category selector. </li>
+<li> As a user recipes  should filter for health options: low fat, low carbohydrate , high protein and low in sugar recipes which are all accessible through a drop down category selector.</li>
 <li>  A user should be able to register and login to the site. </li>
 <li> A user should be able to add and delete their own recipes once they are a registered user and have logged in.</li>
 </ul>
@@ -81,7 +84,7 @@ desktop and mobile versions.</p>
 
 #### Config Vars
 
-<p> AWS is conneceted to the database as below</p>
+<p> AWS is connected to the database as below</p>
 
 ```
 app = Flask(__name__)
@@ -133,7 +136,7 @@ recipe = {
 
 #### Imported into Collection
 
-<p> Through the pprint function, the data is inputed into the collection fields <p>
+<p> Through the pprint function, the data is inputted into the collection fields <p>
 
 ```
 pprint(recipe)
@@ -147,7 +150,7 @@ if i == "Y":
 ## Mongo DB
 
 Mongo DB has been the choice of database use (document-orientated database) where data is stored in key and field format (JSON).
-A database and collecetion created as below:
+A database and collection created as below:
 
 ```database :myCookBook```
 ```collection:recipe```
@@ -163,7 +166,7 @@ Config Vars added:
 
 #### Collection - recipe
 
-<p> The website contains a total of 12 recipes. The recipes have been inserted into the backend of the  MongoDB database using an import.py script which contains the fields below. A database has been created in MongoDB and then a collection name 'recipe The MONGODB collection contains the following fields:
+<p> The website contains a total of 12 recipes. The recipes have been inserted into the backend of the  MongoDB database using an import.py script which contains the fields below. A database has been created in MongoDB and then a collection name 'recipe'. The MongoDB collection contains the following fields:
 <ul>
 <li> recipe image - URL for recipe image inserted </li>
 <li> ingredients - data type is 'string'</li>
@@ -184,12 +187,12 @@ Config Vars added:
 
 #### Collection - user
 
-When users register , there usernames are stored into the the collection user in the database. Once a recipe is created or deleted by the user , this will also delete and update in the database.
+When users register, there usernames are stored into the collection user in the database. Once a recipe is created or deleted by the user, this will also delete and update in the database.
 
 <hr>
 
 ### Search and Filter
-There is at least one recipe pertaining to one health label option or diet label option. The user can select the 'up arrow' on each recipe to quickly view the: time taken to prepare, serving size and amount of calories in that particular dish. The user can then decide to whether view the recipe which contains: a description of the dish, cooking time, serving size and calories indicated, instructions on how to prepare the dish and an image of the finished dish.
+There is at least one recipe pertaining to one health label option or diet label option. The user can select the 'up arrow' on each recipe to quickly view the: time taken to prepare, serving size and number of calories in that particular recipe. The user can then decide to whether to view the recipe which contains: a description of the dish, cooking time, serving size and calories indicated, instructions on how to prepare the dish and an image of the finished dish.
 The navigation bar contains the title of the cookbook 'Pranita's cookbook' and enables the user to click on the 'cookbook logo' to return to the homepage.
 
 Two main search options exist:
@@ -207,8 +210,7 @@ Two main search options exist:
 
 ## Features left to implement
 <ol>
-<li> A reset password facility whereby users can reset there passwords if they have forgotten them </li>
-<li> Users to be  select multiple options from both the diet and health tabs and be able to search recipes based on these </li>
+<li> A reset password facility whereby users can reset their passwords if they have forgotten them </li>
 </ol>
 
 <hr>
@@ -219,34 +221,34 @@ Two main search options exist:
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"> HTML5 </a> HTML 5 was used to create the structure of webpage with the necessary elements.</li>
 <li><a href="https://www.w3.org/Style/CSS/Overview.en.html"> CSS3 </a> CSS3 was used to write custom css style the webpage with the necessary attributes.</li>
 <li><a href="https://materializecss.com/"> Materilaize 1.0.0 </a> The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.</li>
-<li><a href="https://jquery.com/"> Jquery </a> Jquery was used to create the collapsible navbar in toggle mode for mobile devices</li>
+<li><a href="https://jquery.com/"> Jquery </a> Jquery was used to create the collapsible navbar in toggle mode for mobile devices.</li>
 <li><a href="https://www.javascript.com/"> Javascript </a>Javascript was used to create a scroll button to redirect the user back to the top of the website.</li>
 
-<li><a href ="https://validator.w3.org/">WC3 Markup Validation service</a> WC3 was used to validate html code</li>
-<li><a href ="https://jigsaw.w3.org/css-validator/">WC3 CSS Validation service</a> WC3 CSS was use to validate css code</li>
-<li><a href ="https://www.python.org/dev/peps/pep-0008/">PEP8</a> PEP8 was installed and used to validate Python code</li>
+<li><a href ="https://validator.w3.org/">WC3 Markup Validation service</a> WC3 was used to validate html code.</li>
+<li><a href ="https://jigsaw.w3.org/css-validator/">WC3 CSS Validation service</a> WC3 CSS was use to validate css code.</li>
+<li><a href ="https://www.python.org/dev/peps/pep-0008/">PEP8</a> PEP8 was installed and used to validate Python code.</li>
 
-<li> <a href ="https://www.python.org/">Python</a>Python is used for the back-code to fullfil the 'GET' and 'POST' requests and import.</li>
+<li> <a href ="https://www.python.org/">Python</a>Python is used for the back-code to fulfil the 'GET' and 'POST' requests and import.</li>
 <li> <a href = "https://git-scm.com/">Git</a>Git was used to push the files to the local repository.</li> 
 <li><a href="https://www.heroku.com/">Heroku</a>Heroku is use to deploy sites using Python.</li>
 <li><a href ="https://www.mongodb.com/">MongoDB</a>MongoDB is a nonSQL based database whereby recipes are inserted using the import.py script into the respective collection once a database is set up.</li>
 </ul>
 
 ## Framework 
-<ul>
-<li><a href="https://materializecss.com/"> </a></li> The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.
-</ul>
+
+<a href="https://materializecss.com/">Materilize</a> - The Materilize framework is used to style the webpage alongside custom css and the grid system is adhered to.
+
 
 ## Testing and Validating
 
 ### Validating Code
 
-The HTML and CSS3 codes were validated on WSC validator and no syntax errors were found. The Jquery was validated using JS Hint and no errors were found. 
+The HTML and CSS3 codes were validated on WSC validator and no syntax errors were found. The Javascript/Jquery codes were validated using JS Hint and no errors were found. 
 
 The Python code was validated on PEP8 and no errors were found.
-PEP 8 was installed usingg the bash command:
+PEP 8 was installed using the bash command:
 ```$ pip install pep8```
-Bash Command:
+Bash Command line:
 ```$ pep8 --first main.py``` was used to indicate errors in the python code and erros were subsequently rectified.
 
 ### Responsive Design Testing
@@ -281,16 +283,16 @@ The website was tested on the following devices and the website was found to dis
 
 ### Responsive Design Testing
 
-<p> On mobile view the responsive design fits the user stories as the diet and health labels filter search satck on top of each other , alongside the recipes below. The toggle button is functional with users able to select login or register. The website is functional and visiable in mobile view.</p>
-<p> On large screen view, tablet and laptop view the website is functional and fully visiable without compromising pixelation in images.</p>
+<p> On mobile view the responsive design fits the user stories as the diet and health labels filter search stack on top of each other , alongside the recipes below. The toggle button is functional with users able to select login or register. The website is functional and visible in mobile view.</p>
+<p> On large screen view, tablet and laptop view the website is functional and fully visible without compromising pixilation in images.</p>
     
 
 
 ## Testing User Stories
 
 <p> A potential user/user is able to view the recipes fully with instructions without registering and logging in. A registered and logged in user has the
-additional benifit of : adding, deleting and editing their recipes. The recipes which have been imported by author of the website are protected from being deleted.
-The user is able to filter recipes through the diet and health filters and search for a receipe through the search box.</p>
+additional benefit of : adding, deleting and editing their recipes. The recipes which have been imported by author of the website are protected from being deleted.
+The user is able to filter recipes through the diet and health filters and search for a recipe through the search box.</p>
 
 #### CRUD operations testing
 
@@ -299,7 +301,7 @@ The user is able to filter recipes through the diet and health filters and searc
 
 ##### Read
 
-<p> The user is able to click on the cards of each recipe and quickly view ; cooking time, serving size and calorie of each dish. The user is able to view recipes fully. </p>
+<p> The user is able to click on the cards of each recipe and quickly view ; cooking time, serving size and calories of each recipe. The user is able to view recipes fully. </p>
 
 ##### Update
 <p> The logged in user is able to edit their own  added recipes. </p>
@@ -323,7 +325,7 @@ The code was pushed to a local repository created in Git Hub using git commands 
 ##### Running the project from GitHub
 
 <ol>
-<li> Manually downlaod the project from Github and upload to the IDE fo choice. </li>
+<li> Manually download the project from Github and upload to the IDE fo choice. </li>
 <li> Create a requirements txt file using the command:</li>
 
    ``` sudo pip3 freeze -- local > requirements.txt ``` 
@@ -336,7 +338,7 @@ The code was pushed to a local repository created in Git Hub using git commands 
      
      app.config['SECRET_KEY'] = SECRET_KEY 
 
-<li> Enter the commmand : 
+<li> Enter the command in the bash terminal : 
 
 ``` python3 main.py ``` to run the app.  </li>
 
@@ -361,16 +363,16 @@ The code was pushed to a local repository created in Git Hub using git commands 
      
      app.config['SECRET_KEY'] = SECRET_KEY 
 
-<li> Enter the commmand : 
+<li> Enter the command in teh bash terminal : 
 
 ``` python3 main.py ``` to run the app.  </li>
 
 </ol>
 
 
-#### Deploying to Heroku
+### Deploying to Heroku
 
-<strong> The code was deployed to Heroku as Heroku supports Python plateforms while Github only hosts static sites. </strong>
+<strong> The code was deployed to Heroku as Heroku supports Python platforms while Github only hosts static sites. </strong>
 
 Name of app: pranita-cookbook
 [URI](https://pranita-cookbook.herokuapp.com/)
@@ -379,13 +381,13 @@ The bash command used is:
 
 ``` heroku login ```
 <ol>
-<li> A requirements.txt file is created as Heroku deployment requries the dependencies. </li>
+<li> A requirements.txt file is created as Heroku deployment requiries the dependencies. </li>
 
 The bash command used is :
 
 ``` sudo pip3 freeze -- local > requirements.txt ```
 
-<li> A Procfile is requireed to be created so that Heroku recognises the Python3 language. </li>
+<li> A Procfile is required to be created so that Heroku recognises the Python3 language. </li>
 
 The bash command used is :
 
@@ -454,11 +456,17 @@ The code for the back-to-the top button was adapted from WS Schools site
 
 [WS Schools Back to the top button](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
 
+#### Stack Overflow code
+
+The code for the secret key in main.py lines 19 and 20 was taken from the stack overflow site question page
+
+[Stack Overflow Code](https://stackoverflow.com/questions/34902378/where-do-i-get-a-secret-key-for-flask/34903502)
+
 <hr>
 
 ### Acknowledgements
 
-<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors for their helpful input into my queries too.</p>
+<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors and my mentor Ali Ashik for their helpful input into my queries too.</p>
 
 
 

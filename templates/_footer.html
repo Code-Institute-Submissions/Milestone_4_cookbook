@@ -1,17 +1,12 @@
 <!--Footer-->
 
 <footer class="site-footer">
-        <div class="footer">
+    <div class="footer">
         <div class="container-fluid">
-            <h2 class="ft-me"><strong>By Pranita Gandhi</strong> </h2>
-            {% if 'username' in session %}
-            <h2 class="ft-user">User: {{ session['username'].title() }}</h2>
-            {% else%}
-            {% endif %}
+            <h2 class="ft-me"><strong>Created By Pranita Gandhi</strong> </h2> {% if 'username' in session %}
+            <h2 class="ft-user">User: {{ session['username'].title() }}</h2> {% else%} {% endif %}
         </div>
-        </div>
- </footer>
- 
- <!--End of Footer-->
- 
-    
+    </div>
+</footer>
+
+<!--End of Footer-->

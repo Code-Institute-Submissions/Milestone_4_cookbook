@@ -19,7 +19,6 @@
     </div>
 </div>
 
-
 {% endfor %} {% endif %} {% endwith %}
 
 <!--End of Alert Box-->
@@ -50,11 +49,11 @@
                 <div class="collapsible-body">
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
-                              <option ="free-option" disabled selected>Choose your options</option>
-                              <option ="Gluten-Free">Gluten-Free</option>
-                              <option ="High-Protein">High-Protein</option>
-                              <option ="Balanced">Balanced</option>
-                            </select>
+                            <option="" disabled selected>Choose your options</option>
+                                <option="Gluten-Free">Gluten-Free</option>
+                                    <option="High-Protein">High-Protein</option>
+                                        <option="Balanced">Balanced</option>
+                        </select>
                         <button class="btn waves-effect  filter-btn" type="submit">Submit</button>
                     </form>
                 </div>
@@ -71,13 +70,13 @@
                 <div class="collapsible-body">
                     <form method="POST" action="{{ url_for('filtered') }}">
                         <select multiple name="diet_labels">
-                              <option ="free-option" disabled selected>Choose your options</option>
-                              <option ="Tree-Nut-Free">Tree-Nut-Free</option>
-                              <option ="Alcohol-Free">Alcohol-Free</option>
-                              <option ="Sugar-Concious">Sugar-Concious</option>
-                              <option ="Vegan">Vegan</option>
-                              <option ="Vegetarian">Vegetarian</option>
-                          </select>
+                            <option="" disabled selected>Choose your options</option>
+                                <option="Tree-Nut-Free">Tree-Nut-Free</option>
+                                    <option="Alcohol-Free">Alcohol-Free</option>
+                                        <option="Sugar-Concious">Sugar-Concious</option>
+                                            <option="Vegan">Vegan</option>
+                                                <option="Vegetarian">Vegetarian</option>
+                        </select>
                         <button class="btn waves-effect  filter-btn" type="submit">Submit</button>
                     </form>
                 </div>

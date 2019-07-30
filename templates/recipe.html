@@ -87,7 +87,6 @@
 
             <!--Editing and deleting a recipe- only is user is logged in-->
 
-
             <!--end of col-md7 -->
         </div>
         <div class="col m5 img-container section">
@@ -96,10 +95,8 @@
             <div class="btn-centre"><a id="i-made-it" href="{{ url_for('i_made_it', recipe_id=recipe._id) }}" class="waves-effect btn btn-style"><i class="material-icons left i-made-it-icon">favorite</i>I made this</a></div>
         </div>
 
-
     </div>
     <!-- end of page section -->
 </main>
-
 
 {% endblock %} {% block footer %}{% include '_footer.html' %} {% endblock %}

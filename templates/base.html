@@ -15,27 +15,24 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- My own CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename="css/style.css") }}" type="text/css" />
-
+    <link rel="stylesheet" href="{{ url_for('static', filename=" css/style.css ") }}" type="text/css" />
 
 </head>
 
 <body>
-   <div class="wrapper">
-   {% block nav %} {% endblock %}
-   
-   {% block content %} {% endblock %}
-   <div class="push"></div>
-   </div>
-   {% block footer %} {% endblock %}
-   
+    <div class="wrapper">
+        {% block nav %} {% endblock %} {% block content %} {% endblock %}
+        <div class="push"></div>
+    </div>
+    {% block footer %} {% endblock %}
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- My own javascript -->
-    <script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename=" js/main.js ")}}"></script>
 
 </body>
+
 </html>

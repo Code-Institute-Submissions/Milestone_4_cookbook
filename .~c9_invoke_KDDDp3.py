@@ -68,7 +68,6 @@ def profile_page(user_id):
 
 #  Search for Recipe Route
 
-
 @app.route('/search')
 def search():
     # Route for full text search bar
@@ -89,7 +88,7 @@ def filtered():
             if i == "diet_labels":
                 filter_items = []
                 items = request.form.getlist('diet_labels')  # get as a list []
-                my_key = request.form 
+                my_key = request.form  # get as a multdict
                 for item in items:  # iterate through the list
                     for key in my_key:  # grab key_name
                         filter_items.append({key: item})
@@ -101,13 +100,14 @@ def filtered():
                                            title="Filtered Search",
                                            results=results,
                                            total_results=total_results)
-            elif i == "health_labels":
+    if request.method == "POST":
+        for i in request.form:
+            if i == "health_labels":
                 filter_items = []
-                items = request.form.getlist(
-                                        'health_labels')
-                my_key = request.form
-                for item in items:
-                    for key in my_key:
+                items = request.form.getlist('diet_labels')  # get as a list []
+                my_key = request.form  # get as a multdict
+                for item in items:  # iterate through the list
+                    for key in my_key:  # grab key_name
                         filter_items.append({key: item})
                         results = mongo.db.recipe.find({
                                             '$and': [{'$or': filter_items}]})
@@ -117,6 +117,9 @@ def filtered():
                                            title="Filtered Search",
                                            results=results,
                                            total_results=total_results)
+                
+                                                             
+
 
 # Create Recipes Route
 
