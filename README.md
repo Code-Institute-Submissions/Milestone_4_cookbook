@@ -466,7 +466,7 @@ The code for the secret key in main.py lines 19 and 20 was taken from the stack 
 
 ### Acknowledgements
 
-<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors and my mentor Ali Ashik for their helpful input into my queries too.</p>
+<p> I would like to thank The Code Institute for teaching me back-end coding as well as front-end coding notably; HTML, CSS, jQuery, Python and how to use MongoDB and PyMongo. I would like to thank the tutors and my mentor Ali Ashik for their helpful input into my queries.</p>
 
 
 
